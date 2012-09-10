@@ -1,0 +1,535 @@
+@import "pygments.css";
+
+/**
+ * Bootstrap tweaks
+ */
+
+/* The default responsive Bootstrap layout is too wide */
+.container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+    max-width: 940px;
+}
+
+body h1 {
+    margin-bottom: 0.25em;
+}
+
+/**
+ * Header
+ */
+body .gts-masthead {
+    margin-bottom: 0;
+}
+
+.gts-masthead .navbar-inner {
+    border-radius: 0;
+}
+
+/* Get the logo and top bar alignment right. */
+.gts-masthead .container {
+    padding-bottom: 8px;
+    padding-top: 20px;
+}
+
+.gts-logo {
+    float: left;
+    margin: -2px 20px 0 0;
+}
+
+.gts-clone-source {
+    margin-left: 30px;
+}
+
+/**
+ * Repo "boxes"
+ */
+
+.gts-repo-header {
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 20px 0 0;
+}
+
+tt {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.gts-private .gts-repo-header {
+    background: url(../images/f5f5f5-980x1.png) repeat-y 50% 0 #222;
+    border-bottom: none;
+}
+
+.gts-new-repo {
+    padding-bottom: 40px;
+}
+
+.gts-repo-header + .footer {
+    margin-top: -21px;
+}
+
+.gts-notification {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0 0;
+}
+
+.gts-repo-header .nav-tabs {
+    margin-bottom: -1px;
+}
+
+.nav-tabs .dropdown-menu {
+    margin-top: -1px;
+}
+
+.dropdown-label {
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    margin-top: -5px;
+    overflow: hidden;
+}
+
+.dropdown-label strong {
+    background: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    display: block;
+    padding: 3px 15px;
+}
+
+li + .dropdown-label {
+    border-radius: 0;
+    margin-top: 12px;
+}
+
+.dropdown-toggle em {
+    font-style: normal;
+    color: #48484c;
+}
+
+.open .dropdown-toggle em {
+    color: #000;
+}
+
+.gts-repo-header .row,
+.gts-description {
+    margin-bottom: 10px;
+}
+
+.gts-repo-header .gts-help {
+    clear: both;
+    margin-bottom: 0;
+}
+
+.gts-repo-header .gts-branch-selector +
+.gts-branch-selector {
+    padding-left: 0;
+}
+
+.gts-branch-selector .disabled {
+    color: #999;
+}
+
+.gts-branch-selector {
+    margin: 0 12px 12px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.gts-file .gts-branch-selector {
+    margin-top: 8px;
+}
+
+.gts-file {
+    margin-bottom: 12px;
+}
+
+.gts-file h1 {
+    margin: 12px 0;
+}
+
+.gts-download {
+    padding-right: 12px;
+}
+
+.gts-file .breadcrumb {
+    margin: 0 0 -2px;
+    position: relative;
+}
+
+.gts-inline {
+    display: inline-block;
+    line-height: 1;
+    padding-right: 12px;
+    vertical-align: middle;
+}
+
+.gts-readme {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.gts-readme h1,
+.gts-readme h2 {
+    margin-bottom: 0.25em;
+}
+
+.gts-readme p,
+.gts-readme ul,
+.gts-readme ol,
+.gts-readme pre {
+    margin-bottom: 1em;
+}
+
+.prettyprint ol.linenums {
+    margin-bottom: 0;
+}
+
+.table td ul {
+    margin-left: 15px;
+}
+
+.gts-blob-view {
+    margin-right: 12px;
+    margin-top: 8px;
+    min-height: 21px;
+    position: relative;
+    z-index: 1;
+}
+
+ul.gts-blob-view li {
+    display: inline-block;
+    padding: 0 6px;
+}
+
+.gts-tree-explorer {
+    margin-top: -8px;
+}
+
+.gts-tree-explorer .icon {
+    padding-right: 6px;
+}
+
+.gts-tree-explorer .gts-name {
+    white-space: nowrap;
+}
+
+.gts-tree-explorer .gts-sha {
+    padding-right: 0;
+}
+
+/**
+ * Private repositories
+ */
+.gts-private {
+    background: url(../images/white-980x1.png) repeat-y 50% 0 #222;
+}
+
+.gts-private .gts-repo-header .container {
+    background-image: url(../iconic/lock_stroke.svg);
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+}
+
+/**
+ * Repo URLs
+ */
+.gts-repo-url {
+    position: relative;
+    z-index: 1;
+}
+
+.gts-repo-url .url {
+    display: none;
+}
+
+input[type=url].gts-current-repo-url {
+    left: -2px;
+    padding-left: 6px;
+    position: relative;
+    z-index: 0;
+}
+
+.gts-repo-urls button.gts-repo-url-help {
+    float: right;
+    margin-left: -4px;
+}
+
+.gts-body {
+    margin-bottom: 35px;
+}
+
+/**
+ * Date headings
+ */
+.gts-date-heading {
+    background-color: #f7f7f9;
+    border-bottom: 1px solid #e1e1e8;
+    clear: both;
+    font-weight: bold;
+}
+
+.gts-date-heading-inner {
+    background-color: #f7f7f9;
+    border-bottom: 1px solid #fff;
+    color: #333;
+    display: block;
+    padding: 4px 8px;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.gts-avatar {
+    margin: 0 6px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.gts-comment-summary {
+    color: #48484c;
+    padding-left: 10px;
+}
+
+.gts-log-message {
+    font-size: 1.2em;
+}
+
+.gts-commit {
+    padding: 6px 6px 8px;
+}
+
+.gts-commit + .gts-commit {
+    border-top: 1px solid #e1e1e8;
+    padding-top: 12px;
+}
+
+.gts-commit .gts-avatar {
+    margin-left: 0;
+}
+
+/**
+ * Footer
+ */
+.footer {
+    border-top: 1px solid #e5e5e5;
+    margin-top: 45px;
+}
+
+.footer .container {
+    padding: 20px 0;
+}
+
+.gts-private .footer {
+    border-color: #222;
+}
+
+.gts-com-plug {
+    border-top: 1px solid #f5f5f5;
+    margin-top: 12px;
+    padding-top: 12px;
+}
+
+
+/* Branch graph */
+.capillary p {
+    white-space: normal;
+}
+
+.capillary li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.capillary .ref-name {
+    background: #ddd;
+    color: #4e4e4e;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 0 5px 0 0;
+    padding: 0 5px;
+}
+
+.capillary .ref-type-tag {
+    background: #eeb;
+}
+
+.capillary a.ref-name:hover {
+    text-decoration: underline;
+}
+
+.capillary li .msg {
+    color: #48484c;
+}
+
+.capillary li a:hover {
+    text-decoration: underline;
+}
+
+.capillary {
+    margin-left: -10px;
+}
+
+/* Code listing tables */
+.gts-code-listing {
+    border: 1px solid #e1e1e8;
+    position: relative;
+    top: -5px;
+    width: 100%;
+}
+
+.gts-code-listing tr:first-child td {
+    padding-top: 6px;
+}
+
+.gts-code-listing tr:last-child td {
+    padding-bottom: 6px;
+}
+
+.gts-code-listing td {
+    padding: 0;
+    vertical-align: top;
+}
+
+.gts-code-listing .gts-code {
+    background: #fefefe;
+}
+
+.gts-code-listing code {
+    background: transparent;
+    border: none;
+    color: #48484c;
+    display: block;
+    line-height: 18px;
+    min-height: 18px;
+    padding: 0 0 0 12px;
+    white-space: pre-wrap;
+}
+
+.gts-code-listing .linenum {
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    color: #bebec5;
+    padding: 0 12px;
+    text-align: right;
+    text-shadow: 0 1px 0 #fff;
+    /* Basically: "No more than needed"
+       Table cells auto-expand to fit content */
+    width: 10px;
+}
+
+.gts-code-listing .gts-sha {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.gts-code-listing .gts-annotated {
+    border-top: 1px solid #e1e1e8;
+}
+
+.gts-code-listing .gts-blame-annotation {
+    white-space: nowrap;
+    background: #f0f0f0;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.gts-code-listing .line {
+    white-space: nowrap;
+}
+
+/* Diff */
+.gts-code-listing .gts-diff-rm .gts-code {
+    background: #fdd;
+}
+
+.gts-code-listing del {
+    background: #f2acad;
+    text-decoration: none;
+}
+
+.gts-diff-summary .gts-diff-rm {
+    color: #9d261d;
+}
+
+.gts-code-listing .gts-diff-add .gts-code {
+    background: #dfd;
+}
+
+.gts-code-listing ins {
+    background: #bafbad;
+    text-decoration: none;
+}
+
+.gts-diff-summary .gts-diff-add {
+    color: #46a546;
+}
+
+.gts-diff-summary .gts-diff-rm,
+.gts-diff-summary .gts-diff-add {
+    font-weight: bold;
+}
+
+.gts-diffs h1 {
+    margin-bottom: 18px;
+}
+
+/* Commit */
+.gts-commit blockquote p {
+    margin-bottom: 12px;
+}
+
+.gts-commit-sha1 {
+    float: left;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.gts-commit-parent {
+    float: right;
+}
+
+.gts-commit h1 {
+    clear: both;
+}
+
+.gts-side-by-side .gts-code {
+    width: 50%;
+}
+
+.gts-commit-summary {
+    margin-bottom: 12px;
+}
+
+.gts-comment {
+    padding-top: 8px;
+    margin-bottom: 12px;
+}
+
+.gts-comment + .gts-comment {
+    border-top: 1px solid #e5e5e5;
+}
+
+.gts-bordered-row {
+    background: #f5f5f5;
+    border-bottom: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
+    padding: 8px;
+}
+
+.form-horizontal div.gts-markdown-preview {
+    margin: -12px 160px 24px;
+}
+
+.gts-help .table {
+    width: auto;
+}
+
+.gts-mr-status,
+.gts-mr-age {
+    white-space: nowrap;
+}
+
+.form-horizontal legend + p {
+    margin: -20px 0 27px;
+}
