@@ -541,3 +541,7 @@ input[type=url].gts-current-repo-url {
 .form-horizontal legend + p {
     margin: -20px 0 27px;
 }
+
+.gts-col-commit {
+    width: 50em;
+}
