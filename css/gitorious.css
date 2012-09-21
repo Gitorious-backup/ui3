@@ -171,7 +171,11 @@ li + .dropdown-label {
 }
 
 .gts-markup h1,
-.gts-markup h2 {
+.gts-markup h2,
+.gts-markup h3,
+.gts-markup h4,
+.gts-markup h5,
+.gts-markup h6 {
     margin-bottom: 0.25em;
 }
 
