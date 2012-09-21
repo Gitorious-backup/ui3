@@ -165,20 +165,20 @@ li + .dropdown-label {
     vertical-align: middle;
 }
 
-.gts-readme {
+.gts-markup {
     font-size: 1.1em;
     line-height: 1.5;
 }
 
-.gts-readme h1,
-.gts-readme h2 {
+.gts-markup h1,
+.gts-markup h2 {
     margin-bottom: 0.25em;
 }
 
-.gts-readme p,
-.gts-readme ul,
-.gts-readme ol,
-.gts-readme pre {
+.gts-markup p,
+.gts-markup ul,
+.gts-markup ol,
+.gts-markup pre {
     margin-bottom: 1em;
 }
 
