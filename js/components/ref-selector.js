@@ -64,7 +64,7 @@ this.gts.refSelector = (function () {
             "ul",
             { className: "dropdown-menu" },
             [refInput()].
-                concat(refItems("Branches", refs.branches || [], urlTemplate)).
+                concat(refItems("Branches", refs.heads || [], urlTemplate)).
                 concat(refItems("Tags", refs.tags || [], urlTemplate)));
     }
 
