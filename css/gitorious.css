@@ -545,3 +545,37 @@ input[type=url].gts-current-repo-url {
 .gts-col-commit {
     width: 50em;
 }
+
+.gts-ref-input,
+input[type=text].gts-ref-input {
+    border: none;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    box-shadow: 0;
+    display: inline;
+    height: 18px;
+    margin: 0;
+    padding: 1px 4px 3px;
+    position: relative;
+    top: 0;
+    width: 10em;
+}
+
+.gts-dropdown-input {
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    margin-top: -5px;
+    overflow: hidden;
+}
+
+.gts-dropdown-input strong {
+    background: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    display: block;
+    padding: 0 15px;
+}
+
+.gts-dropdown-input + .dropdown-label {
+    margin-top: -1px;
+}

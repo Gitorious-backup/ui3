@@ -85,3 +85,39 @@ _gaq.push(['_trackPageview']);
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
 })();
 */
+
+var gts = this.gts || {};
+
+// VERY TMP/TODO
+
+this.gts.loadRefs = function (repo, callback) {
+    repo = repo ? "/" + repo : "";
+
+    jQuery.ajax({
+        url: repo + "/refs",
+        success: function (refs) {
+            callback(null, refs);
+        }
+    });
+};
+
+gts.run = function (env) {
+    var placeHolder = document.getElementById("gts-ref-selector-ph");
+
+    if (placeHolder) {
+        gts.loadRefs(env.repository, function (err, refs) {
+            var selector = gts.refSelector(refs, env.ref, env.refUrlTemplate);
+            placeHolder.appendChild(selector);
+        });
+    }
+};
+
+(function () {
+    var ref = gts.url.currentRef(window.location.href);
+
+    gts.run({
+        repository: "",
+        ref: ref,
+        refUrlTemplate: gts.url.templatize(window.location.href, { ref: ref })
+    });
+}());
