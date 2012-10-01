@@ -1,37 +1,23 @@
+/*global cull*/
 this.gts = this.gts || {};
 
 this.gts.refSelector = (function () {
-    function render(template, ref) {
+    var e = cull.dom.el;
+
+    function tpl(template, ref) {
         return (template || "#{ref}").replace(/#\{ref\}/g, ref);
     }
 
-    function element(tagName, attrs, children) {
-        var el = document.createElement(tagName);
-
-        for (var prop in attrs) {
-            el[prop] = attrs[prop];
-        }
-
-        children = children || [];
-        for (var i = 0, l = children.length; i < l; ++i) {
-            el.appendChild(children[i]);
-        }
-
-        return el;
-    }
-
     function isType(type, refName, refs) {
-        var i, l, typeRefs = refs[type] || [];
-        for (i = 0, l = typeRefs.length; i < l; ++i) {
-            if (typeRefs[i] === refName) { return true; }
-        }
-        return false;
+        return cull.some(function (ref) {
+            return ref === refName;
+        }, refs[type] || []);
     }
 
     function currentRefLink(refs, current) {
         var type = isType("heads", current, refs) ? "branch" :
                 (isType("tags", current, refs) ? "tag" : "ref");
-        return element("a", {
+        return e.a({
             href: "#",
             className: "dropdown-toggle",
             innerHTML: "<span class=\"caret\"></span> <em>" +
@@ -39,48 +25,39 @@ this.gts.refSelector = (function () {
         });
     }
 
-    function refInput(urlTemplate) {
-        var li = element("li", {
+    function refInput(url) {
+        var input = e.input({ type: "text", className: "gts-ref-input" });
+        var form = e.form({
+            events: {
+                submit: function (e) {
+                    e.preventDefault();
+                    window.location = tpl(url, input.value);
+                }
+            }
+        }, [input]);
+
+        return e.li({
             className: "gts-dropdown-input",
-            innerHTML: "<strong>Enter ref: <form><input type=\"text\" " +
-                "name=\"ref\" class=\"gts-ref-input\"></form></strong>"
-        });
-        jQuery(li).find("form").on("submit", function (e) {
-            e.preventDefault();
-            window.location = render(urlTemplate, this.firstChild.value);
-        });
-        li.onclick = function (e) { e.stopPropagation(); };
-        return li;
+            events: { click: function (e) { e.stopPropagation(); } }
+        }, [e.strong(["Enter ref: ", form])]);
     }
 
     function refItems(label, refs, urlTemplate) {
-        var i, l, elements = [];
-        elements.push(element("li", {
-            className: "dropdown-label",
-            innerHTML: "<strong>" + label + "</strong>"
-        }));
-        for (i = 0, l = refs.length; i < l; ++i) {
-            elements.push(element("li", {}, [
-                element("a", {
-                    href: render(urlTemplate, refs[i]),
-                    innerHTML: refs[i]
-                })]
-            ));
-        }
-        return elements;
+        return cull.reduce(function (elements, ref) {
+            elements.push(e.li(e.a({ href: tpl(urlTemplate, ref) }, ref)));
+            return elements;
+        }, [e.li({ className: "dropdown-label" }, [e.strong(label)])], refs);
     }
 
     function refsList(refs, urlTemplate) {
-        return element(
-            "ul",
-            { className: "dropdown-menu" },
-            [refInput(urlTemplate)].
-                concat(refItems("Branches", refs.heads || [], urlTemplate)).
-                concat(refItems("Tags", refs.tags || [], urlTemplate)));
+        return e.ul({ className: "dropdown-menu" },
+                    [refInput(urlTemplate)].
+                    concat(refItems("Branches", refs.heads || [], urlTemplate)).
+                    concat(refItems("Tags", refs.tags || [], urlTemplate)));
     }
 
     return function (refs, current, urlTemplate) {
-        return element("div", {
+        return e.div({
             className: "dropdown gts-branch-selector pull-right"
         }, [currentRefLink(refs, current), refsList(refs, urlTemplate)]);
     };
