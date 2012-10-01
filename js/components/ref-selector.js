@@ -51,10 +51,12 @@ this.gts.refSelector = (function () {
             innerHTML: "<strong>" + label + "</strong>"
         }));
         for (i = 0, l = refs.length; i < l; ++i) {
-            elements.push(element("a", {
-                href: (urlTemplate || "#{ref}").replace(/#\{ref\}/g, refs[i]),
-                innerHTML: refs[i]
-            }));
+            elements.push(element("li", {}, [
+                element("a", {
+                    href: (urlTemplate || "#{ref}").replace(/#\{ref\}/g, refs[i]),
+                    innerHTML: refs[i]
+                })]
+            ));
         }
         return elements;
     }

@@ -561,6 +561,10 @@ input[type=text].gts-ref-input {
     width: 10em;
 }
 
+.gts-branch-selector .dropdown-menu {
+    min-width: 246px;
+}
+
 .gts-dropdown-input {
     border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;

@@ -47,8 +47,8 @@ buster.testCase("Ref selector", {
         var list = element.childNodes[1];
         assert.className(list.childNodes[1], "dropdown-label");
         assert.match(list.childNodes[1].innerHTML, "Branches");
-        assert.equals(list.childNodes[2].innerHTML, "libgit2");
-        assert.equals(list.childNodes[3].innerHTML, "master");
+        assert.match(list.childNodes[2].innerHTML, "libgit2");
+        assert.match(list.childNodes[3].innerHTML, "master");
     },
 
     "links all tags": function () {
@@ -60,8 +60,8 @@ buster.testCase("Ref selector", {
         var list = element.childNodes[1];
         assert.className(list.childNodes[4], "dropdown-label");
         assert.match(list.childNodes[4].innerHTML, "Tags");
-        assert.equals(list.childNodes[5].innerHTML, "v2.1.0");
-        assert.equals(list.childNodes[6].innerHTML, "v2.1.1");
+        assert.match(list.childNodes[5].innerHTML, "v2.1.0");
+        assert.match(list.childNodes[6].innerHTML, "v2.1.1");
     },
 
     "//does not propagate clicks on input": function () {},
@@ -73,6 +73,6 @@ buster.testCase("Ref selector", {
         }, "master", "/dolt/#{ref}:");
 
         var list = element.childNodes[1];
-        assert.match(list.childNodes[2].href, "/dolt/libgit2:");
+        assert.match(list.childNodes[2].firstChild.href, "/dolt/libgit2:");
     }
 });

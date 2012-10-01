@@ -108,9 +108,7 @@ gts.run = function (env) {
         gts.loadRefs(env.repository, function (err, refs) {
             var selector = gts.refSelector(refs, env.ref, env.refUrlTemplate);
             placeHolder.appendChild(selector);
-
-            // TODO!!!
-            document.body.innerHTML += "<script src=\"/bootstrap/js/bootstrap.min.js\"></script>";
+            $(selector).find(".dropdown-toggle").dropdown();
         });
     }
 };
