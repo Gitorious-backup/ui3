@@ -1,6 +1,10 @@
 this.gts = this.gts || {};
 
 this.gts.refSelector = (function () {
+    function render(template, ref) {
+        return (template || "#{ref}").replace(/#\{ref\}/g, ref);
+    }
+
     function element(tagName, attrs, children) {
         var el = document.createElement(tagName);
 
@@ -16,16 +20,17 @@ this.gts.refSelector = (function () {
         return el;
     }
 
-    function isBranch(refName, refs) {
-        var i, l, tags = refs.tags || [];
-        for (i = 0, l = tags.length; i < l; ++i) {
-            if (tags[i] === refName) { return false; }
+    function isType(type, refName, refs) {
+        var i, l, typeRefs = refs[type] || [];
+        for (i = 0, l = typeRefs.length; i < l; ++i) {
+            if (typeRefs[i] === refName) { return true; }
         }
-        return true;
+        return false;
     }
 
     function currentRefLink(refs, current) {
-        var type = isBranch(current, refs) ? "branch" : "tag";
+        var type = isType("heads", current, refs) ? "branch" :
+                (isType("tags", current, refs) ? "tag" : "ref");
         return element("a", {
             href: "#",
             className: "dropdown-toggle",
@@ -34,11 +39,15 @@ this.gts.refSelector = (function () {
         });
     }
 
-    function refInput() {
+    function refInput(urlTemplate) {
         var li = element("li", {
             className: "gts-dropdown-input",
-            innerHTML: "<strong>Enter ref: <input type=\"text\" " +
-                "name=\"ref\" class=\"gts-ref-input\"></strong>"
+            innerHTML: "<strong>Enter ref: <form><input type=\"text\" " +
+                "name=\"ref\" class=\"gts-ref-input\"></form></strong>"
+        });
+        jQuery(li).find("form").on("submit", function (e) {
+            e.preventDefault();
+            window.location = render(urlTemplate, this.firstChild.value);
         });
         li.onclick = function (e) { e.stopPropagation(); };
         return li;
@@ -53,7 +62,7 @@ this.gts.refSelector = (function () {
         for (i = 0, l = refs.length; i < l; ++i) {
             elements.push(element("li", {}, [
                 element("a", {
-                    href: (urlTemplate || "#{ref}").replace(/#\{ref\}/g, refs[i]),
+                    href: render(urlTemplate, refs[i]),
                     innerHTML: refs[i]
                 })]
             ));
@@ -65,7 +74,7 @@ this.gts.refSelector = (function () {
         return element(
             "ul",
             { className: "dropdown-menu" },
-            [refInput()].
+            [refInput(urlTemplate)].
                 concat(refItems("Branches", refs.heads || [], urlTemplate)).
                 concat(refItems("Tags", refs.tags || [], urlTemplate)));
     }

@@ -8,7 +8,7 @@ buster.testCase("Ref selector", {
     },
 
     "includes link to current branch": function () {
-        var element = gts.refSelector({}, "master");
+        var element = gts.refSelector({ heads: ["master"] }, "master");
         var a = element.firstChild;
 
         assert.tagName(a, "a");
@@ -22,6 +22,12 @@ buster.testCase("Ref selector", {
         var element = gts.refSelector({ tags: ["v2.1.0"] }, "v2.1.0");
 
         assert.match(element.firstChild.innerHTML, "tag:");
+    },
+
+    "includes link to current ref": function () {
+        var element = gts.refSelector({ tags: ["v2.1.0"] }, "aabbcc4");
+
+        assert.match(element.firstChild.innerHTML, "ref:");
     },
 
     "includes list of refs": function () {
@@ -64,7 +70,18 @@ buster.testCase("Ref selector", {
         assert.match(list.childNodes[6].innerHTML, "v2.1.1");
     },
 
-    "//does not propagate clicks on input": function () {},
+    "does not propagate clicks on input": function () {
+        var element = gts.refSelector({
+            heads: ["libgit2", "master"],
+            tags: ["v2.1.0", "v2.1.1"]
+        }, "master");
+
+        var event = jQuery.Event("click");
+        event.stopPropagation = this.spy();
+        jQuery(element).find("input[type=text]").trigger(event);
+
+        assert.calledOnce(event.stopPropagation);
+    },
 
     "uses URL template to generate links": function () {
         var element = gts.refSelector({
