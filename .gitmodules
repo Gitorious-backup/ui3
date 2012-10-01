@@ -1,0 +1,6 @@
+[submodule "culljs"]
+	path = culljs
+	url = https://github.com/magnars/culljs.git
+[submodule "lodash"]
+	path = lodash
+	url = https://github.com/bestiejs/lodash.git

@@ -1,0 +1,7 @@
+#!/bin/sh
+node lodash/build.js include="reduce,keys,values,flatten,uniq,difference" -o lodash-custom.js
+cd culljs
+npm install
+node script/build -m -s -n
+cd ..
+cat js/libs/jquery.js lodash-custom.js culljs/dist/cull.min.js js/libs/cullquery.js bootstrap/js/bootstrap.min.js > js/libs/ext-libs.js
