@@ -1,77 +1,77 @@
-$(".gts-select-onfocus").focus(function () {
-    this.select();
-});
+// $(".gts-select-onfocus").focus(function () {
+//     this.select();
+// });
 
-$(".gts-repo-url").click(function (e) {
-    e.preventDefault();
-    var btn = $(this);
-    var parent  = btn.parent();
-    parent.find(".gts-repo-url").removeClass("active");
-    btn.addClass("active");
-    parent.find(".gts-current-repo-url").val(btn.attr("href")).focus();
-});
+// $(".gts-repo-url").click(function (e) {
+//     e.preventDefault();
+//     var btn = $(this);
+//     var parent  = btn.parent();
+//     parent.find(".gts-repo-url").removeClass("active");
+//     btn.addClass("active");
+//     parent.find(".gts-current-repo-url").val(btn.attr("href")).focus();
+// });
 
-$(".linenums li").mouseenter(function () {
-    $(this).addClass("focus");
-});
+// $(".linenums li").mouseenter(function () {
+//     $(this).addClass("focus");
+// });
 
-$(".linenums li").mouseleave(function () {
-    $(this).removeClass("focus");
-});
+// $(".linenums li").mouseleave(function () {
+//     $(this).removeClass("focus");
+// });
 
-(function () {
-    var fileEl = document.getElementById("file");
-    var matches = window.location.href.match(/\#l(\d+)(?:-(\d+))?/);
-    if (!fileEl || !matches) { return; }
-    var lines = fileEl.getElementsByTagName("li");
-    var end = Math.max(matches[2] || matches[1], matches[1]);
+// (function () {
+//     var fileEl = document.getElementById("file");
+//     var matches = window.location.href.match(/\#l(\d+)(?:-(\d+))?/);
+//     if (!fileEl || !matches) { return; }
+//     var lines = fileEl.getElementsByTagName("li");
+//     var end = Math.max(matches[2] || matches[1], matches[1]);
 
-    for (var i = matches[1]; i <= end; ++i) {
-        $(lines[i - 1]).addClass("focus");
-    }
-}());
+//     for (var i = matches[1]; i <= end; ++i) {
+//         $(lines[i - 1]).addClass("focus");
+//     }
+// }());
 
-jQuery("[rel=tooltip]").tooltip();
+// jQuery("[rel=tooltip]").tooltip();
 
-jQuery("[data-preview-target]").each(function () {
-    var textarea = this;
-    var target = document.getElementById(this.getAttribute("data-preview-target"));
-    if (!target || !Showdown) { return; }
-    var converter = new Showdown.converter();
-    var previous, content;
+// jQuery("[data-preview-target]").each(function () {
+//     var textarea = this;
+//     var target = document.getElementById(this.getAttribute("data-preview-target"));
+//     if (!target || !Showdown) { return; }
+//     var converter = new Showdown.converter();
+//     var previous, content;
 
-    var cageSeed = new Date().getTime();
+//     var cageSeed = new Date().getTime();
 
-    function zeroPad(num) {
-        return num < 10 ? "0" + num : num;
-    }
+//     function zeroPad(num) {
+//         return num < 10 ? "0" + num : num;
+//     }
 
-    function signature() {
-        var now = new Date();
-        return "<p>" +
-            "<img width=\"24\" height=\"24\" class=\"gts-avatar\" alt=\"avatar\" src=\"http://cageme.herokuapp.com/24/24?" +
-            cageSeed + "\">" +
-            "<a href=\"/~zmalltalker\">Marius Mathiesen</a>" +
-            zeroPad(now.getHours()) + ":" + zeroPad(now.getMinutes()) +
-            ". <a href=\"#\">Edit comment</a></p>";
-    }
+//     function signature() {
+//         var now = new Date();
+//         return "<p>" +
+//             "<img width=\"24\" height=\"24\" class=\"gts-avatar\" alt=\"avatar\" src=\"http://cageme.herokuapp.com/24/24?" +
+//             cageSeed + "\">" +
+//             "<a href=\"/~zmalltalker\">Marius Mathiesen</a>" +
+//             zeroPad(now.getHours()) + ":" + zeroPad(now.getMinutes()) +
+//             ". <a href=\"#\">Edit comment</a></p>";
+//     }
 
-    function setPreview(preview) {
-        target.style.display = preview ? "block" : "none";
-        target.getElementsByTagName("div")[0].innerHTML = preview;
-    }
+//     function setPreview(preview) {
+//         target.style.display = preview ? "block" : "none";
+//         target.getElementsByTagName("div")[0].innerHTML = preview;
+//     }
 
-    function updatePreview() {
-        content = textarea.value;
-        if (content !== previous) {
-            previous = content;
-            setPreview(converter.makeHtml(content));
-        }
-        setTimeout(updatePreview, 20);
-    }
+//     function updatePreview() {
+//         content = textarea.value;
+//         if (content !== previous) {
+//             previous = content;
+//             setPreview(converter.makeHtml(content));
+//         }
+//         setTimeout(updatePreview, 20);
+//     }
 
-    updatePreview();
-});
+//     updatePreview();
+// });
 
 // Lest ye forget
 /*
@@ -108,6 +108,9 @@ gts.run = function (env) {
         gts.loadRefs(env.repository, function (err, refs) {
             var selector = gts.refSelector(refs, env.ref, env.refUrlTemplate);
             placeHolder.appendChild(selector);
+
+            // TODO!!!
+            document.body.innerHTML += "<script src=\"/bootstrap/js/bootstrap.min.js\"></script>";
         });
     }
 };
