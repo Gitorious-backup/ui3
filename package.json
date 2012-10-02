@@ -1,0 +1,20 @@
+{
+    "name": "gitorious-ui",
+    "version": "3.0.0",
+    "description": "UI files for Gitorious v3.0.0",
+    "author": { "name": "Christian Johansen" },
+    "repository": {
+        "type": "git",
+        "url": "git://gitorious.org/gitorious/ui3.git"
+    },
+    "scripts": {
+        "test": "./node_modules/buster/bin/buster-test"
+    },
+    "engines": {
+        "node": "~0.6"
+    },
+    "devDependencies": {
+        "buster": "~0.6",
+        "buster-html-doc": "*"
+    }
+}
