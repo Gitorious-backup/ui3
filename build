@@ -2,7 +2,7 @@
 mkdir -p dist
 
 # Custom Lodash build
-node lib/lodash/build.js include="reduce,keys,values,flatten,uniq,difference" -o dist/lodash-custom.js
+node lib/lodash/build.js include="reduce,keys,values,flatten,uniq,difference,find,filter,indexOf" -o dist/lodash-custom.js
 
 # Minified and stripped CullJS production build
 cd lib/culljs
@@ -13,6 +13,8 @@ cd ../..
 # Customized jQuery build
 cd lib/jquery
 npm install
+# `grunt` is supposed to do this, but it doesn't seem to work
+git submodule update --init
 grunt custom:-deprecated
 cd ../..
 
@@ -22,4 +24,5 @@ cat \
     dist/lodash-custom.js \
     lib/culljs/dist/cull.min.js \
     lib/cullquery/lib/cullquery.js \
+    lib/spin.js/dist/spin.min.js \
     lib/bootstrap/js/bootstrap.min.js > dist/gts-ui-deps.js
