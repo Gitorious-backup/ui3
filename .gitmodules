@@ -1,9 +1,9 @@
 [submodule "lib/culljs"]
-        path = lib/culljs
-        url = https://github.com/magnars/culljs.git
+	path = lib/culljs
+	url = https://github.com/magnars/culljs.git
 [submodule "lib/lodash"]
-        path = lib/lodash
-        url = https://github.com/bestiejs/lodash.git
+	path = lib/lodash
+	url = https://github.com/bestiejs/lodash.git
 [submodule "lib/jquery"]
         path = lib/jquery
         url = https://github.com/jquery/jquery.git
