@@ -1,12 +1,15 @@
-[submodule "culljs"]
+[submodule "lib/culljs"]
         path = lib/culljs
         url = https://github.com/magnars/culljs.git
-[submodule "lodash"]
+[submodule "lib/lodash"]
         path = lib/lodash
         url = https://github.com/bestiejs/lodash.git
 [submodule "lib/jquery"]
-	path = lib/jquery
-	url = https://github.com/jquery/jquery.git
+        path = lib/jquery
+        url = https://github.com/jquery/jquery.git
 [submodule "lib/cullquery"]
-	path = lib/cullquery
-	url = https://github.com/cjohansen/cullquery.git
+        path = lib/cullquery
+        url = https://github.com/cjohansen/cullquery.git
+[submodule "lib/spin.js"]
+        path = lib/spin.js
+        url = https://github.com/fgnass/spin.js.git
