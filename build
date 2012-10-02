@@ -1,7 +1,25 @@
 #!/bin/sh
-node lodash/build.js include="reduce,keys,values,flatten,uniq,difference" -o lodash-custom.js
-cd culljs
+mkdir -p dist
+
+# Custom Lodash build
+node lib/lodash/build.js include="reduce,keys,values,flatten,uniq,difference" -o dist/lodash-custom.js
+
+# Minified and stripped CullJS production build
+cd lib/culljs
 npm install
 node script/build -m -s -n
-cd ..
-cat js/libs/jquery.js lodash-custom.js culljs/dist/cull.min.js js/libs/cullquery.js bootstrap/js/bootstrap.min.js > js/libs/ext-libs.js
+cd ../..
+
+# Customized jQuery build
+cd lib/jquery
+npm install
+grunt custom:-deprecated
+cd ../..
+
+# Combine it all
+cat \
+    lib/jquery/dist/jquery.min.js \
+    dist/lodash-custom.js \
+    lib/culljs/dist/cull.min.js \
+    lib/cullquery/lib/cullquery.js \
+    lib/bootstrap/js/bootstrap.min.js > dist/gts-ui-deps.js
