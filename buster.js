@@ -1,10 +1,8 @@
 exports["Browser tests"] = {
     libs: [
-        "js/libs/jquery.js",
-        "lodash/lodash.min.js",
-        "culljs/lib/cull.js",
-        "js/libs/cullquery.js"
+        "dist/gts-ui-deps.js"
     ],
     sources: ["js/components/**/*.js"],
-    tests: ["test/**/*-test.js"]
+    tests: ["test/**/*-test.js"],
+    extensions: [require("buster-html-doc")]
 };
