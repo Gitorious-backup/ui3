@@ -48,7 +48,8 @@ this.gts.treeHistory = (function (c, $) {
         tds[offset + 1].innerHTML = formatDate(commit.date);
         $(tds[offset + 2]).attr("data-gts-commit-oid", commit.oid);
         tds[offset + 2].innerHTML = "#" + commit.oid.slice(0, 7);
-        tds[offset + 3].innerHTML = commit.summary + " (" + commit.author.name + ")";
+        tds[offset + 3].innerHTML = gts.abbrev(commit.summary, 50, " [...]") +
+            " (" + commit.author.name + ")";
     };
 
     th.annotate = function (table, tree) {

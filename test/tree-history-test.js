@@ -256,5 +256,67 @@ buster.testCase("Tree history", {
             assert.match(cells[4].innerHTML, "Add support for async tree history");
             assert.match(cells[4].innerHTML, "Christian Johansen");
         }
+    },
+
+    "adding history with long commit summary": {
+        setUp: function () {
+            /*:DOC table = <table data-gts-tree-history="/tree_history/master:lib" class="table table-striped gts-tree-explorer">
+              <thead>
+                <tr>
+                  <th colspan="2">File</th>
+                  <th class="gts-col-changed">Changed</th>
+                  <th colspan="2" class="gts-col-commit">Last commit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="5">
+                    <a href="/tree/master:lib">
+                      <i class="icon icon-folder-open"></i> lib
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="gts-name">
+                    <a href="/tree/master:lib/dolt">
+                      <i class="icon icon-folder-close"></i>
+                      dolt
+                    </a>
+                  </td>
+                  <td></td>
+                  <td class="gts-commit-oid"></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>*/
+
+            this.treeData([{
+                history: [{
+                    oid: "2ca8e4e51aeb7d4cff7145c1e4e2ccb9cde19181",
+                    summary: "Aaaaaaaaa Bbbbbbbbb Ccccccccc Ddddddddd Eeeeeeeee Fffffffff ",
+                    message: "",
+                    author: {
+                        email: "christian@gitorious.com",
+                        name: "Christian Johansen"
+                    },
+                    date: "Tue Oct 02 14:04:22 +0200 2012"
+                }],
+                oid: "7b83452d4ca77e2e81b5a7de8cfe4c0b0430bec3",
+                filemode: 16384,
+                type: "tree",
+                name: "dolt"
+            }]);
+        },
+
+        "annotates correct row": function () {
+            gts.treeHistory(this.table, "/tree-data.json");
+            this.server.respond();
+
+            var row = this.table.getElementsByTagName("tr")[2];
+            var summary = row.getElementsByTagName("td")[4].innerHTML;
+
+            assert.match(summary, "Aaaaaaaaa Bbbbbbbbb Ccccccccc Ddddddddd [...]");
+        }
     }
 });
