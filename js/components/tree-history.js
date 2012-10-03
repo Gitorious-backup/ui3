@@ -4,7 +4,23 @@ this.gts = this.gts || {};
 this.gts.treeHistory = (function (c, $) {
     var th = function (table, url) {
         var cell = $(table).find("tbody tr:first td")[2];
-        var spinner = new Spinner().spin(cell);
+        var spinner = new Spinner({
+            lines: 13,
+            length: 1,
+            width: 2,
+            radius: 6,
+            corners: 1,
+            rotate: 0,
+            color: "#000",
+            speed: 1,
+            trail: 60,
+            shadow: false,
+            hwaccel: true,
+            className: "spinner",
+            zIndex: 2e9,
+            top: "auto",
+            left: "auto"
+        }).spin(cell);
         $.ajax({
             url: url,
             success: function (tree) {
