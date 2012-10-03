@@ -583,3 +583,14 @@ input[type=text].gts-ref-input {
 .gts-dropdown-input + .dropdown-label {
     margin-top: -1px;
 }
+
+.gts-commit-date {
+    white-space: nowrap;
+}
+
+.table td.gts-commit-oid {
+    /* Make it fit snugly, crazy table rendering algorithms will
+       make it as big as needed. The intention here is "as small as
+       possible" */
+    width: 1em;
+}
