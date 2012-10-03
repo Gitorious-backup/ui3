@@ -29,19 +29,26 @@ this.gts.treeHistory = (function (c, $) {
         return months[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear();
     }
 
-    function formatCommitSummary(commit) {
-        return "<span class=\"gts-commit-oid\" " + "data-gts-commit-oid=\"" +
-            commit.oid + "\">#" + commit.oid.slice(0, 7) + "</span> " +
-            commit.summary + " (" + commit.author.name + ")";
+    function getTreeIndent(cells) {
+        for (var i = 0, l = cells.length; i < l; ++i) {
+            if (c.dom.hasClassName("gts-name", cells[i])) {
+                return i;
+            }
+        }
+
+        return i;
     }
 
     th.annotateRow = function (tree, row) {
         var tds = row.getElementsByTagName("td");
-        var entry = getFileMeta($.trim($(tds[0]).text()), tree);
+        var offset = getTreeIndent(tds);
+        var entry = getFileMeta($.trim($(tds[offset]).text()), tree);
         if (!entry) { return; }
         var commit = entry.history[0];
-        tds[1].innerHTML = formatDate(commit.date);
-        tds[2].innerHTML = formatCommitSummary(commit);
+        tds[offset + 1].innerHTML = formatDate(commit.date);
+        $(tds[offset + 2]).attr("data-gts-commit-oid", commit.oid);
+        tds[offset + 2].innerHTML = "#" + commit.oid.slice(0, 7);
+        tds[offset + 3].innerHTML = commit.summary + " (" + commit.author.name + ")";
     };
 
     th.annotate = function (table, tree) {
