@@ -111,6 +111,12 @@ gts.run = function (env) {
             $(selector).find(".dropdown-toggle").dropdown();
         });
     }
+
+    var treeBrowser = $("table[data-gts-tree-history]");
+
+    if (treeBrowser.length > 0) {
+        gts.treeHistory(treeBrowser[0], treeBrowser.attr("data-gts-tree-history"));
+    }
 };
 
 (function () {
