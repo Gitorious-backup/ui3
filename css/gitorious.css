@@ -594,3 +594,10 @@ input[type=text].gts-ref-input {
        possible" */
     width: 1em;
 }
+
+.gts-markup code {
+    border: none;
+    color: inherit;
+    font-size: 0.9em;
+    padding: 2px;
+}
