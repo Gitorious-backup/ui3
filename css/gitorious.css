@@ -533,8 +533,8 @@ input[type=url].gts-current-repo-url {
     width: auto;
 }
 
-.gts-mr-status,
-.gts-mr-age {
+.gts-item-status,
+.gts-item-age {
     white-space: nowrap;
 }
 
