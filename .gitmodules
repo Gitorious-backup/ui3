@@ -13,3 +13,6 @@
 [submodule "lib/spin.js"]
         path = lib/spin.js
         url = https://github.com/fgnass/spin.js.git
+[submodule "lib/showdown"]
+	path = lib/showdown
+	url = https://github.com/coreyti/showdown.git
