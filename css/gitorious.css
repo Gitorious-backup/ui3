@@ -533,6 +533,7 @@ input[type=url].gts-current-repo-url {
     width: auto;
 }
 
+.gts-item-author,
 .gts-item-status,
 .gts-item-age {
     white-space: nowrap;
