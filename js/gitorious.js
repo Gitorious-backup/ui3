@@ -33,45 +33,45 @@
 
 // jQuery("[rel=tooltip]").tooltip();
 
-// jQuery("[data-preview-target]").each(function () {
-//     var textarea = this;
-//     var target = document.getElementById(this.getAttribute("data-preview-target"));
-//     if (!target || !Showdown) { return; }
-//     var converter = new Showdown.converter();
-//     var previous, content;
+jQuery("[data-preview-target]").each(function () {
+    var textarea = this;
+    var target = document.getElementById(this.getAttribute("data-preview-target"));
+    if (!target || !Showdown) { return; }
+    var converter = new Showdown.converter();
+    var previous, content;
 
-//     var cageSeed = new Date().getTime();
+    var cageSeed = new Date().getTime();
 
-//     function zeroPad(num) {
-//         return num < 10 ? "0" + num : num;
-//     }
+    function zeroPad(num) {
+        return num < 10 ? "0" + num : num;
+    }
 
-//     function signature() {
-//         var now = new Date();
-//         return "<p>" +
-//             "<img width=\"24\" height=\"24\" class=\"gts-avatar\" alt=\"avatar\" src=\"http://cageme.herokuapp.com/24/24?" +
-//             cageSeed + "\">" +
-//             "<a href=\"/~zmalltalker\">Marius Mathiesen</a>" +
-//             zeroPad(now.getHours()) + ":" + zeroPad(now.getMinutes()) +
-//             ". <a href=\"#\">Edit comment</a></p>";
-//     }
+    function signature() {
+        var now = new Date();
+        return "<p>" +
+            "<img width=\"24\" height=\"24\" class=\"gts-avatar\" alt=\"avatar\" src=\"http://cageme.herokuapp.com/24/24?" +
+            cageSeed + "\">" +
+            "<a href=\"/~zmalltalker\">Marius Mathiesen</a>" +
+            zeroPad(now.getHours()) + ":" + zeroPad(now.getMinutes()) +
+            ". <a href=\"#\">Edit comment</a></p>";
+    }
 
-//     function setPreview(preview) {
-//         target.style.display = preview ? "block" : "none";
-//         target.getElementsByTagName("div")[0].innerHTML = preview;
-//     }
+    function setPreview(preview) {
+        target.style.display = preview ? "block" : "none";
+        target.getElementsByTagName("div")[0].innerHTML = preview;
+    }
 
-//     function updatePreview() {
-//         content = textarea.value;
-//         if (content !== previous) {
-//             previous = content;
-//             setPreview(converter.makeHtml(content));
-//         }
-//         setTimeout(updatePreview, 20);
-//     }
+    function updatePreview() {
+        content = textarea.value;
+        if (content !== previous) {
+            previous = content;
+            setPreview(converter.makeHtml(content));
+        }
+        setTimeout(updatePreview, 20);
+    }
 
-//     updatePreview();
-// });
+    updatePreview();
+});
 
 // Lest ye forget
 /*
