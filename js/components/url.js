@@ -20,7 +20,7 @@ this.gts.url = (function () {
     }
 
     function currentRef(url) {
-        var refPath = url.split(/(blame|blob|tree|history|raw)\//)[2];
+        var refPath = url.split(/(blame|blob|tree|history|raw|source)\//)[2];
         return refPath && refPath.split(":")[0] || null;
     }
 
