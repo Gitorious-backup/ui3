@@ -2,14 +2,14 @@
 //     this.select();
 // });
 
-// $(".gts-repo-url").click(function (e) {
-//     e.preventDefault();
-//     var btn = $(this);
-//     var parent  = btn.parent();
-//     parent.find(".gts-repo-url").removeClass("active");
-//     btn.addClass("active");
-//     parent.find(".gts-current-repo-url").val(btn.attr("href")).focus();
-// });
+$(".gts-repo-url").click(function (e) {
+    e.preventDefault();
+    var btn = $(this);
+    var parent  = btn.parent();
+    parent.find(".gts-repo-url").removeClass("active");
+    btn.addClass("active");
+    parent.find(".gts-current-repo-url").val(btn.attr("href")).focus();
+});
 
 // $(".linenums li").mouseenter(function () {
 //     $(this).addClass("focus");
@@ -31,7 +31,7 @@
 //     }
 // }());
 
-// jQuery("[rel=tooltip]").tooltip();
+jQuery("[rel=tooltip]").tooltip();
 
 jQuery("[data-preview-target]").each(function () {
     var textarea = this;
