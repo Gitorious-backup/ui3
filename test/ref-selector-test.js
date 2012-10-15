@@ -7,8 +7,23 @@ buster.testCase("Ref selector", {
         assert.className(element, "gts-branch-selector");
     },
 
-    "includes link to current branch": function () {
-        var element = gts.refSelector({ heads: ["master"] }, "master");
+    "includes link to current branch by ref": function () {
+        var element = gts.refSelector({
+            heads: [["master", "0123456"]]
+        }, "0123456");
+        var a = element.firstChild;
+
+        assert.tagName(a, "a");
+        assert.className(a, "dropdown-toggle");
+        assert.match(a.innerHTML, "caret");
+        assert.match(a.innerHTML, "branch:");
+        assert.match(a.innerHTML, "master");
+    },
+
+    "includes link to current branch by name": function () {
+        var element = gts.refSelector({
+            heads: [["master", "0123456"]]
+        }, "master");
         var a = element.firstChild;
 
         assert.tagName(a, "a");
@@ -19,13 +34,17 @@ buster.testCase("Ref selector", {
     },
 
     "includes link to current tag": function () {
-        var element = gts.refSelector({ tags: ["v2.1.0"] }, "v2.1.0");
+        var element = gts.refSelector({
+            tags: [["v2.1.0", "1234567"]]
+        }, "1234567");
 
         assert.match(element.firstChild.innerHTML, "tag:");
     },
 
     "includes link to current ref": function () {
-        var element = gts.refSelector({ tags: ["v2.1.0"] }, "aabbcc4");
+        var element = gts.refSelector({
+            tags: [["v2.1.0", "1234567"]]
+        }, "aabbcc4");
 
         assert.match(element.firstChild.innerHTML, "ref:");
     },
@@ -46,9 +65,9 @@ buster.testCase("Ref selector", {
 
     "links all heads": function () {
         var element = gts.refSelector({
-            heads: ["libgit2", "master"],
-            tags: ["v2.1.0", "v2.1.1"]
-        }, "master");
+            heads: [["libgit2", "1234567"], ["master", "2345678"]],
+            tags: [["v2.1.0", "34565789"], ["v2.1.1", "45657890"]]
+        }, "2345678");
 
         var list = element.childNodes[1];
         assert.className(list.childNodes[1], "dropdown-label");
@@ -60,8 +79,8 @@ buster.testCase("Ref selector", {
     "links all tags": function () {
         var element = gts.refSelector({
             heads: ["libgit2", "master"],
-            tags: ["v2.1.0", "v2.1.1"]
-        }, "master");
+            tags: [["v2.1.0", "1234567"], ["v2.1.1", "2345678"]]
+        }, "2345678");
 
         var list = element.childNodes[1];
         assert.className(list.childNodes[4], "dropdown-label");
@@ -72,8 +91,13 @@ buster.testCase("Ref selector", {
 
     "sorts refs alpha-numerically": function () {
         var element = gts.refSelector({
-            "heads": ["feature-B", "master", "feature-A"],
-            "tags": ["0.7.0", "0.7.1", "1.3.1", "1.0.0"]
+            "heads": [["feature-B", "1234567"],
+                      ["master", "2345678"],
+                      ["feature-A", "3456789"]],
+            "tags": [["0.7.0", "4567890"],
+                     ["0.7.1", "5678901"],
+                     ["1.3.1", "6789012"],
+                     ["1.0.0", "7890123"]]
         });
 
         var list = element.childNodes[1];
@@ -88,9 +112,9 @@ buster.testCase("Ref selector", {
 
     "does not propagate clicks on input": function () {
         var element = gts.refSelector({
-            heads: ["libgit2", "master"],
-            tags: ["v2.1.0", "v2.1.1"]
-        }, "master");
+            heads: [["libgit2", "1234567"], ["master", "2345678"]],
+            tags: [["v2.1.0", "34565789"], ["v2.1.1", "45657890"]]
+        }, "2345678");
 
         var event = jQuery.Event("click");
         event.stopPropagation = this.spy();
@@ -101,11 +125,11 @@ buster.testCase("Ref selector", {
 
     "uses URL template to generate links": function () {
         var element = gts.refSelector({
-            heads: ["libgit2", "master"],
-            tags: ["v2.1.0", "v2.1.1"]
-        }, "master", "/dolt/#{ref}:");
+            heads: [["libgit2", "1234567"], ["master", "2345678"]],
+            tags: [["v2.1.0", "34565789"], ["v2.1.1", "45657890"]]
+        }, "2345678", "/dolt/#{ref}:");
 
         var list = element.childNodes[1];
-        assert.match(list.childNodes[2].firstChild.href, "/dolt/libgit2:");
+        assert.match(list.childNodes[2].firstChild.href, "/dolt/1234567:");
     }
 });

@@ -8,20 +8,30 @@ this.gts.refSelector = (function () {
         return (template || "#{ref}").replace(/#\{ref\}/g, ref);
     }
 
-    function isType(type, refName, refs) {
-        return cull.some(function (ref) {
-            return ref === refName;
-        }, refs[type] || []);
+    function getCurrent(type, refName, refs) {
+        return cull.select(function (ref) {
+            return ref[0] === refName || ref[1] === refName;
+        }, refs[type] || [])[0];
     }
 
     function currentRefLink(refs, current) {
-        var type = isType("heads", current, refs) ? "branch" :
-                (isType("tags", current, refs) ? "tag" : "ref");
+        var currentRef = getCurrent("heads", current, refs);
+        var type = "branch";
+
+        if (!currentRef) {
+            currentRef = getCurrent("tags", current, refs);
+            type = "tag";
+        }
+
+        if (!currentRef) {
+            type = "ref";
+        }
+
         return e.a({
             href: "#",
             className: "dropdown-toggle",
             innerHTML: "<span class=\"caret\"></span> <em>" +
-                type + ":</em> " + current
+                type + ":</em> " + (currentRef && currentRef[0] || current)
         });
     }
 
@@ -45,7 +55,7 @@ this.gts.refSelector = (function () {
     function refItems(label, refs, urlTemplate) {
         var initial = [e.li({ className: "dropdown-label" }, [e.strong(label)])];
         return cull.reduce(function (elements, ref) {
-            elements.push(e.li(e.a({ href: tpl(urlTemplate, ref) }, ref)));
+            elements.push(e.li(e.a({ href: tpl(urlTemplate, ref[1]) }, ref)));
             return elements;
         }, initial, refs.sort());
     }
