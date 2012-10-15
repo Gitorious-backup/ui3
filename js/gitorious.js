@@ -123,7 +123,7 @@ gts.run = function (env) {
     var ref = gts.url.currentRef(window.location.href);
 
     gts.run({
-        repository: "",
+        repository: gts.repository || "",
         ref: ref,
         refUrlTemplate: gts.url.templatize(window.location.href, { ref: ref })
     });
