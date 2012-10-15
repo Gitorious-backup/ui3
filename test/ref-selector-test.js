@@ -70,6 +70,22 @@ buster.testCase("Ref selector", {
         assert.match(list.childNodes[6].innerHTML, "v2.1.1");
     },
 
+    "sorts refs alpha-numerically": function () {
+        var element = gts.refSelector({
+            "heads": ["feature-B", "master", "feature-A"],
+            "tags": ["0.7.0", "0.7.1", "1.3.1", "1.0.0"]
+        });
+
+        var list = element.childNodes[1];
+        assert.match(list.childNodes[2].innerHTML, "feature-A");
+        assert.match(list.childNodes[3].innerHTML, "feature-B");
+        assert.match(list.childNodes[4].innerHTML, "master");
+        assert.match(list.childNodes[6].innerHTML, "0.7.0");
+        assert.match(list.childNodes[7].innerHTML, "0.7.1");
+        assert.match(list.childNodes[8].innerHTML, "1.0.0");
+        assert.match(list.childNodes[9].innerHTML, "1.3.1");
+    },
+
     "does not propagate clicks on input": function () {
         var element = gts.refSelector({
             heads: ["libgit2", "master"],
