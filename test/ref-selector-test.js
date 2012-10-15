@@ -131,5 +131,6 @@ buster.testCase("Ref selector", {
 
         var list = element.childNodes[1];
         assert.match(list.childNodes[2].firstChild.href, "/dolt/1234567:");
+        assert.equals(list.childNodes[2].firstChild.innerHTML, "libgit2");
     }
 });

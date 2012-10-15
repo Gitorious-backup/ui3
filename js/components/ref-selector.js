@@ -55,7 +55,7 @@ this.gts.refSelector = (function () {
     function refItems(label, refs, urlTemplate) {
         var initial = [e.li({ className: "dropdown-label" }, [e.strong(label)])];
         return cull.reduce(function (elements, ref) {
-            elements.push(e.li(e.a({ href: tpl(urlTemplate, ref[1]) }, ref)));
+            elements.push(e.li(e.a({ href: tpl(urlTemplate, ref[1]) }, ref[0])));
             return elements;
         }, initial, refs.sort());
     }
