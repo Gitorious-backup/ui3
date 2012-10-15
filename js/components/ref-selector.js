@@ -38,6 +38,7 @@ this.gts.refSelector = (function () {
     function refInput(url) {
         var input = e.input({ type: "text", className: "gts-ref-input" });
         var form = e.form({
+            className: "gts-ref-input",
             events: {
                 submit: function (e) {
                     e.preventDefault();
