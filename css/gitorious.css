@@ -41,6 +41,10 @@ body .gts-masthead {
     margin-left: 30px;
 }
 
+.gts-masthead .navbar-inner .btn-group {
+    padding-right: 0;
+}
+
 /**
  * Repo "boxes"
  */
