@@ -13,6 +13,12 @@ this.gts = this.gts || {};
  *         path: "lib"
  *     }); //=> "/gitorious/mainline/source/#{ref}:#{path}"
  * 
+ * gts.url.render(template, data)
+ *   Renders a URL from the template.
+ *
+ *     gts.url.render("/gitorious/#{repo}", { repo: "mainline" });
+ *     //=> "/gitorious/mainline"
+ * 
  * gts.url.currentRef(url)
  *   Attempts to sniff out the ref from the provided URL.
  * 
@@ -41,6 +47,13 @@ this.gts.url = (function () {
         return newUrl;
     }
 
+    function render(template, data) {
+        for (var prop in data) {
+            template = template.replace(new RegExp("#{" + prop + "}", "g"), data[prop]);
+        }
+        return template;
+    }
+
     function currentRef(url) {
         var refPath = url.split(/(blame|blob|tree|history|raw|source|readme)\//)[2];
         return refPath && refPath.split(":")[0] || null;
@@ -48,6 +61,7 @@ this.gts.url = (function () {
 
     return {
         templatize: templatize,
+        render: render,
         currentRef: currentRef
     };
 }());

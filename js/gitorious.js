@@ -117,6 +117,14 @@ gts.run = function (env) {
     if (treeBrowser.length > 0) {
         gts.treeHistory(treeBrowser[0], treeBrowser.attr("data-gts-tree-history"));
     }
+
+    var gtsBody = $(".gts-body");
+
+    if (gtsBody.length > 0) {
+        gts.commitLinker(gtsBody[0], gts.commitUrlTemplate, function (url) {
+            window.location = url;
+        });
+    }
 };
 
 (function () {

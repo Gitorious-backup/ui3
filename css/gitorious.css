@@ -223,7 +223,7 @@ ul.gts-blob-view li {
     white-space: nowrap;
 }
 
-.gts-tree-explorer .gts-sha {
+.gts-tree-explorer .gts-commit-oid {
     padding-right: 0;
 }
 
@@ -314,6 +314,16 @@ input[type=url].gts-current-repo-url {
 
 .gts-commit .gts-avatar {
     margin-left: 0;
+}
+
+.gts-commit-linker .gts-commit-oid {
+    color: #08c;
+    cursor: pointer;
+}
+
+.gts-commit-linker .gts-commit-oid:hover {
+    color: #005580;
+    text-decoration: underline;
 }
 
 /**
@@ -427,7 +437,7 @@ input[type=url].gts-current-repo-url {
     width: 10px;
 }
 
-.gts-code-listing .gts-sha {
+.gts-code-listing .gts-commit-oid {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 

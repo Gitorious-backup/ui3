@@ -33,6 +33,15 @@ buster.testCase("URL", {
         }
     },
 
+    "render": {
+        "renders templated URL": function () {
+            var template = "/gitorious/mainline/source/#{ref}:#{path}";
+            var url = gts.url.render(template, { ref: "master", path: "." });
+
+            assert.equals("/gitorious/mainline/source/master:.", url);
+        }
+    },
+
     "currentRef": {
         "extracts master from tree URL": function () {
             var ref = gts.url.currentRef("http://localhost/tree/master:lib");
