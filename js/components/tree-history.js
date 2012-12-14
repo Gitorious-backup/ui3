@@ -1,6 +1,56 @@
-/*global cull, Spinner*/
+/*global gts, cull, Spinner*/
+// The global, shared Gitorious namespace
 this.gts = this.gts || {};
 
+/**
+ * gts.treeHistory(tableElement, treeHistoryUrl)
+ *
+ * Loads the tree history JSON payload from Gitorious and annotates an
+ * HTML table containing a Git tree with commit data. The HTML table
+ * is expected to look like:
+ * 
+ * <table>
+ *   <!-- Possible thead and tfoot, ignored -->
+ *   <tbody>
+ *     <tr>
+ *       <td class="gts-name">
+ *         <a href="/gitorious/gitorious/source/master:bin">
+ *           <i class="icon icon-folder-close"></i>
+ *           bin
+ *         </a>
+ *       </td>
+ *       <td class="gts-commit-date"></td>
+ *       <td class="gts-commit-oid"></td>
+ *       <td></td>
+ *     </tr>
+ *   </tbody>
+ * </table>
+ * 
+ * treeHistory will fill out the commit date, oid and add the last commit
+ * message to the last cell.
+ * 
+ * treeHistory also supports initial empty <td> elements, as created by Dolt
+ * when directory hierarhy indentation is enabled.
+ *
+ * The treeHistoryUrl points to the tree history JSON resource, which
+ * looks like
+ * 
+ *   [{ "name": "bin",
+ *      "oid": "08e37640144b900e8e876f621332b64c39c79567",
+ *      "filemode": 16384,
+ *      "type": "tree",
+ *      "history": [{
+ *        "oid": "762d5a7186850dca6b507402ca7bbec2df2dea72",
+ *        "author": {
+ *          "name": "Marius Mathiesen",
+ *          "email": "marius@gitorious.org"
+ *        },
+ *        "date": "2012-10-04T14:15:33+02:00",
+ *        "summary": "Set ENV[\"HOME\"] to make resque work with SSH keys",
+ *        "message": ""
+ *      }, { ... }]
+ *    }, { ... }]
+ */
 this.gts.treeHistory = (function (c, $) {
     var th = function (table, url) {
         var cell = $(table).find("tbody tr:first td")[2];

@@ -1,6 +1,31 @@
 /*global cull*/
+// The global, shared Gitorious namespace
 this.gts = this.gts || {};
 
+/**
+ * The ref selector builds an interactive "drop-down" menu from which the
+ * user can select a head or tag, or lookup a specific ref. The menu will
+ * reload the current page for the chosen ref.
+ * 
+ * gts.refSelector(refs, current, urlTemplate)
+ * 
+ * refs is an object containing available heads and tags and the oids they
+ * refer to, e.g.:
+ * 
+ *     { "heads": [["production", "24e9c0d4ce36fbe1dfca4029e3bd206d64e2eecc"],
+ *                 ["redesign", "4c22773401aa2cdd2391bc04443ad7eea193e7b6"],
+ *                 ["web-hooks", "a08053012b9aee5d9733fceb2cf3083f29d9aa7d"],
+ *                 ["master", "48ac677757da7ca052c59ebec0ded6e11eef2642"]],
+ *       "tags": [["v2.4.3", "7a3cffcb3c3db89e8005962850e29a8aab2ab09b"]]
+ *
+ * current is the active ref on the current page, either the refname
+ * or the actual oid.
+ * 
+ * urlTemplate is the URL that will be loaded, where the ref exists as a
+ * placeholder, e.g. "/gitorious/mainline/source/#{ref}:lib". A suitable
+ * template can be created from the current page's URL using
+ * gts.url.templatize(window.location.href, { ref: currentRef });
+ */
 this.gts.refSelector = (function () {
     var e = cull.dom.el;
 
