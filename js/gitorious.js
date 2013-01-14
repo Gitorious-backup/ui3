@@ -125,6 +125,17 @@ gts.run = function (env) {
             window.location = url;
         });
     }
+
+    var userRepositoryPath = $("[data-gts-user-repository-path]").data("gts-user-repository-path");
+
+    if (userRepositoryPath) {
+        jQuery.ajax({
+            url: userRepositoryPath,
+            success: function (data) {
+                gts.profileMenu(document.getElementById("login_button"), data.user);
+            }
+        });
+    }
 };
 
 (function () {
