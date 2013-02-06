@@ -1,2 +1,4 @@
 node_modules
-dist/lodash-custom.js
+dist/cull.min.js
+dist/dome.min.js
+dist/spin.min.js

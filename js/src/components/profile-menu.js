@@ -1,4 +1,4 @@
-/*global cull*/
+/*global dome*/
 // The global, shared Gitorious namespace
 var gts = this.gts || {};
 
@@ -6,7 +6,7 @@ var gts = this.gts || {};
  * Builds the profile menu for the specified user and replaces the
  * login button. If there is no user, nothing happens.
  */
-(function (e) {
+(function (d, e) {
     function button(text, path, icon) {
         var content = icon ? [e.i({className: "icon-" + icon}), text] : [text];
         return e.li(e.a({ href: path }, content));
@@ -14,7 +14,7 @@ var gts = this.gts || {};
 
     gts.profileMenu = function (root, user) {
         if (!user) { return; }
-        e.content([
+        d.setContent([
             e.a({ className: "btn btn-inverse", href: user.dashboardPath },
                 e.i({ className: "icon-user icon-white" }, user.login)),
             e.a({ className: "btn btn-inverse dropdown-toggle",
@@ -31,4 +31,4 @@ var gts = this.gts || {};
             ])
         ], root);
     };
-}(cull.dom.el));
+}(dome, dome.el));

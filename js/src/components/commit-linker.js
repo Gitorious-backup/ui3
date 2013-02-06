@@ -1,4 +1,4 @@
-/*global dome*/
+/*global cull, dome*/
 // The global, shared Gitorious namespace
 var gts = this.gts || {};
 
@@ -14,12 +14,13 @@ var gts = this.gts || {};
  *           handler will be called with the resolved URL as its only
  *           argument.
  */
-gts.commitLinker = function (root, urlTemplate, handler) {
-    dome.cn.add("gts-commit-linker", root);
-    dome.event.on("click", function (e) {
-        if (!dome.cn.has("gts-commit-oid", e.target)) { return; }
-        handler(gts.url.render(urlTemplate, {
-            oid: dome.el.data.get("gts-commit-oid", this)
-        }));
-    }, root);
-};
+(function (partial, d) {
+    gts.commitLinker = function (root, urlTemplate, handler) {
+        d.cn.add("gts-commit-linker", root);
+        d.delegate.bycn("gts-commit-oid", root, "click", function (e) {
+            handler(gts.url.render(urlTemplate, {
+                oid: dome.data.get("gts-commit-oid", this)
+            }));
+        });
+    };
+}(cull.partial, dome));

@@ -1,4 +1,4 @@
-/*global gts, cull, Spinner*/
+/*global gts, cull, dome, Spinner*/
 // The global, shared Gitorious namespace
 this.gts = this.gts || {};
 
@@ -102,7 +102,7 @@ this.gts.treeHistory = (function (c, d) {
 
     function getTreeIndent(cells) {
         for (var i = 0, l = cells.length; i < l; ++i) {
-            if (c.dom.hasClassName("gts-name", cells[i])) {
+            if (dome.cn.has("gts-name", cells[i])) {
                 return i;
             }
         }
@@ -111,7 +111,7 @@ this.gts.treeHistory = (function (c, d) {
     }
 
     function fileName(element) {
-        return (element && d.text(element) || "").trim();
+        return (element && dome.text(element) || "").trim();
     }
 
     th.annotateRow = function (tree, row) {
@@ -121,7 +121,7 @@ this.gts.treeHistory = (function (c, d) {
         if (!entry) { return; }
         var commit = entry.history[0];
         tds[offset + 1].innerHTML = formatDate(commit.date);
-        d.el.data.set({ "gts-commit-oid": commit.oid }, tds[offset + 2]);
+        dome.data.set({ "gts-commit-oid": commit.oid }, tds[offset + 2]);
         tds[offset + 2].innerHTML = "#" + commit.oid.slice(0, 7);
         var summary = commit.summary.trim();
         tds[offset + 3].innerHTML = gts.abbrev(summary, 50, " [...]") +
@@ -135,4 +135,4 @@ this.gts.treeHistory = (function (c, d) {
     };
 
     return th;
-}(cull, cull.dom));
+}(cull));

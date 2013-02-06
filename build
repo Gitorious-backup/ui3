@@ -1,20 +1,27 @@
-#!/bin/sh
+#!/usr/bin/sh
 mkdir -p dist
 
 # Minified and stripped CullJS production build
-cd lib/culljs
+cd js/lib/culljs
 npm install
 node build -m -s -n
-cd ../..
+mv dist/cull.min.js ../../../dist/cull.min.js
+cd ../../..
 
 # Minified and stripped Dome production build
-cd lib/dome
+cd js/lib/dome
 npm install
 node build -m -s -n
-cd ../..
+mv dist/dome.min.js ../../../dist/dome.min.js
+cd ../../..
+
+# Spin.JS
+cp js/lib/spin.js/dist/spin.min.js dist/spin.min.js
 
 # Combine it all
 cat \
-    lib/culljs/dist/cull.min.js \
-    lib/dome/dist/dome.min.js \
-    lib/spin.js/dist/spin.min.js > dist/gts-ui-deps.js
+    dist/cull.min.js \
+    dist/dome.min.js \
+    dist/spin.min.js > dist/gts-ui-deps.js
+
+du -sh dist/gts-ui-deps.js

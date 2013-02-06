@@ -26,9 +26,7 @@ this.gts = this.gts || {};
  * template can be created from the current page's URL using
  * gts.url.templatize(window.location.href, { ref: currentRef });
  */
-this.gts.refSelector = (function () {
-    var e = cull.dom.el;
-
+this.gts.refSelector = (function (e) {
     function tpl(template, ref) {
         return (template || "#{ref}").replace(/#\{ref\}/g, ref);
     }
@@ -103,4 +101,4 @@ this.gts.refSelector = (function () {
             className: "dropdown gts-branch-selector pull-right"
         }, [currentRefLink(refs, current), refsList(refs, urlTemplate)]);
     };
-}());
+}(dome.el));

@@ -1,7 +1,7 @@
 exports["Baseline"] = {
-    rootPath: "js/",
-    sources: ["src/components/**/*.js"],
-    tests: ["test/**/*-test.js"],
+    sources: ["js/src/components/**/*.js"],
+    testHelpers: ["js/test-libs/*.js"],
+    tests: ["js/test/**/*-test.js"],
     extensions: [require("buster-html-doc")]
 };
 
@@ -13,9 +13,9 @@ exports["Build test"] = {
 exports["Browser tests"] = {
     extends: "Baseline",
     libs: [
-        "lib/culljs/lib/cull.js",
-        "lib/dome/lib/dome.js",
-        "lib/dome/lib/event.js",
-        "lib/spin.js/dist/spin.min.js"
+        "js/lib/culljs/lib/cull.js",
+        "js/lib/dome/lib/dome.js",
+        "js/lib/dome/lib/event.js",
+        "js/lib/spin.js/dist/spin.min.js"
     ]
 };
