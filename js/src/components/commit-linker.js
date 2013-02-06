@@ -1,3 +1,4 @@
+/*global dome*/
 // The global, shared Gitorious namespace
 var gts = this.gts || {};
 
@@ -14,10 +15,11 @@ var gts = this.gts || {};
  *           argument.
  */
 gts.commitLinker = function (root, urlTemplate, handler) {
-    var selector = ".gts-commit-oid";
-    $(root).addClass("gts-commit-linker").on("click", selector, function (e) {
+    dome.cn.add("gts-commit-linker", root);
+    dome.event.on("click", function (e) {
+        if (!dome.cn.has("gts-commit-oid", e.target)) { return; }
         handler(gts.url.render(urlTemplate, {
-            oid: this.getAttribute("data-gts-commit-oid")
+            oid: dome.el.data.get("gts-commit-oid", this)
         }));
-    });
+    }, root);
 };

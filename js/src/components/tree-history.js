@@ -51,9 +51,13 @@ this.gts = this.gts || {};
  *      }, { ... }]
  *    }, { ... }]
  */
-this.gts.treeHistory = (function (c, $) {
+this.gts.treeHistory = (function (c, d) {
+    function el(element, tagName) {
+        return element.getElementsByTagName(tagName);
+    }
+
     var th = function (table, url) {
-        var cell = $(table).find("tbody tr:first td")[2];
+        var cell = el(el(table, "tbody")[0], "td")[2];
         var spinner = new Spinner({
             lines: 13,
             length: 1,
@@ -71,6 +75,7 @@ this.gts.treeHistory = (function (c, $) {
             top: "auto",
             left: "auto"
         }).spin(cell);
+
         $.ajax({
             url: url,
             success: function (tree) {
@@ -105,25 +110,29 @@ this.gts.treeHistory = (function (c, $) {
         return i;
     }
 
+    function fileName(element) {
+        return (element && d.text(element) || "").trim();
+    }
+
     th.annotateRow = function (tree, row) {
-        var tds = row.getElementsByTagName("td");
+        var tds = el(row, "td");
         var offset = getTreeIndent(tds);
-        var entry = getFileMeta($.trim($(tds[offset]).text()), tree);
+        var entry = getFileMeta(fileName(tds[offset]), tree);
         if (!entry) { return; }
         var commit = entry.history[0];
         tds[offset + 1].innerHTML = formatDate(commit.date);
-        $(tds[offset + 2]).attr("data-gts-commit-oid", commit.oid);
+        d.el.data.set({ "gts-commit-oid": commit.oid }, tds[offset + 2]);
         tds[offset + 2].innerHTML = "#" + commit.oid.slice(0, 7);
-        tds[offset + 3].innerHTML = gts.abbrev(commit.summary, 50, " [...]") +
+        var summary = commit.summary.trim();
+        tds[offset + 3].innerHTML = gts.abbrev(summary, 50, " [...]") +
             " (" + commit.author.name + ")";
     };
 
     th.annotate = function (table, tree) {
-        var rows = $(table).find("tbody tr");
         c.doall(c.partial(function (tree, row) {
             th.annotateRow(tree, row);
-        }, tree), rows);
+        }, tree), el(el(table, "tbody")[0], "tr"));
     };
 
     return th;
-}(cull, jQuery));
+}(cull, cull.dom));

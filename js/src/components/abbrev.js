@@ -1,3 +1,4 @@
+/*global cull*/
 // The global, shared Gitorious namespace
 var gts = this.gts || {};
 
@@ -14,15 +15,11 @@ var gts = this.gts || {};
 gts.abbrev = function (sentence, width, suffix) {
     if (sentence.length <= width) { return sentence; }
     suffix = suffix || "";
-    var words = sentence.split(" ");
-    var result = [];
-    var len;
 
-    for (var i = 0, l = words.length; i < l; ++i) {
-        len = result.join(" ").length + words[i].length + suffix.length;
-        if (len > width) { break; }
-        result.push(words[i]);
-    }
-
-    return result.join(" ") + suffix;
+    return cull.reduce(function (words, word) {
+        if (words.join(" ").length + word.length + suffix.length <= width) {
+            words.push(word);
+        }
+        return words;
+    }, [], sentence.split(" ")).join(" ") + suffix;
 };

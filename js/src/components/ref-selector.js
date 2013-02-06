@@ -33,6 +33,11 @@ this.gts.refSelector = (function () {
         return (template || "#{ref}").replace(/#\{ref\}/g, ref);
     }
 
+    /**
+     * Gets the current ref. type is {heads,tags,remotes} and
+     * refs[type] is an array of ref tuples where each tuple contains
+     * the object id and a ref (e.g. "master").
+     */
     function getCurrent(type, refName, refs) {
         return cull.select(function (ref) {
             return ref[0] === refName || ref[1] === refName;

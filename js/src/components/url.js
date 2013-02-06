@@ -1,3 +1,4 @@
+/*global cull*/
 // The global, shared Gitorious namespace
 this.gts = this.gts || {};
 
@@ -38,24 +39,20 @@ this.gts.url = (function () {
     }
 
     function templatize(url, values) {
-        var newUrl = path(url);
-
-        for (var n in values) {
-            newUrl = newUrl.replace(new RegExp(values[n], "g"), "#{" + n + "}");
-        }
-
-        return newUrl;
+        return cull.reduce(function (result, n) {
+            return result.replace(new RegExp(values[n], "g"), "#{" + n + "}");
+        }, path(url), cull.keys(values));
     }
 
     function render(template, data) {
-        for (var prop in data) {
-            template = template.replace(new RegExp("#{" + prop + "}", "g"), data[prop]);
-        }
-        return template;
+        return cull.reduce(function (result, p) {
+            return result.replace(new RegExp("#{" + p + "}", "g"), data[p]);
+        }, template, cull.keys(data));
     }
 
     function currentRef(url) {
-        var refPath = url.split(/(blame|blob|tree|history|raw|source|readme)\//)[2];
+        var regexp = /(blame|blob|tree|history|raw|source|readme)\//;
+        var refPath = url.split(regexp)[2];
         return refPath && refPath.split(":")[0] || null;
     }
 

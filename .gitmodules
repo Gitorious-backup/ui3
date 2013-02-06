@@ -1,18 +1,12 @@
-[submodule "lib/culljs"]
-	path = lib/culljs
-	url = https://github.com/magnars/culljs.git
-[submodule "lib/lodash"]
-	path = lib/lodash
-	url = https://github.com/bestiejs/lodash.git
-[submodule "lib/jquery"]
-        path = lib/jquery
-        url = https://github.com/jquery/jquery.git
-[submodule "lib/cullquery"]
-        path = lib/cullquery
-        url = https://github.com/cjohansen/cullquery.git
-[submodule "lib/spin.js"]
-        path = lib/spin.js
-        url = https://github.com/fgnass/spin.js.git
-[submodule "lib/showdown"]
-	path = lib/showdown
-	url = https://github.com/coreyti/showdown.git
+[submodule "js/lib/culljs"]
+	path = js/lib/culljs
+	url = https://github.com/culljs/culljs.git
+[submodule "js/lib/dome"]
+	path = js/lib/dome
+	url = https://github.com/culljs/dome.git
+[submodule "js/lib/reqwest"]
+	path = js/lib/reqwest
+	url = https://github.com/ded/reqwest.git
+[submodule "js/lib/spin.js"]
+	path = js/lib/spin.js
+	url = https://github.com/fgnass/spin.js.git
