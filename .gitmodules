@@ -10,3 +10,12 @@
 [submodule "js/lib/spin.js"]
 	path = js/lib/spin.js
 	url = https://github.com/fgnass/spin.js.git
+[submodule "lib/bane"]
+	path = lib/bane
+	url = https://github.com/busterjs/bane.git
+[submodule "js/lib/bane"]
+	path = js/lib/bane
+	url = https://github.com/busterjs/bane.git
+[submodule "js/lib/when"]
+	path = js/lib/when
+	url = https://github.com/cujojs/when.git
