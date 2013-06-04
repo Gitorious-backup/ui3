@@ -24,6 +24,8 @@ body .gts-masthead {
 
 .gts-masthead .navbar-inner {
     border-radius: 0;
+    background-image: -moz-linear-gradient(center top, #201e1e, #222222);
+    background-color: #201e1e;
 }
 
 /* Get the logo and top bar alignment right. */
@@ -34,7 +36,7 @@ body .gts-masthead {
 
 .gts-logo {
     float: left;
-    margin: -2px 20px 0 0;
+    margin: 10px 10px 10px 0;
 }
 
 .gts-clone-source {
