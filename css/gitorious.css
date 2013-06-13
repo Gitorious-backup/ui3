@@ -24,6 +24,8 @@ body .gts-masthead {
 
 .gts-masthead .navbar-inner {
     border-radius: 0;
+    background-image: -moz-linear-gradient(center top, #201e1e, #222222);
+    background-color: #201e1e;
 }
 
 /* Get the logo and top bar alignment right. */
@@ -34,7 +36,7 @@ body .gts-masthead {
 
 .gts-logo {
     float: left;
-    margin: -2px 20px 0 0;
+    margin: 10px 10px 10px 0;
 }
 
 .gts-clone-source {
@@ -621,4 +623,20 @@ input[type=text].gts-ref-input {
 
 .gts-markup pre code {
     font-size: inherit;
+}
+
+.gts-readme {
+    background-color: #fff;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+    min-height: 20px;
+    padding: 19px;
+}
+.gts-readme .gts-page-header {
+    background-color: #f5f5f5;
+    border-radius: 4px 0px 0px 4px;
+    margin: -19px -19px 10px -19px;
+    padding: 10px 20px 10px 20px;
 }
