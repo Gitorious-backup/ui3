@@ -1,4 +1,4 @@
-@import "pygments.css";
+@import "syntax-highlight.css";
 
 /**
  * Bootstrap tweaks
@@ -257,6 +257,7 @@ ul.gts-blob-view li {
 }
 
 input[type=url].gts-current-repo-url {
+    float: left;
     left: -2px;
     padding-left: 6px;
     position: relative;

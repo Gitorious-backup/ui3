@@ -19,3 +19,9 @@
 [submodule "js/lib/when"]
 	path = js/lib/when
 	url = https://github.com/cujojs/when.git
+[submodule "js/lib/showdown"]
+	path = js/lib/showdown
+	url = https://github.com/coreyti/showdown.git
+[submodule "js/lib/uinit"]
+	path = js/lib/uinit
+	url = https://git.gitorious.org/gitorious/uinit.git

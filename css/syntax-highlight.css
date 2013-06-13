@@ -119,11 +119,17 @@ ol.linenums li {
 .nl { color: #a0a000; } /* Name.Label */
 .w { color: #bbb; } /* Text.Whitespace */
 
+/* Regions marked over the URL */
+ol.linenums li.region .line {
+    background: #ffd;
+}
+
 /* Mouseover */
 ol.linenums li.focus {
     color: #48484e;
 }
 
+.linenums li.region .line,
 ol.linenums li.focus .line {
     background: #ffc;
     margin-left: -60px;
