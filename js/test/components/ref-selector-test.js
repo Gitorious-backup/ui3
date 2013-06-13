@@ -1,6 +1,7 @@
+/*global gts*/
 buster.testCase("Ref selector", {
     "returns div": function () {
-        var element = gts.refSelector({});
+        var element = gts.refSelector.build({});
 
         assert.tagName(element, "div");
         assert.className(element, "dropdown");
@@ -8,7 +9,7 @@ buster.testCase("Ref selector", {
     },
 
     "includes link to current branch by ref": function () {
-        var element = gts.refSelector({
+        var element = gts.refSelector.build({
             heads: [["master", "0123456"]]
         }, "0123456");
         var a = element.firstChild;
@@ -21,7 +22,7 @@ buster.testCase("Ref selector", {
     },
 
     "includes link to current branch by name": function () {
-        var element = gts.refSelector({
+        var element = gts.refSelector.build({
             heads: [["master", "0123456"]]
         }, "master");
         var a = element.firstChild;
@@ -34,7 +35,7 @@ buster.testCase("Ref selector", {
     },
 
     "includes link to current tag": function () {
-        var element = gts.refSelector({
+        var element = gts.refSelector.build({
             tags: [["v2.1.0", "1234567"]]
         }, "1234567");
 
@@ -42,7 +43,7 @@ buster.testCase("Ref selector", {
     },
 
     "includes link to current ref": function () {
-        var element = gts.refSelector({
+        var element = gts.refSelector.build({
             tags: [["v2.1.0", "1234567"]]
         }, "aabbcc4");
 
@@ -50,21 +51,21 @@ buster.testCase("Ref selector", {
     },
 
     "includes list of refs": function () {
-        var element = gts.refSelector({});
+        var element = gts.refSelector.build({});
 
         assert.tagName(element.childNodes[1], "ul");
         assert.className(element.childNodes[1], "dropdown-menu");
     },
 
     "includes ref input": function () {
-        var list = gts.refSelector({}).childNodes[1];
+        var list = gts.refSelector.build({}).childNodes[1];
 
         assert.className(list.firstChild, "gts-dropdown-input");
         assert.match(list.firstChild.innerHTML, "Enter ref:");
     },
 
     "links all heads": function () {
-        var element = gts.refSelector({
+        var element = gts.refSelector.build({
             heads: [["libgit2", "1234567"], ["master", "2345678"]],
             tags: [["v2.1.0", "34565789"], ["v2.1.1", "45657890"]]
         }, "2345678");
@@ -77,7 +78,7 @@ buster.testCase("Ref selector", {
     },
 
     "links all tags": function () {
-        var element = gts.refSelector({
+        var element = gts.refSelector.build({
             heads: ["libgit2", "master"],
             tags: [["v2.1.0", "1234567"], ["v2.1.1", "2345678"]]
         }, "2345678");
@@ -90,7 +91,7 @@ buster.testCase("Ref selector", {
     },
 
     "sorts refs alpha-numerically": function () {
-        var element = gts.refSelector({
+        var element = gts.refSelector.build({
             "heads": [["feature-B", "1234567"],
                       ["master", "2345678"],
                       ["feature-A", "3456789"]],
@@ -114,7 +115,7 @@ buster.testCase("Ref selector", {
         // Since switching from jQuery to Dome, this test no longer works,
         // as it's not possible(?) to fake the stopPropagation method.
         // Not sure how to solve
-        var element = gts.refSelector({
+        var element = gts.refSelector.build({
             heads: [["libgit2", "1234567"], ["master", "2345678"]],
             tags: [["v2.1.0", "34565789"], ["v2.1.1", "45657890"]]
         }, "2345678");
@@ -127,7 +128,7 @@ buster.testCase("Ref selector", {
     },
 
     "uses URL template to generate links": function () {
-        var element = gts.refSelector({
+        var element = gts.refSelector.build({
             heads: [["libgit2", "1234567"], ["master", "2345678"]],
             tags: [["v2.1.0", "34565789"], ["v2.1.1", "45657890"]]
         }, "2345678", "/dolt/#{ref}:");

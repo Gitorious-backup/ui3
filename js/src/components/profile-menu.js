@@ -16,7 +16,7 @@ var gts = this.gts || {};
         if (!user) { return; }
         d.setContent([
             e.a({ className: "btn btn-inverse", href: user.dashboardPath },
-                e.i({ className: "icon-user icon-white" }, user.login)),
+                [e.i({ className: "icon-user icon-white" }), user.login]),
             e.a({ className: "btn btn-inverse dropdown-toggle",
                   href: "#",
                   data: { toggle: "dropdown" }

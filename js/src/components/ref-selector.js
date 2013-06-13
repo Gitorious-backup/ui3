@@ -1,4 +1,4 @@
-/*global cull*/
+/*global cull, dome*/
 // The global, shared Gitorious namespace
 this.gts = this.gts || {};
 
@@ -96,9 +96,18 @@ this.gts.refSelector = (function (e) {
                     concat(refItems("Tags", refs.tags || [], urlTemplate)));
     }
 
-    return function (refs, current, urlTemplate) {
+    function build(refs, current, urlTemplate) {
         return e.div({
             className: "dropdown gts-branch-selector pull-right"
         }, [currentRefLink(refs, current), refsList(refs, urlTemplate)]);
-    };
+    }
+
+    function refSelector(placeholder, refs, ref, refUrlTemplate) {
+        var selector = build(refs, ref, refUrlTemplate);
+        placeholder.appendChild(selector);
+        this.gts.dropdown(selector);
+    }
+
+    refSelector.build = build;
+    return refSelector;
 }(dome.el));

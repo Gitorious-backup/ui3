@@ -1,4 +1,4 @@
-/*global gts, cull, dome, Spinner*/
+/*global gts, cull, dome, reqwest, Spinner*/
 // The global, shared Gitorious namespace
 this.gts = this.gts || {};
 
@@ -76,8 +76,9 @@ this.gts.treeHistory = (function (c, d) {
             left: "auto"
         }).spin(cell);
 
-        $.ajax({
+        reqwest({
             url: url,
+            type: "json",
             success: function (tree) {
                 spinner.stop();
                 th.annotate(table, tree);
