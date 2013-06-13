@@ -30,6 +30,10 @@ gts.app.data("current-user", cull.prop("user"), { depends: ["user-repo-view-stat
 gts.app.data("blob-region", gts.blob.regionFromUrl, { depends: ["url"] });
 
 // Features
+// NB! While it is possible to lean on the function name when registering
+// features, e.g. gts.app.feature(gts.googleAnalytics, { ... }); we don't do
+// that, because uglify will strip out the function names, and the app will
+// crash.
 gts.app.feature("google-analytics", gts.googleAnalytics, {
     depends: ["analytics-account", "analytics-domain-name"]
 });
@@ -67,7 +71,7 @@ gts.app.feature("highlight-line-mouseover", gts.blob.highlightLineOnFocus, {
     elements: ["gts-lines"]
 });
 
-gts.app.feature(gts.liveMarkdownPreview, {
+gts.app.feature("live-markdown-preview", gts.liveMarkdownPreview, {
     elements: ["gts-live-markdown-preview"]
 });
 
