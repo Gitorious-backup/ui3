@@ -74,12 +74,22 @@ this.gts.treeHistory = (function (c, d) {
             zIndex: 2e9,
             top: "auto",
             left: "auto"
-        }).spin(cell);
+        });
+
+        // We wait 50ms before we start the spinner. If the request finishes
+        // very quickly, the spinner will apparently get stuck, and the tree
+        // history isn't rendered in the table until it's forced to re-render,
+        // e.g. through mouse-over on the rows etc. This timeout seems to avoid
+        // the issue.
+        var spinCountdown = setTimeout(function () {
+            spinner.spin(cell);
+        }, 50);
 
         reqwest({
             url: url,
             type: "json",
             success: function (tree) {
+                clearTimeout(spinCountdown);
                 spinner.stop();
                 th.annotate(table, tree);
             }
