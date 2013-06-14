@@ -127,6 +127,7 @@ ol.linenums li.region .line {
 /* Mouseover */
 ol.linenums li.focus {
     color: #48484e;
+    border-right: 1px solid #e1e1e8;
 }
 
 .linenums li.region .line,

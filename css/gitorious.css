@@ -221,6 +221,11 @@ ul.gts-blob-view li {
     margin-top: -8px;
 }
 
+/* Allocate as much space as possible to the commit column */
+.gts-tree-explorer .gts-col-commit {
+    width: 80%;
+}
+
 .gts-tree-explorer .icon {
     padding-right: 6px;
 }
@@ -558,10 +563,6 @@ input[type=url].gts-current-repo-url {
 
 .form-horizontal legend + p {
     margin: -20px 0 27px;
-}
-
-.gts-col-commit {
-    width: 50em;
 }
 
 .gts-ref-input,

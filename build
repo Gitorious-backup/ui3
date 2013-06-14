@@ -22,7 +22,11 @@ cat \
     js/lib/bane/lib/bane.js \
     js/lib/reqwest/reqwest.js \
     js/lib/uinit/lib/uinit.js \
-    js/lib/showdown/src/showdown.js \
+    js/lib/showdown/src/showdown.js | ./node_modules/.bin/uglifyjs > dist/gitorious3-dependencies.min.js
+
+du -sh dist/gitorious3-dependencies.min.js
+
+cat \
     js/src/app.js \
     js/src/components/dropdown.js \
     js/src/components/ganalytics.js \
@@ -36,6 +40,12 @@ cat \
     js/src/components/clone-url-selection.js \
     js/src/components/blob.js \
     js/src/components/live-markdown-preview.js \
-    js/src/gitorious.js | ./node_modules/.bin/uglifyjs > dist/gitorious3.min.js
+    js/src/gitorious.js | ./node_modules/.bin/uglifyjs > dist/gitorious3-modules.min.js
+
+du -sh dist/gitorious3-modules.min.js
+
+cat \
+    dist/gitorious3-dependencies.min.js \
+    dist/gitorious3-modules.min.js > dist/gitorious3.min.js
 
 du -sh dist/gitorious3.min.js
