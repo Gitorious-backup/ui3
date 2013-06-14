@@ -1,6 +1,48 @@
 /*global cull, dome*/
 this.gts.blob = (function () {
-    function highlightLineOnFocus(element, start, end) {
+    function getLineNum(element) {
+        while (element && element.tagName !== "LI") {
+            element = element.parentNode;
+        }
+        var lineNum = element && element.className.match(/L(\d+)/)[1];
+        if (!lineNum) { return; }
+        return parseInt(lineNum, 10) + 1;
+    }
+
+    function setRegion(element, region, redirect) {
+        var regionStr = region[0] + (region[1] !== region[0] ? "-" + region[1] : "");
+        redirect("#L" + regionStr);
+        highlightRegion(element, region);
+    }
+
+    function orderedRegion(start, end) {
+        return [
+            Math.min(end || start, start),
+            Math.max(end || start, start)
+        ];
+    }
+
+    function trackSelectedRegion(element, redirect) {
+        var shift = false, anchor;
+        dome.on(document.body, "keydown", function (e) { shift = e.which === 16; });
+        dome.on(document.body, "keyup", function (e) { shift = e.which !== 16; });
+
+        dome.on(element, "click", function (e) {
+            var region, currLine = getLineNum(e.target);
+            if (!shift || !anchor) { anchor = e.target; }
+
+            if (anchor && shift) {
+                region = orderedRegion(getLineNum(anchor), currLine);
+                e.preventDefault();
+            } else {
+                region = [currLine, currLine];
+            }
+
+            setRegion(element, region, redirect);
+        });
+    }
+
+    function highlightLineOnFocus(element, redirect) {
         var highlight = function () { dome.cn.add("focus", this); };
         var dim = function () { dome.cn.rm("focus", this); };
 
@@ -8,14 +50,14 @@ this.gts.blob = (function () {
             dome.on(li, "mouseenter", highlight);
             dome.on(li, "mouseleave", dim);
         }, element.getElementsByTagName("li"));
+
+        trackSelectedRegion(element, redirect);
     }
 
     function regionFromUrl(url) {
         var matches = url.match(/\#l(\d+)(?:-(\d+))?/i);
         if (!matches) { return; }
-        var start = Math.min(matches[2] || matches[1], matches[1]);
-        var end = Math.max(matches[2] || matches[1], matches[1]);
-        return [start, end];
+        return orderedRegion(matches[1], matches[2]);
     }
 
     function highlightRegion(element, region) {

@@ -63,7 +63,8 @@ gts.app.feature("highlight-region", gts.blob.highlightRegion, {
 });
 
 gts.app.feature("highlight-line-mouseover", gts.blob.highlightLineOnFocus, {
-    elements: ["gts-lines"]
+    elements: ["gts-lines"],
+    depends: ["redirect"]
 });
 
 gts.app.feature("live-markdown-preview", gts.liveMarkdownPreview, {
