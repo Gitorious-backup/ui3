@@ -1,8 +1,6 @@
 @import "syntax-highlight.css";
 
-/**
- * Bootstrap tweaks
- */
+/** Bootstrap tweaks */
 
 /* The default responsive Bootstrap layout is too wide */
 .container,
@@ -15,9 +13,7 @@ body h1 {
     margin-bottom: 0.25em;
 }
 
-/**
- * Header
- */
+/** Header */
 body .gts-masthead {
     margin-bottom: 0;
 }
@@ -28,7 +24,7 @@ body .gts-masthead {
     background-color: #201e1e;
 }
 
-/* Get the logo and top bar alignment right. */
+/** Get the logo and top bar alignment right. */
 .gts-masthead .container {
     padding-bottom: 8px;
     padding-top: 20px;
@@ -39,23 +35,20 @@ body .gts-masthead {
     margin: -4px 20px 6px 0;
 }
 
-.gts-clone-source {
-    margin-left: 30px;
-}
-
 .gts-masthead .navbar-inner .btn-group {
     padding-right: 0;
 }
 
-/**
- * Repo "boxes"
- */
-
+/** Repo "boxes" */
 .gts-repo-header {
     background: #f5f5f5;
     border-bottom: 1px solid #ddd;
     margin-bottom: 20px;
     padding: 20px 0 0;
+}
+
+.gts-clone-source {
+    margin-left: 30px;
 }
 
 tt {
@@ -238,9 +231,7 @@ ul.gts-blob-view li {
     padding-right: 0;
 }
 
-/**
- * Private repositories
- */
+/** Private repositories */
 .gts-private {
     background: url(../images/white-980x1.png) repeat-y 50% 0 #222;
 }
@@ -251,9 +242,7 @@ ul.gts-blob-view li {
     background-position: 100% 0;
 }
 
-/**
- * Repo URLs
- */
+/** Repo URLs */
 .gts-repo-url {
     position: relative;
     z-index: 1;
@@ -280,9 +269,7 @@ input[type=url].gts-current-repo-url {
     margin-bottom: 35px;
 }
 
-/**
- * Date headings
- */
+/** Date headings */
 .gts-date-heading {
     background-color: #f7f7f9;
     border-bottom: 1px solid #e1e1e8;
@@ -338,9 +325,7 @@ input[type=url].gts-current-repo-url {
     text-decoration: underline;
 }
 
-/**
- * Footer
- */
+/** Footer */
 .footer {
     border-top: 1px solid #e5e5e5;
     margin-top: 45px;
@@ -359,7 +344,6 @@ input[type=url].gts-current-repo-url {
     margin-top: 12px;
     padding-top: 12px;
 }
-
 
 /* Branch graph */
 .capillary p {
@@ -621,7 +605,6 @@ input[type=text].gts-ref-input {
     padding: 2px;
 }
 
-
 .gts-markup pre code {
     font-size: inherit;
 }
@@ -635,6 +618,7 @@ input[type=text].gts-ref-input {
     min-height: 20px;
     padding: 19px;
 }
+
 .gts-readme .gts-page-header {
     background-color: #f5f5f5;
     border-radius: 4px 0px 0px 4px;

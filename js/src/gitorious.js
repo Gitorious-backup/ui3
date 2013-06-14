@@ -1,13 +1,5 @@
 /*global gts, reqwest, cull*/
 
-this.gts.loadRefs = function (url) {
-    return reqwest({ url: url, type: "json" });
-};
-
-function refUrlTpl(url, ref) {
-    return gts.url.templatize(url, { ref: ref });
-}
-
 // Environment variables
 gts.app.env("url", window.location.href);
 gts.app.env("redirect", function (url) { window.location = url; });
@@ -19,9 +11,15 @@ if ("onpopstate" in window) {
 }
 
 // Data
+gts.app.data("ref-url-template", function (url, ref) {
+    return gts.url.templatize(url, { ref: ref });
+}, { depends: ["url", "current-ref"] });
+
+gts.app.data("repository-refs", function (url) {
+    return reqwest({ url: url, type: "json" });
+}, { depends: ["repository-refs-url"] });
+
 gts.app.data("current-ref", gts.url.currentRef, { depends: ["url"] });
-gts.app.data("ref-url-template", refUrlTpl, { depends: ["url", "current-ref"] });
-gts.app.data("repository-refs", gts.loadRefs, { depends: ["repository-refs-url"] });
 gts.app.data("user-repo-view-state", gts.userRepoViewState, { depends: ["user-repository-path"] });
 gts.app.data("current-user", cull.prop("user"), { depends: ["user-repo-view-state"] });
 gts.app.data("blob-region", gts.blob.regionFromUrl, { depends: ["url"] });
