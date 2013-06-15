@@ -13,7 +13,10 @@ if ("onpopstate" in window) {
 // Data
 gts.app.data("ref-url-template", function (url, ref) {
     return gts.url.templatize(url, { ref: ref });
-}, { depends: ["url", "current-ref"] });
+}, {
+    depends: ["url", "current-ref"],
+    serializeArgs: function (url, ref) { return [url.split("#")[0], ref]; }
+});
 
 gts.app.data("repository-refs", function (url) {
     return reqwest({ url: url, type: "json" });

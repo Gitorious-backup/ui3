@@ -25,3 +25,6 @@
 [submodule "js/lib/uinit"]
 	path = js/lib/uinit
 	url = https://git.gitorious.org/gitorious/uinit.git
+[submodule "js/lib/samsam"]
+	path = js/lib/samsam
+	url = git@github.com:busterjs/samsam.git

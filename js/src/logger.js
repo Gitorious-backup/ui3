@@ -20,6 +20,10 @@ function uinitLogger(app, level) {
         app.on("loading", function (feature) {
             console.log("[Loading:", feature.name + "]");
         });
+
+        app.on("reloading", function (feature) {
+            console.log("[Re-loading:", feature.name + "]");
+        });
     }
 
     if (level <= uinitLogger.INFO) {
@@ -45,6 +49,12 @@ function uinitLogger(app, level) {
             }
 
             console.log("[Pending:", feature.name + "]", reason);
+        });
+    }
+
+    if (level <= uinitLogger.INFO) {
+        app.on("skip", function (feature) {
+            console.log("[Skip:", feature.name + "]", "Reload triggered, but input was unchanged");
         });
     }
 
