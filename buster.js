@@ -1,5 +1,5 @@
 exports["Baseline"] = {
-    sources: ["js/src/app.js", "js/src/components/**/*.js"],
+    sources: ["js/src/components/**/*.js"],
     testHelpers: ["js/test-libs/*.js"],
     tests: ["js/test/**/*-test.js"],
     extensions: [require("buster-html-doc")]
@@ -7,17 +7,20 @@ exports["Baseline"] = {
 
 exports["Build test"] = {
     extends: "Baseline",
-    libs: ["dist/gts-ui-deps.js"]
+    libs: ["dist/gitorious3.min.js"]
 };
 
 exports["Browser tests"] = {
     extends: "Baseline",
     libs: [
-        "js/lib/when/when.js",
-        "js/lib/bane/lib/bane.js",
         "js/lib/culljs/lib/cull.js",
         "js/lib/dome/lib/dome.js",
         "js/lib/dome/lib/event.js",
-        "js/lib/spin.js/dist/spin.min.js"
+        "js/lib/spin.js/spin.js",
+        "js/lib/when/when.js",
+        "js/lib/bane/lib/bane.js",
+        "js/lib/reqwest/reqwest.js",
+        "js/lib/uinit/lib/uinit.js",
+        "js/lib/showdown/src/showdown.js"
     ]
 };
