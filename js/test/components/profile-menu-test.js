@@ -1,4 +1,4 @@
-/*global gts*/
+/*global buster, assert, gts*/
 
 buster.testCase("Profile menu", {
     "does nothing when no user": function () {

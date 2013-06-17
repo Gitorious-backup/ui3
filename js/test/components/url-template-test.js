@@ -1,3 +1,4 @@
+/*global buster, assert, refute, jQuery, gts*/
 buster.testCase("URL", {
     "templatize": {
         "returns only path": function () {
@@ -16,20 +17,22 @@ buster.testCase("URL", {
         },
 
         "replaces all occurrences of value": function () {
-            var url = gts.url.templatize("http://localhost:3000/master/some/master", {
+            var url = "http://localhost:3000/master/some/master";
+            var template = gts.url.templatize(url, {
                 ref: "master"
             });
 
-            assert.equals(url, "/#{ref}/some/#{ref}");
+            assert.equals(template, "/#{ref}/some/#{ref}");
         },
 
         "replaces all values": function () {
-            var url = gts.url.templatize("http://localhost:3000/master:lib/file.js", {
+            var url = "http://localhost:3000/master:lib/file.js";
+            var template = gts.url.templatize(url, {
                 ref: "master",
                 path: "lib/file.js"
             });
 
-            assert.equals(url, "/#{ref}:#{path}");
+            assert.equals(template, "/#{ref}:#{path}");
         }
     },
 
@@ -54,7 +57,8 @@ buster.testCase("URL", {
         },
 
         "extracts ref with slashes": function () {
-            var ref = gts.url.currentRef("http://localhost/blob/refs/heads/something:");
+            var url = "http://localhost/blob/refs/heads/something:";
+            var ref = gts.url.currentRef(url);
             assert.equals(ref, "refs/heads/something");
         }
     }

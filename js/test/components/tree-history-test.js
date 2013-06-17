@@ -1,3 +1,5 @@
+/*global buster, assert, refute, jQuery, gts*/
+/*jslint maxlen: 130*/
 buster.testCase("Tree history", {
     setUp: function () {
         /*:DOC table = <table class="table table-striped gts-tree-explorer">
@@ -171,7 +173,7 @@ buster.testCase("Tree history", {
             var cells = row.getElementsByTagName("td");
 
             assert.equals(cells[1].innerHTML, "Sep 10 2012");
-            assert.equals($(cells[2]).attr("data-gts-commit-oid"),
+            assert.equals(jQuery(cells[2]).attr("data-gts-commit-oid"),
                           "906d67b4f3e5de7364ba9b57d174d8998d53ced6");
             assert.equals(cells[2].innerHTML, "#906d67b");
             assert.match(cells[3].innerHTML, "Working Moron server for viewing blobs");
@@ -183,7 +185,7 @@ buster.testCase("Tree history", {
             var cells = row.getElementsByTagName("td");
 
             assert.equals(cells[1].innerHTML, "Aug 23 2012");
-            assert.equals($(cells[2]).attr("data-gts-commit-oid"),
+            assert.equals(jQuery(cells[2]).attr("data-gts-commit-oid"),
                          "26139a3aba4aac8cbf658c0d0ea58b8983e4090b");
             assert.equals(cells[2].innerHTML, "#26139a3");
             assert.match(cells[3].innerHTML, "Initial commit");
@@ -250,7 +252,7 @@ buster.testCase("Tree history", {
             var cells = row.getElementsByTagName("td");
 
             assert.equals(cells[2].innerHTML, "Oct 2 2012");
-            assert.equals($(cells[3]).attr("data-gts-commit-oid"),
+            assert.equals(jQuery(cells[3]).attr("data-gts-commit-oid"),
                          "2ca8e4e51aeb7d4cff7145c1e4e2ccb9cde19181");
             assert.equals(cells[3].innerHTML, "#2ca8e4e");
             assert.match(cells[4].innerHTML, "Add support for async tree history");

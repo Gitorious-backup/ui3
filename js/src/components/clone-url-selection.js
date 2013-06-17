@@ -1,4 +1,9 @@
 /*global cull, dome*/
+this.gts = this.gts || {};
+
+/**
+ * When clicking clone URLs, copy them to the related input field.
+ */
 this.gts.cloneUrlSelection = function cloneUrlSelection(element) {
     var input = element.getElementsByTagName("input")[0];
 

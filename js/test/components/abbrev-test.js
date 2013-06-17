@@ -1,3 +1,4 @@
+/*global buster, assert, gts*/
 buster.testCase("Abbrev", {
     "returns short enough string": function () {
         assert.equals("Some string", gts.abbrev("Some string", 30));

@@ -1,4 +1,5 @@
 /*global cull*/
+/*jslint maxlen: 100*/
 // The global, shared Gitorious namespace
 this.gts = this.gts || {};
 
@@ -53,7 +54,7 @@ this.gts.url = (function () {
     function currentRef(url) {
         var regexp = /(blame|blob|tree|history|raw|source|readme)\//;
         var refPath = url.split(regexp)[2];
-        return refPath && refPath.split(":")[0] || null;
+        return (refPath && refPath.split(":")[0]) || null;
     }
 
     return {

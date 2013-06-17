@@ -42,8 +42,9 @@ this.gts.dropdown = (function (D) {
         function toggle(element) {
             if (active) { return close(); }
 
-            if ("ontouchstart" in document.documentElement) {
-                // if mobile we we use a backdrop because click events don't delegate
+            if (document.documentElement.hasOwnProperty("ontouchstart")) {
+                // if mobile we we use a backdrop because click events don't
+                // delegate
                 backdrop = D.el("div", {
                     className: "dropdown-backdrop",
                     events: { click: close }

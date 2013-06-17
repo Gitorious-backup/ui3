@@ -4,7 +4,7 @@
 gts.app.env("url", window.location.href);
 gts.app.env("redirect", function (url) { window.location = url; });
 
-if ("onpopstate" in window) {
+if (window.hasOwnProperty("onpopstate")) {
     window.onpopstate = function (event) {
         gts.app.env("url", window.location.href);
     };
@@ -23,8 +23,12 @@ gts.app.data("repository-refs", function (url) {
 }, { depends: ["repository-refs-url"] });
 
 gts.app.data("current-ref", gts.url.currentRef, { depends: ["url"] });
-gts.app.data("user-repo-view-state", gts.userRepoViewState, { depends: ["user-repository-path"] });
-gts.app.data("current-user", cull.prop("user"), { depends: ["user-repo-view-state"] });
+gts.app.data("user-repo-view-state", gts.userRepoViewState, {
+    depends: ["user-repository-path"]
+});
+gts.app.data("current-user", cull.prop("user"), {
+    depends: ["user-repo-view-state"]
+});
 gts.app.data("blob-region", gts.blob.regionFromUrl, { depends: ["url"] });
 
 // Features
@@ -65,7 +69,7 @@ gts.app.feature("highlight-region", gts.blob.highlightRegion, {
     depends: ["blob-region"]
 });
 
-gts.app.feature("highlight-line-mouseover", gts.blob.highlightLineOnFocus, {
+gts.app.feature("track-blob-focus", gts.blob.trackFocus, {
     elements: ["gts-lines"],
     depends: ["redirect"]
 });

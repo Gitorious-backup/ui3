@@ -1,25 +1,21 @@
 /*global Showdown*/
+
+/**
+ * Monitor a textarea and render a live preview of its content parsed as
+ * Markdown. The textarea needs to have the data attribute
+ * data-gts-preview-target set, and it should be an id of an element elsewhere
+ * in the document. The target element needs to contain at least a div element,
+ * which is where the preview will be rendered.
+ * 
+ * When previewing, the target will be hidden when the textarea is empty, and
+ * shown with block display when there is content.
+ */
 this.gts.liveMarkdownPreview = function liveMarkdownPreview(textarea) {
-    var target = document.getElementById(textarea.getAttribute("data-gts-preview-target"));
+    var attr = textarea.getAttribute("data-gts-preview-target");
+    var target = document.getElementById(attr);
     if (!target || typeof Showdown === "undefined") { return; }
     var converter = new Showdown.converter();
     var previous, content;
-
-    var cageSeed = new Date().getTime();
-
-    function zeroPad(num) {
-        return num < 10 ? "0" + num : num;
-    }
-
-    function signature() {
-        var now = new Date();
-        return "<p>" +
-            "<img width=\"24\" height=\"24\" class=\"gts-avatar\" alt=\"avatar\" src=\"http://cageme.herokuapp.com/24/24?" +
-            cageSeed + "\">" +
-            "<a href=\"/~zmalltalker\">Marius Mathiesen</a>" +
-            zeroPad(now.getHours()) + ":" + zeroPad(now.getMinutes()) +
-            ". <a href=\"#\">Edit comment</a></p>";
-    }
 
     function setPreview(preview) {
         target.style.display = preview ? "block" : "none";

@@ -102,7 +102,8 @@ this.gts.treeHistory = (function (c, d) {
     }
 
     function getTreeIndent(cells) {
-        for (var i = 0, l = cells.length; i < l; ++i) {
+        var i, l;
+        for (i = 0, l = cells.length; i < l; ++i) {
             if (dome.cn.has("gts-name", cells[i])) {
                 return i;
             }
@@ -112,7 +113,7 @@ this.gts.treeHistory = (function (c, d) {
     }
 
     function fileName(element) {
-        return (element && dome.text(element) || "").trim();
+        return ((element && dome.text(element)) || "").trim();
     }
 
     th.annotateRow = function (tree, row) {

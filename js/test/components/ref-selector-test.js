@@ -1,4 +1,4 @@
-/*global gts*/
+/*global buster, assert, refute, jQuery, gts*/
 buster.testCase("Ref selector", {
     "returns div": function () {
         var element = gts.refSelector.build({});

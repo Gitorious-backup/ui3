@@ -1,6 +1,5 @@
 /*global cull*/
-// The global, shared Gitorious namespace
-var gts = this.gts || {};
+this.gts = this.gts || {};
 
 /**
  * Abbreviates a string to fit within a predefined width. If the
@@ -12,7 +11,7 @@ var gts = this.gts || {};
  * with the suffix is guaranteed to not be wider than the specified
  * width.
  */
-gts.abbrev = function (sentence, width, suffix) {
+this.gts.abbrev = function (sentence, width, suffix) {
     if (sentence.length <= width) { return sentence; }
     suffix = suffix || "";
 

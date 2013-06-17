@@ -59,7 +59,7 @@ this.gts.refSelector = (function (e) {
             href: "#",
             className: "dropdown-toggle",
             innerHTML: "<span class=\"caret\"></span> <em>" +
-                type + ":</em> " + (currentRef && currentRef[0] || current)
+                type + ":</em> " + ((currentRef && currentRef[0]) || current)
         });
     }
 
@@ -82,9 +82,10 @@ this.gts.refSelector = (function (e) {
     }
 
     function refItems(label, refs, urlTemplate) {
-        var initial = [e.li({ className: "dropdown-label" }, [e.strong(label)])];
+        var initial = [e.li({className: "dropdown-label"}, [e.strong(label)])];
         return cull.reduce(function (elements, ref) {
-            elements.push(e.li(e.a({ href: tpl(urlTemplate, ref[1]) }, ref[0])));
+            var url = tpl(urlTemplate, ref[1]);
+            elements.push(e.li(e.a({ href: url }, ref[0])));
             return elements;
         }, initial, refs.sort());
     }

@@ -1,4 +1,4 @@
-/*global gts, cull, dome*/
+/*global cull, dome, console, gts*/
 function uinitLogger(app, level) {
     if (typeof level === "string") {
         level = uinitLogger.levels.indexOf((level || "info").toLowerCase());
@@ -28,19 +28,21 @@ function uinitLogger(app, level) {
 
     if (level <= uinitLogger.INFO) {
         app.on("pending", function (feature) {
-            var reason, waitingFor = cull.map(cull.prop("name"), cull.select(function (f) {
+            var name = cull.prop("name");
+            var reason, pending = cull.map(name, cull.select(function (f) {
                 return !f.loaded;
             }, feature.dependencies()));
 
-            if (waitingFor.length > 0) {
+            if (pending.length > 0) {
                 reason = "Waiting for ";
-                reason += waitingFor.length === 1 ? "dependency" : "dependencies";
-                reason += " [" + waitingFor.join(", ") + "]";
+                reason += pending.length === 1 ? "dependency" : "dependencies";
+                reason += " [" + pending.join(", ") + "]";
             }
 
             if (!reason && feature.elements) {
                 if (dome.byClass(feature.elements).length === 0) {
-                    reason = "No matching elements for selector ." + feature.elements;
+                    reason = "No matching elements for selector ." +
+                        feature.elements;
                 }
             }
 
@@ -54,7 +56,8 @@ function uinitLogger(app, level) {
 
     if (level <= uinitLogger.INFO) {
         app.on("skip", function (feature) {
-            console.log("[Skip:", feature.name + "]", "Reload triggered, but input was unchanged");
+            console.log("[Skip:", feature.name + "]",
+                        "Reload triggered, but input was unchanged");
         });
     }
 
