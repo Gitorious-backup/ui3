@@ -1,13 +1,4 @@
 /*global buster, assert, dome, gts*/
-function zp(num) {
-    return num < 10 ? "0" + num : num;
-}
-
-function toStr(date) {
-    return date.getFullYear() + "-" + zp(date.getMonth() + 1) + "-" +
-        zp(date.getDate()) + "T" + zp(date.getHours()) + ":" +
-        zp(date.getMinutes()) + ":" + zp(date.getSeconds()) + "Z";
-}
 
 buster.testCase("Timeago", {
     "converts abbr content to casual date representation": function () {
@@ -42,24 +33,34 @@ buster.testCase("Timeago", {
         assert.equals(el.innerHTML, "Hmm");
     },
 
-    "periodically updates date representations": function () {
-        var clock = this.useFakeTimers();
-        var els = [
-            dome.el("abbr", { title: toStr(new Date(0)) }),
-            dome.el("abbr", { title: toStr(new Date(60000)) })
-        ];
+    "periodic": {
+        "updates representation immediately": function () {
+            var el = dome.el("abbr", { title: "1970-01-01T00:00:00Z" });
+            var timeago = gts.timeago.periodic(60000);
+            timeago(el);
 
-        var timeago = gts.timeago.periodic(60000);
-        timeago(els[0]);
-        timeago(els[1]);
-        var contents = [els[0].innerHTML, els[1].innerHTML];
+            assert.match(el.innerHTML, "ago");
+        },
 
-        clock.tick(59999);
-        assert.equals(els[0].innerHTML, contents[0]);
-        assert.equals(els[1].innerHTML, contents[1]);
+        "updates representations periodically": function () {
+            var clock = this.useFakeTimers();
+            var now = new Date();
+            var els = [
+                dome.el("abbr", { title: "1970-01-01T00:00:00Z" }),
+                dome.el("abbr", { title: "1970-01-01T00:03:00Z" })
+            ];
 
-        clock.tick(1);
-        refute.equals(els[0].innerHTML, contents[0]);
-        refute.equals(els[1].innerHTML, contents[1]);
+            var timeago = gts.timeago.periodic(60000);
+            timeago(els[0]);
+            timeago(els[1]);
+            var contents = [els[0].innerHTML, els[1].innerHTML];
+            clock.tick(59999);
+            assert.equals(els[0].innerHTML, contents[0]);
+            assert.equals(els[1].innerHTML, contents[1]);
+
+            clock.tick(1);
+            refute.equals(els[0].innerHTML, contents[0]);
+            refute.equals(els[1].innerHTML, contents[1]);
+        }
     }
 });

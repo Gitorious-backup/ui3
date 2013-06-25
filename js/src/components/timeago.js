@@ -29,6 +29,7 @@ this.gts.timeago = (function (ta) {
 
         return function (el) {
             cache[timeout].push({ element: el, time: el.title });
+            return timeago(el, el.title);
         };
     };
 
