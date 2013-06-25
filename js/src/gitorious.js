@@ -78,6 +78,12 @@ gts.app.feature("live-markdown-preview", gts.liveMarkdownPreview, {
     elements: ["gts-live-markdown-preview"]
 });
 
+gts.app.feature("timeago", gts.timeago.periodic(60000), {
+    elements: ["timeago"]
+});
+
+gts.app.feature("collapse", gts.collapse);
+
 // Spin off app asynchronously so subsequent scripts have a chance
 // to register loggers etc before we roll
 setTimeout(function () {

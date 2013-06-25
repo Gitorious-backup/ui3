@@ -40,6 +40,8 @@ cat \
     js/src/components/clone-url-selection.js \
     js/src/components/blob.js \
     js/src/components/live-markdown-preview.js \
+    js/src/components/timeago.js \
+    js/src/components/collapse.js \
     js/src/gitorious.js | ./node_modules/.bin/uglifyjs > dist/gitorious3-modules.min.js
 
 du -sh dist/gitorious3-modules.min.js
