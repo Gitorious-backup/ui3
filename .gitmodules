@@ -28,3 +28,6 @@
 [submodule "js/lib/samsam"]
 	path = js/lib/samsam
 	url = git@github.com:busterjs/samsam.git
+[submodule "js/lib/timeago"]
+	path = js/lib/timeago
+	url = https://github.com/cjohansen/timeago.git

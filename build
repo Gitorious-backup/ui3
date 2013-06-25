@@ -22,7 +22,8 @@ cat \
     js/lib/bane/lib/bane.js \
     js/lib/reqwest/reqwest.js \
     js/lib/uinit/lib/uinit.js \
-    js/lib/showdown/src/showdown.js | ./node_modules/.bin/uglifyjs > dist/gitorious3-dependencies.min.js
+    js/lib/showdown/src/showdown.js \
+    js/lib/timeago/timeago.js | ./node_modules/.bin/uglifyjs > dist/gitorious3-dependencies.min.js
 
 du -sh dist/gitorious3-dependencies.min.js
 
