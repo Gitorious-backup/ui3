@@ -21,6 +21,7 @@ exports["Browser tests"] = {
         "js/lib/bane/lib/bane.js",
         "js/lib/reqwest/reqwest.js",
         "js/lib/uinit/lib/uinit.js",
-        "js/lib/showdown/src/showdown.js"
+        "js/lib/showdown/src/showdown.js",
+        "js/lib/timeago/timeago.js"
     ]
 };
