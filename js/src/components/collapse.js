@@ -7,7 +7,7 @@
  */
 this.gts.collapse = function () {
     dome.on(document.body, "click", function (e) {
-        if (!dome.cn.has("dropdown-toggle", e.target)) { return; }
+        if (dome.data.get("toggle", e.target) !== "collapse") { return; }
         var target = dome.id(dome.data.get("target", e.target).slice(1));
         if (!target) { return; }
         dome.cn[dome.cn.has("in", target) ? "rm" : "add"]("in", target);
