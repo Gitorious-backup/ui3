@@ -23,11 +23,17 @@ gts.app.data("repository-refs", function (url) {
 }, { depends: ["repository-refs-url"] });
 
 gts.app.data("current-ref", gts.url.currentRef, { depends: ["url"] });
-gts.app.data("user-repo-view-state", gts.userRepoViewState, {
+gts.app.data("user-repo-view-state", gts.cache(gts.userRepoViewState), {
     depends: ["user-repository-path"]
 });
 gts.app.data("current-user", cull.prop("user"), {
     depends: ["user-repo-view-state"]
+});
+gts.app.data("current-repository", cull.prop("repository"), {
+    depends: ["user-repo-view-state"]
+});
+gts.app.data("repository-admin", cull.prop("admin"), {
+    depends: ["current-repository"]
 });
 gts.app.data("blob-region", gts.blob.regionFromUrl, { depends: ["url"] });
 
@@ -38,6 +44,10 @@ gts.app.data("blob-region", gts.blob.regionFromUrl, { depends: ["url"] });
 // crash.
 gts.app.feature("google-analytics", gts.googleAnalytics, {
     depends: ["analytics-account", "analytics-domain-name"]
+});
+
+gts.app.feature("dropdown", gts.dropdown, {
+    elements: ["dropdown"]
 });
 
 gts.app.feature("ref-selector", gts.refSelector, {
