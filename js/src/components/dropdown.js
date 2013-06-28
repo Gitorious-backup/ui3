@@ -56,6 +56,7 @@ this.gts.dropdown = (function (D) {
         }
 
         D.on(element, "click", function (e) {
+            if (!dome.cn.has("dropdown-toggle", e.target)) { return; }
             toggle(this);
             e.preventDefault();
             e.stopPropagation();
