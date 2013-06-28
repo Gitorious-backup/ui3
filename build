@@ -29,6 +29,7 @@ du -sh dist/gitorious3-dependencies.min.js
 
 cat \
     js/src/app.js \
+    js/src/cache.js \
     js/src/components/dropdown.js \
     js/src/components/ganalytics.js \
     js/src/components/abbrev.js \
@@ -43,6 +44,7 @@ cat \
     js/src/components/live-markdown-preview.js \
     js/src/components/timeago.js \
     js/src/components/collapse.js \
+    js/src/components/repository-admin.js \
     js/src/gitorious.js | ./node_modules/.bin/uglifyjs > dist/gitorious3-modules.min.js
 
 du -sh dist/gitorious3-modules.min.js
