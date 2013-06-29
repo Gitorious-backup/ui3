@@ -15,25 +15,19 @@ this.gts.repositoryAdmin = (function (el) {
     }
 
     function build(data) {
-        var children = [
-            el.li(link(data.editPath, "icon-pencil", "Edit repository")),
-            el.li(link(data.destroyPath, "icon-trash", "Delete repository")),
-            el.li({ className: "divider" }),
-            el.li(link(data.ownershipPath, "i", "Transfer ownership")),
-            el.li(link(data.committershipsPath, "i", "Manage collaborators"))
-        ];
-
-        if (data.membershipsPath) {
-            children.push(el.li(link(data.membershipsPath, "i", "Manage access")));
-        }
-
         return el.li({ className: "pull-right dropdown" }, [
             el.a({
                 href: "#",
                 "data-toggle": "dropdown",
                 className: "dropdown-toggle"
             }, bullet("icon-cog", "Admin")),
-            el.ul({ className: "dropdown-menu" }, children)
+            el.ul({ className: "dropdown-menu" }, [
+                el.li(link(data.editPath, "icon-pencil", "Edit repository")),
+                el.li(link(data.destroyPath, "icon-trash", "Delete repository")),
+                el.li({ className: "divider" }),
+                el.li(link(data.ownershipPath, "i", "Transfer ownership")),
+                el.li(link(data.committershipsPath, "i", "Manage collaborators"))
+            ])
         ]);
     }
 

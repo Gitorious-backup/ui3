@@ -31,12 +31,5 @@ buster.testCase("Repository admin", {
         assert.match(menu.innerHTML, "/destroy");
         assert.match(menu.innerHTML, "/ownership");
         assert.match(menu.innerHTML, "/committerships");
-    },
-
-    "includes link to memberships if present": function () {
-        this.data.membershipsPath = "/memberships";
-        var menu = gts.repositoryAdmin.build(this.data);
-
-        assert.match(menu.innerHTML, "/memberships");
     }
 });
