@@ -6,12 +6,6 @@ this.gts = this.gts || {};
  * current user can admin the repository. Initialize as a dropdown toggler if built.
  */
 this.gts.repositoryAdmin = (function (el) {
-    function repositoryAdmin(placeholder, data) {
-        var toggler = repositoryAdmin.build(data);
-        placeholder.appendChild(toggler);
-        this.gts.dropdown(toggler);
-    }
-
     function bullet(type, text) {
         return [el.i({ className: type }), " " + text];
     }
@@ -20,7 +14,7 @@ this.gts.repositoryAdmin = (function (el) {
         return el.a({ href: href }, bullet(type, text));
     }
 
-    repositoryAdmin.build = function (data) {
+    function build(data) {
         var children = [
             el.li(link(data.editPath, "icon-pencil", "Edit repository")),
             el.li(link(data.destroyPath, "icon-trash", "Delete repository")),
@@ -41,7 +35,18 @@ this.gts.repositoryAdmin = (function (el) {
             }, bullet("icon-cog", "Admin")),
             el.ul({ className: "dropdown-menu" }, children)
         ]);
-    };
+    }
 
+    function repositoryAdmin(placeholder, data) {
+        var toggler = build(data);
+        placeholder.appendChild(toggler);
+        this.gts.dropdown(toggler);
+
+        if (dome.data.get("gts-active", placeholder) === "admin") {
+            dome.cn.add("active", toggler);
+        }
+    }
+
+    repositoryAdmin.build = build;
     return repositoryAdmin;
 }(dome.el));
