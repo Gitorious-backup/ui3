@@ -103,6 +103,10 @@ gts.app.feature("timeago", gts.timeago.periodic(60000), {
 
 gts.app.feature("collapse", gts.collapse);
 
+gts.app.feature("clone-name-suggestion", gts.cloneNameSuggestion, {
+    elements: ["clone-repository-form"]
+});
+
 // Spin off app asynchronously so subsequent scripts have a chance
 // to register loggers etc before we roll
 setTimeout(function () {
