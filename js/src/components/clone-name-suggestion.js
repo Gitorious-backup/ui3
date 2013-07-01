@@ -2,35 +2,36 @@
 this.gts = this.gts || {};
 
 this.gts.cloneNameSuggestion = (function () {
-    function prefix(name) {
-        return /s$/.test(name) ? name : name + "s";
+    function repoName(name, repo) {
+        var prefix = /s$/.test(name) ? name : name + "s";
+        return prefix + "-" + repo;
     }
 
     return function cloneNameSuggestion(form) {
         var repo = dome.data.get("gts-repository-to-clone", form);
-        var userInput = dome.byId("repository_owner_type_user");
-        var groupInput = dome.byId("repository_owner_type_group");
-        var groupSelect = dome.byId("repository_owner_id_group_select");
-        var nameInput = dome.byId("repository_name");
+        var userInput = dome.id("repository_owner_type_user");
+        var groupInput = dome.id("repository_owner_type_group");
+        var groupSelect = dome.id("repository_owner_id_group_select");
+        var nameInput = dome.id("repository_name");
 
-        var prefixes = cull.reduce(function (memo, option) {
-            return memo.concat(prefix(option.innerHTML));
-        }, [prefix(dome.data.get("gts-cloning-user", userInput))], groupSelect.options);
+        var names = cull.reduce(function (memo, option) {
+            return memo.concat(repoName(option.innerHTML, repo));
+        }, [repoName(dome.data.get("gts-cloning-user", userInput), repo)], groupSelect.options);
 
         function setSuggestion() {
-            if (nameInput.value && cull.indexOf(nameInput.value, prefixes) < 0) { return; }
+            if (nameInput.value && cull.indexOf(nameInput.value, names) < 0) { return; }
             if (userInput.checked) {
-                nameInput.value = prefixes[0] + "-" + repo;
+                nameInput.value = names[0];
                 return;
             }
-            if (groupSelect.checked) {
+            if (groupInput.checked) {
                 var option = groupSelect.options[groupSelect.selectedIndex];
-                nameInput.value = prefix(option.innerHTML) + "-" + repo;
+                nameInput.value = repoName(option.innerHTML, repo);
             }
         }
 
-        dome.on(userInput, "change", setSuggestion);
-        dome.on(groupInput, "change", setSuggestion);
+        dome.on(userInput, "click", setSuggestion);
+        dome.on(groupInput, "click", setSuggestion);
         dome.on(groupSelect, "change", setSuggestion);
         setSuggestion();
     };
