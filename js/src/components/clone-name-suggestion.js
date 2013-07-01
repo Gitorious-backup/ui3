@@ -18,7 +18,7 @@ this.gts.cloneNameSuggestion = (function () {
         }, [prefix(dome.data.get("gts-cloning-user", userInput))], groupSelect.options);
 
         function setSuggestion() {
-            if (cull.indexOf(nameInput.value, prefixes) < 0) { return; }
+            if (nameInput.value && cull.indexOf(nameInput.value, prefixes) < 0) { return; }
             if (userInput.checked) {
                 nameInput.value = prefixes[0] + "-" + repo;
                 return;
@@ -32,5 +32,6 @@ this.gts.cloneNameSuggestion = (function () {
         dome.on(userInput, "change", setSuggestion);
         dome.on(groupInput, "change", setSuggestion);
         dome.on(groupSelect, "change", setSuggestion);
+        setSuggestion();
     };
 }());
