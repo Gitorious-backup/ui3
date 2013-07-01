@@ -10,18 +10,6 @@ if (window.hasOwnProperty("onpopstate")) {
     };
 }
 
-(function () {
-    var metas = document.getElementsByTagName("meta");
-    for (var i = 0, l = metas.length; i < l; ++i) {
-        if (metas[i].name === "csrf-param") {
-            gts.app.env("csrf-param", metas[i].content);
-        }
-        if (metas[i].name === "csrf-token") {
-            gts.app.env("csrf-token", metas[i].content);
-        }
-    }
-}());
-
 // Data
 gts.app.data("ref-url-template", function (url, ref) {
     return gts.url.templatize(url, { ref: ref });
@@ -58,9 +46,9 @@ gts.app.feature("google-analytics", gts.googleAnalytics, {
     depends: ["analytics-account", "analytics-domain-name"]
 });
 
-gts.app.feature("rails-link-methods", gts.railsLinks, {
-    depends: ["csrf-param", "csrf-token"]
-});
+gts.app.feature("csrf-param", cull.prop("content"), { elements: [".csrf-param"] });
+gts.app.feature("csrf-token", cull.prop("content"), { elements: [".csrf-token"] });
+
 
 gts.app.feature("dropdown", gts.dropdown, {
     elements: ["dropdown"]
