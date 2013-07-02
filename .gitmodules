@@ -31,3 +31,9 @@
 [submodule "js/lib/timeago"]
 	path = js/lib/timeago
 	url = https://github.com/cjohansen/timeago.git
+[submodule "js/lib/raphael"]
+	path = js/lib/raphael
+	url = https://github.com/DmitryBaranovskiy/raphael.git
+[submodule "js/lib/capillary"]
+	path = js/lib/capillary
+	url = https://git.gitorious.org/capillary/capillary-js.git

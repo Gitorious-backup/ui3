@@ -30,6 +30,7 @@ du -sh dist/gitorious3-dependencies.min.js
 cat \
     js/src/app.js \
     js/src/cache.js \
+    js/src/json-request.js \
     js/src/components/dropdown.js \
     js/src/components/ganalytics.js \
     js/src/components/abbrev.js \
@@ -47,6 +48,7 @@ cat \
     js/src/components/repository-admin.js \
     js/src/components/rails-links.js \
     js/src/components/clone-name-suggestion.js \
+    js/src/components/loading.js \
     js/src/gitorious.js | ./node_modules/.bin/uglifyjs > dist/gitorious3-modules.min.js
 
 du -sh dist/gitorious3-modules.min.js
@@ -56,3 +58,18 @@ cat \
     dist/gitorious3-modules.min.js > dist/gitorious3.min.js
 
 du -sh dist/gitorious3.min.js
+
+cat \
+    js/lib/raphael/raphael-min.js \
+    js/src/spacer.js \
+    js/lib/capillary/lib/capillary.js \
+    js/lib/capillary/lib/capillary/branch.js \
+    js/lib/capillary/lib/capillary/graph.js \
+    js/lib/capillary/lib/capillary/formatters/scale.js \
+    js/lib/capillary/lib/capillary/formatters/svg-data.js \
+    js/lib/capillary/lib/capillary/formatters/raphael.js \
+    js/lib/capillary/lib/capillary/formatters/message-markup.js \
+    js/src/components/capillary.js \
+    js/src/capillary.js | ./node_modules/.bin/uglifyjs > dist/gitorious3-capillary.min.js
+
+du -sh dist/gitorious3-capillary.min.js

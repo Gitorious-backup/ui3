@@ -1,4 +1,4 @@
-/*global gts, reqwest, cull*/
+/*global gts, cull*/
 
 // Environment variables
 gts.app.env("url", window.location.href);
@@ -18,10 +18,7 @@ gts.app.data("ref-url-template", function (url, ref) {
     serializeArgs: function (url, ref) { return [url.split("#")[0], ref]; }
 });
 
-gts.app.data("repository-refs", function (url) {
-    return reqwest({ url: url, type: "json" });
-}, { depends: ["repository-refs-url"] });
-
+gts.app.data("repository-refs", this.gts.jsonRequest, { depends: ["repository-refs-url"] });
 gts.app.data("current-ref", gts.url.currentRef, { depends: ["url"] });
 gts.app.data("user-repo-view-state", gts.cache(gts.userRepoViewState), {
     depends: ["user-repository-path"]
@@ -48,7 +45,6 @@ gts.app.feature("google-analytics", gts.googleAnalytics, {
 
 gts.app.feature("csrf-param", cull.prop("content"), { elements: [".csrf-param"] });
 gts.app.feature("csrf-token", cull.prop("content"), { elements: [".csrf-token"] });
-
 
 gts.app.feature("dropdown", gts.dropdown, {
     elements: ["dropdown"]
@@ -105,6 +101,10 @@ gts.app.feature("collapse", gts.collapse);
 
 gts.app.feature("clone-name-suggestion", gts.cloneNameSuggestion, {
     elements: ["clone-repository-form"]
+});
+
+gts.app.feature("loading", gts.loading, {
+    elements: ["loading"]
 });
 
 // Spin off app asynchronously so subsequent scripts have a chance
