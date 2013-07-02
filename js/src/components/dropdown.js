@@ -56,14 +56,15 @@ this.gts.dropdown = (function (D) {
         }
 
         D.on(element, "click", function (e) {
-            if (!dome.cn.has("dropdown-toggle", e.target)) { return; }
+            var target = e.target.tagName === "A" ? e.target : e.target.parentNode;
+            if (!dome.cn.has("dropdown-toggle", target)) { return; }
             toggle(this);
             e.preventDefault();
             e.stopPropagation();
         });
 
-        D.on(document.documentElement, "click", close);
-        D.on(document.documentElement, "keydown", function (e) {
+        D.on(document.body, "click", close);
+        D.on(document.body, "keydown", function (e) {
             if (e.keyCode !== 27) { return; }
             close();
             e.preventDefault();

@@ -4,9 +4,9 @@ this.gts = this.gts || {};
 this.gts.railsLinks = function (csrfParam, csrfToken) {
     dome.on(document.body, "click", function (e) {
         var method = dome.data.get("method", e.target);
+        if (!method || method === "get") { return true; }
         e.preventDefault();
         e.stopPropagation();
-        if (!method || method === "get") { return true; }
         var href = e.target.href;
 
         var form = dome.el("form", {
