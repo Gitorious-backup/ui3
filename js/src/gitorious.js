@@ -55,6 +55,11 @@ gts.app.feature("ref-selector", gts.refSelector, {
     depends: ["repository-refs", "current-ref", "ref-url-template"]
 });
 
+gts.app.feature("oid-ref-interpolator", gts.oidRefInterpolator, {
+    elements: ["gts-oid"],
+    depends: ["repository-refs", "ref-url-template"]
+});
+
 gts.app.feature("repository-admin-menu", gts.repositoryAdmin, {
     elements: ["gts-repository-nav"],
     depends: ["repository-admin"]

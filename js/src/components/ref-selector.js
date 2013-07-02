@@ -110,5 +110,6 @@ this.gts.refSelector = (function (e) {
     }
 
     refSelector.build = build;
+    refSelector.getCurrentRef = getCurrent;
     return refSelector;
 }(dome.el));
