@@ -49,7 +49,7 @@ cat \
     js/src/components/rails-links.js \
     js/src/components/clone-name-suggestion.js \
     js/src/components/loading.js \
-    js/src/components/ref-oid-interpolator.js \
+    js/src/components/oid-ref-interpolator.js \
     js/src/gitorious.js | ./node_modules/.bin/uglifyjs > dist/gitorious3-modules.min.js
 
 du -sh dist/gitorious3-modules.min.js
