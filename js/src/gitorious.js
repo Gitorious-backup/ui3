@@ -43,8 +43,8 @@ gts.app.feature("google-analytics", gts.googleAnalytics, {
     depends: ["analytics-account", "analytics-domain-name"]
 });
 
-gts.app.feature("csrf-param", cull.prop("content"), { elements: [".csrf-param"] });
-gts.app.feature("csrf-token", cull.prop("content"), { elements: [".csrf-token"] });
+gts.app.feature("csrf-param", cull.prop("content"), { elements: ["csrf-param"] });
+gts.app.feature("csrf-token", cull.prop("content"), { elements: ["csrf-token"] });
 
 gts.app.feature("dropdown", gts.dropdown, {
     elements: ["dropdown"]
@@ -112,11 +112,15 @@ gts.app.feature("loading", gts.loading, {
     elements: ["loading"]
 });
 
+gts.app.feature("rails-links", gts.railsLinks, {
+    depends: ["csrf-param", "csrf-token"]
+});
+
 // Spin off app asynchronously so subsequent scripts have a chance
 // to register loggers etc before we roll
 setTimeout(function () {
     // Scan the document for data-gts-* attributes that set
     // "environment variables"
     gts.app.scanEnvAttrs(document.body, "data-gts-env-");
-    gts.app.load(document.body);
+    gts.app.load(document.documentElement);
 }, 10);
