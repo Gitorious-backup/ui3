@@ -8,6 +8,7 @@ var gts = this.gts || {};
  */
 (function (d, e) {
     function button(text, path, icon) {
+        text = " " + text;
         var content = icon ? [e.i({className: "icon-" + icon}), text] : [text];
         return e.li(e.a({ href: path }, content));
     }
@@ -30,5 +31,6 @@ var gts = this.gts || {};
                 button("Log out", user.logoutPath)
             ])
         ], root);
+        gts.dropdown(root);
     };
 }(dome, dome.el));
