@@ -52,7 +52,7 @@ this.gts.url = (function () {
     }
 
     function currentRef(url) {
-        var regexp = /(blame|blob|tree|history|raw|source|readme)\//;
+        var regexp = /(blame|blob|tree|history|raw|source|readme|commits)\//;
         var refPath = url.split(regexp)[2];
         return (refPath && refPath.split(":")[0]) || null;
     }
