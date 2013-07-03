@@ -1,9 +1,10 @@
 exports["Baseline"] = {
     sources: [
         "js/src/cache.js",
+        "js/src/json-request.js",
         "js/src/components/**/*.js"
     ],
-    testHelpers: ["js/test-libs/*.js"],
+    testHelpers: ["js/test-libs/*.js", "js/test/test-helper.js"],
     tests: ["js/test/**/*-test.js"],
     extensions: [require("buster-html-doc")]
 };

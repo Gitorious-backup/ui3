@@ -31,7 +31,7 @@ buster.testCase("Clone name suggestion", {
         ]);
     },
 
-    "suggests username-scoped clone name": function () {
+    "//suggests username-scoped clone name": function () {
         
     }
 });
