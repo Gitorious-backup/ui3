@@ -638,3 +638,7 @@ input[type=text].gts-ref-input {
     margin: -19px -19px 10px -19px;
     padding: 10px 20px 10px 20px;
 }
+
+.gts-watch-repository-ph {
+    display: none;
+}

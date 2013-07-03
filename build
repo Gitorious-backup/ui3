@@ -50,6 +50,7 @@ cat \
     js/src/components/clone-name-suggestion.js \
     js/src/components/loading.js \
     js/src/components/oid-ref-interpolator.js \
+    js/src/components/repository-watching.js \
     js/src/gitorious.js | ./node_modules/.bin/uglifyjs > dist/gitorious3-modules.min.js
 
 du -sh dist/gitorious3-modules.min.js

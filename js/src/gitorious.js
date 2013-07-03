@@ -1,4 +1,4 @@
-/*global gts, cull*/
+/*global gts, cull, reqwest*/
 
 // Environment variables
 gts.app.env("url", window.location.href);
@@ -9,6 +9,23 @@ if (window.hasOwnProperty("onpopstate")) {
         gts.app.env("url", window.location.href);
     };
 }
+
+(function () {
+    cull.doall(function (meta) {
+        if (meta.name === "csrf-param") {
+            gts.app.env("csrf-param", meta.content);
+        }
+        if (meta.name === "csrf-token") {
+            gts.app.env("csrf-token", meta.content);
+        }
+    }, document.getElementsByTagName("meta"));
+
+    gts.request = function (options) {
+        options.headers = options.headers || {};
+        options.headers["X-CSRF-Token"] = gts.app.env["csrf-token"];
+        reqwest(options);
+    };
+}());
 
 // Data
 gts.app.data("ref-url-template", function (url, ref) {
@@ -29,6 +46,9 @@ gts.app.data("current-user", cull.prop("user"), {
 gts.app.data("current-repository", cull.prop("repository"), {
     depends: ["user-repo-view-state"]
 });
+gts.app.data("repository-watch", cull.prop("watch"), {
+    depends: ["current-repository"]
+});
 gts.app.data("repository-admin", cull.prop("admin"), {
     depends: ["current-repository"]
 });
@@ -42,9 +62,6 @@ gts.app.data("blob-region", gts.blob.regionFromUrl, { depends: ["url"] });
 gts.app.feature("google-analytics", gts.googleAnalytics, {
     depends: ["analytics-account", "analytics-domain-name"]
 });
-
-gts.app.feature("csrf-param", cull.prop("content"), { elements: ["csrf-param"] });
-gts.app.feature("csrf-token", cull.prop("content"), { elements: ["csrf-token"] });
 
 gts.app.feature("dropdown", gts.dropdown, {
     elements: ["dropdown"]
@@ -114,6 +131,11 @@ gts.app.feature("loading", gts.loading, {
 
 gts.app.feature("rails-links", gts.railsLinks, {
     depends: ["csrf-param", "csrf-token"]
+});
+
+gts.app.feature("repository-watching", gts.repositoryWatching, {
+    elements: ["gts-watch-repository-ph"],
+    depends: ["current-repository"]
 });
 
 // Spin off app asynchronously so subsequent scripts have a chance
