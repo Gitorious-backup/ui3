@@ -105,7 +105,8 @@ this.gts.refSelector = (function (e) {
 
     function refSelector(placeholder, refs, ref, refUrlTemplate) {
         var selector = build(refs, ref, refUrlTemplate);
-        placeholder.appendChild(selector);
+        placeholder.parentNode.insertBefore(selector, placeholder);
+        placeholder.parentNode.removeChild(placeholder);
         this.gts.dropdown(selector);
     }
 

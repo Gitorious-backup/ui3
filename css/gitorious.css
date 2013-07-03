@@ -224,7 +224,15 @@ ul.gts-blob-view li {
 }
 
 .gts-tree-explorer {
-    margin-top: -8px;
+    display: inline-table;
+    position: relative;
+    top: -8px;
+}
+
+.gts-branch-selector + .gts-tree-explorer {
+    display: inline-table;
+    position: relative;
+    top: -38px;
 }
 
 /* Allocate as much space as possible to the commit column */
