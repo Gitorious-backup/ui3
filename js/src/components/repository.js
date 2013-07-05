@@ -135,7 +135,7 @@ this.gts.repository = (function (el) {
         dome.replace(placeholder, dome.el("a", {
             href: repository.clonePath,
             className: "btn"
-        }));
+        }, "Clone"));
     }
 
     /**
@@ -144,9 +144,10 @@ this.gts.repository = (function (el) {
      */
     function mergeRequest(placeholder, repository) {
         if (!repository.requestMergePath) { return; }
-        dome.replace(placeholder, dome.el("li", [
+        dome.replace(placeholder, dome.el("li", { className: "pull-right" }, [
             dome.el("a", { href: repository.requestMergePath }, [
-                "<li class=\"icon icon-random\"></i> Request merge"
+                dome.el("i", { className: "icon icon-random" }),
+                " Request merge"
             ])
         ]));
     }
