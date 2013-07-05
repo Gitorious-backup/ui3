@@ -15,8 +15,8 @@ this.gts.repository = (function (el) {
         return el.a({ href: href }, bullet(type, text));
     }
 
-    function build(data) {
-        return el.li({ className: "pull-right dropdown" }, [
+    function build(data, tagName) {
+        return el[tagName || "li"]({ className: "pull-right dropdown" }, [
             el.a({
                 href: "#",
                 "data-toggle": "dropdown",
@@ -33,7 +33,7 @@ this.gts.repository = (function (el) {
     }
 
     function repositoryAdmin(placeholder, data) {
-        var toggler = build(data);
+        var toggler = build(data, placeholder.tagName.toLowerCase());
         dome.replace(placeholder, toggler);
         this.gts.dropdown(toggler);
 
