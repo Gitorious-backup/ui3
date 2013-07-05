@@ -51,7 +51,7 @@ this.gts.blob = (function () {
         }
         var lineNum = element && element.className.match(/L(\d+)/)[1];
         if (!lineNum) { return; }
-        return parseInt(lineNum, 10) + 1;
+        return parseInt(lineNum, 10);
     }
 
     /**
