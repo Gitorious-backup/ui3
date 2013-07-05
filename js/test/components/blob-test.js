@@ -3,10 +3,10 @@
 buster.testCase("Blob", {
     setUp: function () {
         this.el = dome.el("ol", [
-            dome.el("li", { className: "L0" }, "First line"),
-            dome.el("li", { className: "L1" }, "Second line"),
-            dome.el("li", { className: "L2" }, "Third line"),
-            dome.el("li", { className: "L3" }, "Fourth line")
+            dome.el("li", { className: "L1" }, "First line"),
+            dome.el("li", { className: "L2" }, "Second line"),
+            dome.el("li", { className: "L3" }, "Third line"),
+            dome.el("li", { className: "L4" }, "Fourth line")
         ]);
     },
 
