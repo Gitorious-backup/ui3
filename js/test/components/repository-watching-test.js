@@ -6,7 +6,7 @@ buster.testCase("Repository watching", {
     },
 
     "replaces placeholder": function () {
-        gts.repositoryWatching(this.el.firstChild, {
+        gts.repository.watching(this.el.firstChild, {
             watching: false,
             watchPath: "/watchit"
         });
@@ -17,7 +17,7 @@ buster.testCase("Repository watching", {
     },
 
     "renders unwatch link": function () {
-        gts.repositoryWatching(this.el.firstChild, {
+        gts.repository.watching(this.el.firstChild, {
             watching: true,
             unwatchPath: "/dropit"
         });
@@ -34,17 +34,17 @@ buster.testCase("Repository watching", {
                 watching: false,
                 watchPath: "/watchit"
             };
-            gts.repositoryWatching(this.link, this.repository);
+            gts.repository.watching(this.link, this.repository);
         },
 
         "displays spinner while loading": function () {
-            gts.repositoryWatching.toggleState(this.link, this.repository);
+            gts.repository.watching.toggleState(this.link, this.repository);
 
             assert.match(this.link.innerHTML, "Loading");
         },
 
         "replaces spinner when server responds": function () {
-            gts.repositoryWatching.toggleState(this.link, this.repository);
+            gts.repository.watching.toggleState(this.link, this.repository);
             this.server.requests[0].respond(200, { location: "/dropit" }, "");
 
             refute.match(this.link.innerHTML, "Loading");
@@ -53,10 +53,10 @@ buster.testCase("Repository watching", {
         },
 
         "watches, then unwatches": function () {
-            gts.repositoryWatching.toggleState(this.link, this.repository);
+            gts.repository.watching.toggleState(this.link, this.repository);
             this.server.requests[0].respond(200, { location: "/dropit" }, "");
 
-            gts.repositoryWatching.toggleState(this.link, this.repository);
+            gts.repository.watching.toggleState(this.link, this.repository);
             this.server.requests[1].respond(200, {}, "");
 
             refute.match(this.link.innerHTML, "Loading");
@@ -65,7 +65,7 @@ buster.testCase("Repository watching", {
         },
 
         "tells user to try again when request fails": function () {
-            gts.repositoryWatching.toggleState(this.link, this.repository);
+            gts.repository.watching.toggleState(this.link, this.repository);
             this.server.requests[0].respond(500, {}, "");
 
             assert.match(this.link.innerHTML, "Failed");

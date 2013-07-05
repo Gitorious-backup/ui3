@@ -647,6 +647,6 @@ input[type=text].gts-ref-input {
     padding: 10px 20px 10px 20px;
 }
 
-.gts-watch-repository-ph {
+.gts-placeholder {
     display: none;
 }

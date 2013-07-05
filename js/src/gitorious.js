@@ -75,11 +75,6 @@ gts.app.feature("oid-ref-interpolator", gts.oidRefInterpolator, {
     depends: ["repository-refs", "ref-url-template"]
 });
 
-gts.app.feature("repository-admin-menu", gts.repositoryAdmin, {
-    elements: ["gts-repository-nav"],
-    depends: ["repository-admin"]
-});
-
 gts.app.feature("tree-history", gts.treeHistory, {
     elements: ["gts-tree-explorer"],
     depends: ["tree-history-url"]
@@ -131,8 +126,23 @@ gts.app.feature("rails-links", gts.railsLinks, {
     depends: ["csrf-param", "csrf-token"]
 });
 
-gts.app.feature("repository-watching", gts.repositoryWatching, {
+gts.app.feature("repository-admin-menu", gts.repository.admin, {
+    elements: ["gts-repository-admin-ph"],
+    depends: ["repository-admin"]
+});
+
+gts.app.feature("repository-watching", gts.repository.watching, {
     elements: ["gts-watch-repository-ph"],
+    depends: ["current-repository"]
+});
+
+gts.app.feature("repository-cloning", gts.repository.cloning, {
+    elements: ["gts-clone-repository-ph"],
+    depends: ["current-repository"]
+});
+
+gts.app.feature("repository-merge-request", gts.repository.mergeRequest, {
+    elements: ["gts-request-merge-ph"],
     depends: ["current-repository"]
 });
 

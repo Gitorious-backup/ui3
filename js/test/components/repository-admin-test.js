@@ -11,7 +11,7 @@ buster.testCase("Repository admin", {
     },
 
     "includes link to admin pull-down": function () {
-        var menu = gts.repositoryAdmin.build(this.data);
+        var menu = gts.repository.admin.build(this.data);
 
         assert.className(menu, "dropdown");
         assert.match(menu.innerHTML, "dropdown-toggle");
@@ -19,13 +19,13 @@ buster.testCase("Repository admin", {
     },
 
     "includes dropdown menu": function () {
-        var menu = gts.repositoryAdmin.build(this.data);
+        var menu = gts.repository.admin.build(this.data);
 
         assert.match(menu.innerHTML, "<ul class=\"dropdown-menu");
     },
 
     "includes links": function () {
-        var menu = gts.repositoryAdmin.build(this.data);
+        var menu = gts.repository.admin.build(this.data);
 
         assert.match(menu.innerHTML, "/edit");
         assert.match(menu.innerHTML, "/destroy");
