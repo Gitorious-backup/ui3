@@ -22,7 +22,7 @@ dist/gitorious3-dependencies.min.js: $(GTS3_DEPS) js/lib/culljs/dist/cull.js js/
 	    $(GTS3_DEPS) | ./node_modules/.bin/uglifyjs > dist/gitorious3-dependencies.min.js
 	du -h dist/gitorious3-dependencies.min.js
 
-dist/gitorious3-components.min.js: $(GTS3_UTILS) $(GTS3_COMPONENTS)
+dist/gitorious3-components.min.js: $(GTS3_UTILS) $(GTS3_COMPONENTS) js/src/gitorious.js
 	cat $(GTS3_UTILS) $(GTS3_COMPONENTS) js/src/gitorious.js | ./node_modules/.bin/uglifyjs > dist/gitorious3-components.min.js
 	du -h dist/gitorious3-components.min.js
 

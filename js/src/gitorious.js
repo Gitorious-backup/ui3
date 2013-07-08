@@ -133,7 +133,7 @@ gts.app.feature("repository-admin-menu", gts.repository.admin, {
 
 gts.app.feature("repository-watching", gts.repository.watching, {
     elements: ["gts-watch-repository-ph"],
-    depends: ["current-repository"]
+    depends: ["repository-watch"]
 });
 
 gts.app.feature("repository-cloning", gts.repository.cloning, {
