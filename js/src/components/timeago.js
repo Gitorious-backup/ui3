@@ -8,10 +8,11 @@ this.gts = this.gts || {};
 this.gts.timeago = (function (ta) {
     function timeago(el, time) {
         var date = ta.parse(time || el.title);
-        if (isNaN(date.getTime())) { return; }
+        if (isNaN(date.getTime())) { return el; }
         var text = el.innerHTML.trim() || el.title;
         el.innerHTML = ta.relative(date);
         el.title = text;
+        return el;
     };
 
     var cache = {};
