@@ -1,6 +1,6 @@
 GTS3_DEPS=js/lib/spin.js/spin.js js/lib/when/when.js js/lib/bane/lib/bane.js js/lib/reqwest/reqwest.js js/lib/uinit/lib/uinit.js js/lib/showdown/src/showdown.js js/lib/timeago/timeago.js
 
-GTS3_UTILS=js/src/shims.js js/src/app.js js/src/cache.js js/src/json-request.js
+GTS3_UTILS=js/src/app.js js/src/cache.js js/src/json-request.js
 
 GTS3_COMPONENTS=js/src/components/dropdown.js js/src/components/ganalytics.js js/src/components/abbrev.js js/src/components/url.js js/src/components/ref-selector.js js/src/components/tree-history.js js/src/components/commit-linker.js js/src/components/user-repo-view-state.js js/src/components/profile-menu.js js/src/components/clone-url-selection.js js/src/components/blob.js js/src/components/live-markdown-preview.js js/src/components/timeago.js js/src/components/collapse.js js/src/components/repository.js js/src/components/rails-links.js js/src/components/clone-name-suggestion.js js/src/components/loading.js js/src/components/oid-ref-interpolator.js
 
