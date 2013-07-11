@@ -236,7 +236,8 @@ ul.gts-blob-view li {
 }
 
 /* Allocate as much space as possible to the commit column */
-.gts-tree-explorer .gts-col-commit {
+.gts-tree-explorer .gts-col-commit,
+.gts-cell-big {
     width: 80%;
 }
 
@@ -608,7 +609,8 @@ input[type=text].gts-ref-input {
     margin-top: -1px;
 }
 
-.gts-commit-date {
+.gts-commit-date,
+.table .gts-cell-small {
     white-space: nowrap;
 }
 
