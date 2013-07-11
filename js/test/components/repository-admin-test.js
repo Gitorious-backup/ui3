@@ -6,7 +6,8 @@ buster.testCase("Repository admin", {
             editPath: "/edit",
             destroyPath: "/destroy",
             ownershipPath: "/ownership",
-            committershipsPath: "/committerships"
+            committershipsPath: "/committerships",
+            webHooksPath: "/webhooks"
         };
     },
 
@@ -31,5 +32,6 @@ buster.testCase("Repository admin", {
         assert.match(menu.innerHTML, "/destroy");
         assert.match(menu.innerHTML, "/ownership");
         assert.match(menu.innerHTML, "/committerships");
+        assert.match(menu.innerHTML, "/webhooks");
     }
 });

@@ -26,6 +26,7 @@ this.gts.repository = (function (el) {
                 el.li(link(data.editPath, "icon-pencil", "Edit repository")),
                 el.li(link(data.destroyPath, "icon-trash", "Delete repository")),
                 el.li({ className: "divider" }),
+                el.li(link(data.webHooksPath, "i", "Web hooks")),
                 el.li(link(data.ownershipPath, "i", "Transfer ownership")),
                 el.li(link(data.committershipsPath, "i", "Manage collaborators"))
             ])
