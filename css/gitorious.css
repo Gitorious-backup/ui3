@@ -484,6 +484,7 @@ input[type=url].gts-current-repo-url {
     text-decoration: none;
 }
 
+.gts-neg,
 .gts-diff-summary .gts-diff-rm {
     color: #9d261d;
 }
@@ -497,6 +498,7 @@ input[type=url].gts-current-repo-url {
     text-decoration: none;
 }
 
+.gts-pos,
 .gts-diff-summary .gts-diff-add {
     color: #46a546;
 }
