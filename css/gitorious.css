@@ -53,7 +53,7 @@ body .gts-masthead {
 }
 
 /** Repo "boxes" */
-.gts-repo-header {
+.gts-site-header {
     background: #f5f5f5;
     border-bottom: 1px solid #ddd;
     margin-bottom: 20px;
@@ -68,7 +68,7 @@ tt {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-.gts-private .gts-repo-header {
+.gts-private .gts-site-header {
     background: url(../images/f5f5f5-980x1.png) repeat-y 50% 0 #222;
     border-bottom: none;
 }
@@ -77,7 +77,7 @@ tt {
     padding-bottom: 40px;
 }
 
-.gts-repo-header + .footer {
+.gts-site-header + .footer {
     margin-top: -21px;
 }
 
@@ -87,7 +87,7 @@ tt {
     padding: 20px 0 0;
 }
 
-.gts-repo-header .nav-tabs {
+.gts-site-header .nav-tabs {
     margin-bottom: -1px;
 }
 
@@ -124,17 +124,17 @@ li + .dropdown-label {
     color: #000;
 }
 
-.gts-repo-header .row,
+.gts-site-header .row,
 .gts-description {
     margin-bottom: 10px;
 }
 
-.gts-repo-header .gts-help {
+.gts-site-header .gts-help {
     clear: both;
     margin-bottom: 0;
 }
 
-.gts-repo-header .gts-branch-selector +
+.gts-site-header .gts-branch-selector +
 .gts-branch-selector {
     padding-left: 0;
 }
@@ -258,7 +258,7 @@ ul.gts-blob-view li {
     background: url(../images/white-980x1.png) repeat-y 50% 0 #222;
 }
 
-.gts-private .gts-repo-header .container {
+.gts-private .gts-site-header .container {
     background-image: url(../iconic/lock_stroke.svg);
     background-repeat: no-repeat;
     background-position: 100% 0;
