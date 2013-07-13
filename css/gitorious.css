@@ -26,6 +26,10 @@ body h1 {
     max-height: 2000px;
 }
 
+.span8 .input-xxlarge {
+    width: 95%;
+}
+
 /** Header */
 body .gts-masthead {
     margin-bottom: 0;
