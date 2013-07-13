@@ -25,6 +25,13 @@ gts.request = function (options) {
     reqwest(options);
 };
 
+(function () {
+    var input = document.getElementById("project-title");
+    if (input) { gts.env("project-title-input", input); }
+    input = document.getElementById("project-slug");
+    if (input) { gts.env("project-slug-input", input); }
+}());
+
 // Data
 gts.app.data("ref-url-template", function (url, ref) {
     return gts.url.templatize(url, { ref: ref });
@@ -144,6 +151,10 @@ gts.app.feature("repository-cloning", gts.repository.cloning, {
 gts.app.feature("repository-merge-request", gts.repository.mergeRequest, {
     elements: ["gts-request-merge-ph"],
     depends: ["current-repository"]
+});
+
+gts.app.feature("slugify-project-title", gts.slugify, {
+    depends: ["project-title-input", "project-slug-input"]
 });
 
 // Spin off app asynchronously so subsequent scripts have a chance
