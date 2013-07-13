@@ -1,4 +1,4 @@
-/*global dome, gts*/
+/*global cull, dome, gts*/
 this.gts = this.gts || {};
 
 /**
@@ -8,27 +8,25 @@ this.gts = this.gts || {};
  */
 this.gts.slugify = (function () {
     function toSlug(text) {
-        return text.toLowerCase().replace(/[^a-z0-9_\-]+/g, "-");
+        return text.toLowerCase().replace(/[^a-z0-9_\-]+/g, "-").replace(/^\-|\-$/g, "");
     }
 
     function safeToOverwrite(source, target) {
-        return target.value === "" || toSlug(source.value) === target.value;
+        return target === "" || toSlug(source) === target;
     }
 
     return function slugify(source, target) {
-        var isLocked = safeToOverwrite(source, target);
+        var currentSlugSource = source.value;
 
-        function attemptOverwrite() {
-            if (!isLocked) {
+         function attemptOverwrite() {
+            if (safeToOverwrite(currentSlugSource, target.value)) {
                 target.value = toSlug(source.value);
+                currentSlugSource = source.value;
             }
         }
 
-        dome.on(source, "keydown", function () {
-            isLocked = safeToOverwrite(source, target);
-        });
-
         dome.on(source, "keyup", attemptOverwrite);
+        dome.on(source, "focus", attemptOverwrite);
         attemptOverwrite();
     };
 }());

@@ -26,10 +26,10 @@ gts.request = function (options) {
 };
 
 (function () {
-    var input = document.getElementById("project-title");
-    if (input) { gts.env("project-title-input", input); }
-    input = document.getElementById("project-slug");
-    if (input) { gts.env("project-slug-input", input); }
+    var input = document.getElementById("project_title");
+    if (input) { gts.app.env("project-title-input", input); }
+    input = document.getElementById("project_slug");
+    if (input) { gts.app.env("project-slug-input", input); }
 }());
 
 // Data
