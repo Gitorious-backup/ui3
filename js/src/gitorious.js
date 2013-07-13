@@ -157,6 +157,10 @@ gts.app.feature("slugify-project-title", gts.slugify, {
     depends: ["project-title-input", "project-slug-input"]
 });
 
+gts.app.feature("select-details", gts.selectDetails, {
+    elements: ["gts-option-details"]
+});
+
 // Spin off app asynchronously so subsequent scripts have a chance
 // to register loggers etc before we roll
 setTimeout(function () {
