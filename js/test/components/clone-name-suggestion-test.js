@@ -11,7 +11,7 @@ buster.testCase("Clone name suggestion", {
                 name: "repository[owner_type]",
                 value: "User",
                 type: "radio",
-                data: { "gts-cloning-user": "christian" }
+                data: { "gts-owner": "christian" }
             }),
 
             dome.el("input", {

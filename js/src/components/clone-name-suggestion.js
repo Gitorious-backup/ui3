@@ -16,7 +16,7 @@ this.gts.cloneNameSuggestion = (function () {
 
         var names = cull.reduce(function (memo, option) {
             return memo.concat(repoName(option.innerHTML, repo));
-        }, [repoName(dome.data.get("gts-cloning-user", userInput), repo)], groupSelect.options);
+        }, [repoName(dome.data.get("gts-owner", userInput), repo)], groupSelect.options);
 
         function setSuggestion() {
             if (nameInput.value && cull.indexOf(nameInput.value, names) < 0) { return; }
