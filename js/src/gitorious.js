@@ -13,7 +13,7 @@ if (window.hasOwnProperty("onpopstate")) {
 gts.request = function (options) {
     options.headers = options.headers || {};
     options.headers["X-CSRF-Token"] = gts.app.env["csrf-token"];
-    reqwest(options);
+    return reqwest(options);
 };
 
 (function () {
@@ -31,11 +31,12 @@ gts.app.data("ref-url-template", function (url, ref) {
     serializeArgs: function (url, ref) { return [url.split("#")[0], ref]; }
 });
 
-gts.app.data("repository-refs", gts.jsonRequest, { depends: ["repository-refs-url"] });
+gts.app.data("repository-refs", gts.cache(gts.jsonRequest), { depends: ["repository-refs-url"] });
 gts.app.data("current-ref", gts.url.currentRef, { depends: ["url"] });
 gts.app.data("user-view-state", gts.cache(gts.jsonRequest), {
     depends: ["user-view-state-path"]
 });
+
 gts.app.data("current-user", cull.prop("user"), { depends: ["user-view-state"] });
 gts.app.data("repository-view-state", gts.cache(gts.jsonRequest), {
     depends: ["repository-view-state-path"]
