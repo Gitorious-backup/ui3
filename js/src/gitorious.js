@@ -33,11 +33,15 @@ gts.app.data("ref-url-template", function (url, ref) {
 
 gts.app.data("repository-refs", gts.jsonRequest, { depends: ["repository-refs-url"] });
 gts.app.data("current-ref", gts.url.currentRef, { depends: ["url"] });
-gts.app.data("current-user", gts.cache(gts.jsonRequest), {
+gts.app.data("user-view-state", gts.cache(gts.jsonRequest), {
     depends: ["user-view-state-path"]
 });
-gts.app.data("current-repository", gts.cache(gts.jsonRequest), {
+gts.app.data("current-user", cull.prop("user"), { depends: ["user-view-state"] });
+gts.app.data("repository-view-state", gts.cache(gts.jsonRequest), {
     depends: ["repository-view-state-path"]
+});
+gts.app.data("current-repository", cull.prop("repository"), {
+    depends: ["repository-view-state"]
 });
 gts.app.data("repository-watch", cull.prop("watch"), {
     depends: ["current-repository"]
