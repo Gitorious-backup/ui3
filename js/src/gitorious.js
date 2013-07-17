@@ -10,15 +10,6 @@ if (window.hasOwnProperty("onpopstate")) {
     };
 }
 
-cull.doall(function (meta) {
-    if (meta.name === "csrf-param") {
-        gts.app.env("csrf-param", meta.content);
-    }
-    if (meta.name === "csrf-token") {
-        gts.app.env("csrf-token", meta.content);
-    }
-}, document.getElementsByTagName("meta"));
-
 gts.request = function (options) {
     options.headers = options.headers || {};
     options.headers["X-CSRF-Token"] = gts.app.env["csrf-token"];
