@@ -40,16 +40,13 @@ gts.app.data("ref-url-template", function (url, ref) {
     serializeArgs: function (url, ref) { return [url.split("#")[0], ref]; }
 });
 
-gts.app.data("repository-refs", this.gts.jsonRequest, { depends: ["repository-refs-url"] });
+gts.app.data("repository-refs", gts.jsonRequest, { depends: ["repository-refs-url"] });
 gts.app.data("current-ref", gts.url.currentRef, { depends: ["url"] });
-gts.app.data("user-repo-view-state", gts.cache(gts.userRepoViewState), {
-    depends: ["user-repository-path"]
+gts.app.data("current-user", gts.cache(gts.jsonRequest), {
+    depends: ["user-view-state-path"]
 });
-gts.app.data("current-user", cull.prop("user"), {
-    depends: ["user-repo-view-state"]
-});
-gts.app.data("current-repository", cull.prop("repository"), {
-    depends: ["user-repo-view-state"]
+gts.app.data("current-repository", gts.cache(gts.jsonRequest), {
+    depends: ["repository-view-state-path"]
 });
 gts.app.data("repository-watch", cull.prop("watch"), {
     depends: ["current-repository"]
