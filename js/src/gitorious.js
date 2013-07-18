@@ -10,19 +10,10 @@ if (window.hasOwnProperty("onpopstate")) {
     };
 }
 
-cull.doall(function (meta) {
-    if (meta.name === "csrf-param") {
-        gts.app.env("csrf-param", meta.content);
-    }
-    if (meta.name === "csrf-token") {
-        gts.app.env("csrf-token", meta.content);
-    }
-}, document.getElementsByTagName("meta"));
-
 gts.request = function (options) {
     options.headers = options.headers || {};
     options.headers["X-CSRF-Token"] = gts.app.env["csrf-token"];
-    reqwest(options);
+    return reqwest(options);
 };
 
 (function () {
@@ -40,16 +31,18 @@ gts.app.data("ref-url-template", function (url, ref) {
     serializeArgs: function (url, ref) { return [url.split("#")[0], ref]; }
 });
 
-gts.app.data("repository-refs", this.gts.jsonRequest, { depends: ["repository-refs-url"] });
+gts.app.data("repository-refs", gts.cache(gts.jsonRequest), { depends: ["repository-refs-url"] });
 gts.app.data("current-ref", gts.url.currentRef, { depends: ["url"] });
-gts.app.data("user-repo-view-state", gts.cache(gts.userRepoViewState), {
-    depends: ["user-repository-path"]
+gts.app.data("user-view-state", gts.cache(gts.jsonRequest), {
+    depends: ["user-view-state-path"]
 });
-gts.app.data("current-user", cull.prop("user"), {
-    depends: ["user-repo-view-state"]
+
+gts.app.data("current-user", cull.prop("user"), { depends: ["user-view-state"] });
+gts.app.data("repository-view-state", gts.cache(gts.jsonRequest), {
+    depends: ["repository-view-state-path"]
 });
 gts.app.data("current-repository", cull.prop("repository"), {
-    depends: ["user-repo-view-state"]
+    depends: ["repository-view-state"]
 });
 gts.app.data("repository-watch", cull.prop("watch"), {
     depends: ["current-repository"]
