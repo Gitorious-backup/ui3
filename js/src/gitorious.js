@@ -50,6 +50,15 @@ gts.app.data("repository-watch", cull.prop("watch"), {
 gts.app.data("repository-admin", cull.prop("admin"), {
     depends: ["current-repository"]
 });
+gts.app.data("project-view-state", gts.cache(gts.jsonRequest), {
+    depends: ["project-view-state-path"]
+});
+gts.app.data("current-project", cull.prop("project"), {
+    depends: ["project-view-state"]
+});
+gts.app.data("project-admin", cull.prop("admin"), {
+    depends: ["current-project"]
+});
 gts.app.data("blob-region", gts.blob.regionFromUrl, { depends: ["url"] });
 
 // Features
@@ -129,6 +138,11 @@ gts.app.feature("rails-links", gts.railsLinks, {
 gts.app.feature("repository-admin-menu", gts.repository.admin, {
     elements: ["gts-repository-admin-ph"],
     depends: ["repository-admin"]
+});
+
+gts.app.feature("project-admin-menu", gts.project.admin, {
+    elements: ["gts-project-admin-ph"],
+    depends: ["project-admin"]
 });
 
 gts.app.feature("repository-watching", gts.repository.watching, {

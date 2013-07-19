@@ -2,48 +2,17 @@
 this.gts = this.gts || {};
 
 this.gts.repository = (function (el) {
-    /**
-     * Build the repository admin tab into the menu if the data indicates that
-     * the current user can admin the repository. Initialize as a dropdown
-     * toggler if built.
-     */
-    function bullet(type, text) {
-        return [el.i({ className: type }), " " + text];
-    }
-
-    function link(href, type, text) {
-        return el.a({ href: href }, bullet(type, text));
-    }
-
-    function build(data, tagName) {
-        return el[tagName || "li"]({ className: "pull-right dropdown" }, [
-            el.a({
-                href: "#",
-                "data-toggle": "dropdown",
-                className: "dropdown-toggle"
-            }, bullet("icon-cog", "Admin")),
-            el.ul({ className: "dropdown-menu" }, [
-                el.li(link(data.editPath, "icon-pencil", "Edit repository")),
-                el.li(link(data.destroyPath, "icon-trash", "Delete repository")),
-                el.li({ className: "divider" }),
-                el.li(link(data.webHooksPath, "i", "Web hooks")),
-                el.li(link(data.ownershipPath, "i", "Transfer ownership")),
-                el.li(link(data.committershipsPath, "i", "Manage collaborators"))
-            ])
-        ]);
-    }
-
     function repositoryAdmin(placeholder, data) {
-        var toggler = build(data, placeholder.tagName.toLowerCase());
-        dome.replace(placeholder, toggler);
-        this.gts.dropdown(toggler);
-
-        if (dome.data.get("gts-active", toggler.parentNode) === "admin") {
-            dome.cn.add("active", toggler);
-        }
+        return gts.adminMenu(placeholder, data, {
+            editText: "Edit repository",
+            destroyText: "Delete repository",
+            items: [
+                [data.webHooksPath, "Web hooks"],
+                [data.ownershipPath, "Transfer ownership"],
+                [data.committershipsPath, "Manage collaborators"]
+            ]
+        });
     }
-
-    repositoryAdmin.build = build;
 
     /**
      * Generate and power the "Watch"/"Unwatch" button on repository pages. To
