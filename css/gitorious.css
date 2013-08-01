@@ -658,3 +658,16 @@ input[type=text].gts-ref-input {
 .gts-placeholder {
     display: none;
 }
+
+/* Merge request status form fields */
+.gts-mrs-name {
+    width: 6em;
+}
+
+.gts-mrs-state {
+    width: 6em;
+}
+
+.gts-mrs-color {
+    width: 5em;
+}
