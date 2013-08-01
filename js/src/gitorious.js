@@ -140,10 +140,10 @@ gts.app.feature("repository-admin-menu", gts.repository.admin, {
     depends: ["repository-admin"]
 });
 
-gts.app.feature("project-admin-menu", gts.project.admin, {
-    elements: ["gts-project-admin-ph"],
-    depends: ["project-admin"]
-});
+// gts.app.feature("project-admin-menu", gts.project.admin, {
+//     elements: ["gts-project-admin-ph"],
+//     depends: ["project-admin"]
+// });
 
 gts.app.feature("repository-watching", gts.repository.watching, {
     elements: ["gts-watch-repository-ph"],
