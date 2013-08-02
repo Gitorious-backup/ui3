@@ -140,10 +140,10 @@ gts.app.feature("repository-admin-menu", gts.repository.admin, {
     depends: ["repository-admin"]
 });
 
-// gts.app.feature("project-admin-menu", gts.project.admin, {
-//     elements: ["gts-project-admin-ph"],
-//     depends: ["project-admin"]
-// });
+gts.app.feature("project-admin-menu", gts.project.admin, {
+    elements: ["gts-project-admin-ph"],
+    depends: ["project-admin"]
+});
 
 gts.app.feature("repository-watching", gts.repository.watching, {
     elements: ["gts-watch-repository-ph"],
@@ -173,6 +173,6 @@ gts.app.feature("select-details", gts.selectDetails, {
 setTimeout(function () {
     // Scan the document for data-gts-* attributes that set
     // "environment variables"
-    gts.app.scanEnvAttrs(document.body, "data-gts-env-");
+    gts.app.scanEnvAttrs(document.documentElement, "data-gts-env-");
     gts.app.load(document.documentElement);
 }, 10);
