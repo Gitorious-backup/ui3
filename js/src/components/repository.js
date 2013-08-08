@@ -7,7 +7,7 @@ this.gts.repository = (function (el) {
             editText: "Edit repository",
             destroyText: "Delete repository",
             items: [
-                [data.webHooksPath, "Web hooks"],
+                [data.servicesPath, "Services"],
                 [data.ownershipPath, "Transfer ownership"],
                 [data.committershipsPath, "Manage collaborators"]
             ]
@@ -18,7 +18,7 @@ this.gts.repository = (function (el) {
      * Generate and power the "Watch"/"Unwatch" button on repository pages. To
      * use this component, put a placeholder on the page, and call
      * repositoryWatching(placeHolder, repositoryWatch);
-     * 
+     *
      * The viewstate object is expected to contain at least
      *   - watching (boolean)
      *   - watchPath (string)
