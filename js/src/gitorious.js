@@ -160,6 +160,16 @@ gts.app.feature("repository-merge-request", gts.repository.mergeRequest, {
     depends: ["current-repository"]
 });
 
+gts.app.feature("repository-name", gts.repository.name, {
+    elements: ["gts-repository-name-ph"],
+    depends: ["current-repository"]
+});
+
+gts.app.feature("repository-desc", gts.repository.desc, {
+    elements: ["gts-repository-description-ph"],
+    depends: ["current-repository"]
+});
+
 gts.app.feature("slugify-project-title", gts.slugify, {
     depends: ["project-title-input", "project-slug-input"]
 });

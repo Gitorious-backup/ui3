@@ -18,7 +18,7 @@ this.gts.repository = (function (el) {
      * Generate and power the "Watch"/"Unwatch" button on repository pages. To
      * use this component, put a placeholder on the page, and call
      * repositoryWatching(placeHolder, repositoryWatch);
-     * 
+     *
      * The viewstate object is expected to contain at least
      *   - watching (boolean)
      *   - watchPath (string)
@@ -126,6 +126,12 @@ this.gts.repository = (function (el) {
         admin: repositoryAdmin,
         watching: repositoryWatching,
         cloning: repositoryCloning,
-        mergeRequest: mergeRequest
+        mergeRequest: mergeRequest,
+        name: function (placeholder, repository) {
+            placeholder.innerHTML = repository.name;
+        },
+        desc: function (placeholder, repository) {
+            placeholder.innerHTML = repository.description;
+        }
     };
 }(dome.el));
