@@ -34,7 +34,7 @@ dist/gitorious3.min.js: dist/gitorious3-dependencies.min.js dist/gitorious3-comp
 	du -h dist/gitorious3.min.js
 
 dist/gitorious3-capillary.min.js: $(CAPILLARY_SOURCES) node_modules/.bin/uglifyjs
-	cat $(CAPILLARY_SOURCES) ./node_modules/.bin/uglifyjs -m -c > dist/gitorious3-capillary.min.js
+	cat $(CAPILLARY_SOURCES) | ./node_modules/.bin/uglifyjs -m -c > dist/gitorious3-capillary.min.js
 	du -h dist/gitorious3-capillary.min.js
 
 dist/gitorious3.min.css: css/gitorious.css css/syntax-highlight.css
