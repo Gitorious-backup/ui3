@@ -2,3 +2,5 @@ node_modules
 dist/cull.min.js
 dist/dome.min.js
 dist/spin.min.js
+dist/gitorious3-components.min.js
+dist/gitorious3-dependencies.min.js
