@@ -7,7 +7,7 @@ this.gts.repository = (function (el) {
             editText: "Edit repository",
             destroyText: "Delete repository",
             items: [
-                [data.webHooksPath, "Web hooks"],
+                [data.servicesPath, "Services"],
                 [data.ownershipPath, "Transfer ownership"],
                 [data.committershipsPath, "Manage collaborators"]
             ]
