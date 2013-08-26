@@ -99,6 +99,11 @@ gts.app.feature("profile-menu", gts.profileMenu, {
     depends: ["current-user"]
 });
 
+gts.app.feature("login-button", gts.loginButton, {
+    elements: ["login_button"],
+    depends: ["url"]
+});
+
 gts.app.feature("clone-url-selection", gts.cloneUrlSelection, {
     elements: ["gts-repo-urls"]
 });
