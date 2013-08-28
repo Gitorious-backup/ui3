@@ -307,6 +307,7 @@ input[type=url].gts-current-repo-url {
     border-bottom: 1px solid #e1e1e8;
     clear: both;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .gts-date-heading-inner {
@@ -316,6 +317,47 @@ input[type=url].gts-current-repo-url {
     display: block;
     padding: 4px 8px;
     text-shadow: 0 1px 0 #fff;
+}
+
+.gts-event {
+  margin-bottom: 15px;
+}
+
+.gts-event .event-body {
+  display: block;
+  margin: 5px 0 0 75px;
+}
+
+.gts-event .event-icon {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  top: 2px;
+  margin-right: 5px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.gts-event .event-create-project {
+  background-image: url('/ui3/images/icons/16px/cabinet.png');
+}
+
+.gts-event .event-update-project {
+  background-image: url('/ui3/images/icons/16px/file3.png');
+}
+
+.gts-event .event-add-project-repository {
+  background-image: url('/ui3/images/icons/16px/plus.png');
+}
+
+.gts-event .event-create-branch {
+  background-image: url('/ui3/images/icons/16px/share.png');
+}
+
+.gts-event .event-push-summary {
+  background-image: url('/ui3/images/icons/16px/box-add.png');
 }
 
 .gts-avatar {
