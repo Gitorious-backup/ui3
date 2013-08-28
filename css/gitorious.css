@@ -325,7 +325,7 @@ input[type=url].gts-current-repo-url {
 
 .gts-event .event-body {
   display: block;
-  margin: 5px 0 0 75px;
+  margin: 5px 0 0 20px;
 }
 
 .gts-event .event-icon {
@@ -739,7 +739,7 @@ input[type=text].gts-ref-input {
 
 .pull-box-header {
   padding: 3px 10px;
-  background: #e6e6e6 url('/img/pullbox-bg.png') repeat-x center;
+  background-color: #e6e6e6;
 }
 
 .pull-box-content table {
@@ -747,7 +747,7 @@ input[type=text].gts-ref-input {
 }
 
 .pull-box-links {
-  background: #eee url('/img/repos-link-bg.png') repeat-x center;
+  background-color: #e6e6e6;
   padding: 8px;
 }
 
@@ -781,12 +781,12 @@ input[type=text].gts-ref-input {
 /* icons */
 
 .repository > a {
-  background: transparent url('/images/silk/database.png') left center no-repeat;
+  background: transparent url('/ui3/images/icons/16px/cabinet.png') left center no-repeat;
   padding-left: 20px;
 }
 
 .project > a {
-  background: transparent url('/images/silk/report.png') left center no-repeat;
+  background: transparent url('/ui3/images/icons/16px/file.png') left center no-repeat;
   padding-left: 20px;
 }
 
