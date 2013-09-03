@@ -307,6 +307,7 @@ input[type=url].gts-current-repo-url {
     border-bottom: 1px solid #e1e1e8;
     clear: both;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .gts-date-heading-inner {
@@ -316,6 +317,47 @@ input[type=url].gts-current-repo-url {
     display: block;
     padding: 4px 8px;
     text-shadow: 0 1px 0 #fff;
+}
+
+.gts-event {
+  margin-bottom: 15px;
+}
+
+.gts-event .event-body {
+  display: block;
+  margin: 5px 0 0 40px;
+}
+
+.gts-event .event-icon {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  top: 2px;
+  margin-right: 5px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.gts-event .event-create-project {
+  background-image: url('/ui3/images/icons/16px/cabinet.png');
+}
+
+.gts-event .event-update-project {
+  background-image: url('/ui3/images/icons/16px/file3.png');
+}
+
+.gts-event .event-add-project-repository {
+  background-image: url('/ui3/images/icons/16px/plus.png');
+}
+
+.gts-event .event-create-branch {
+  background-image: url('/ui3/images/icons/16px/share.png');
+}
+
+.gts-event .event-push-summary {
+  background-image: url('/ui3/images/icons/16px/box-add.png');
 }
 
 .gts-avatar {
@@ -359,8 +401,14 @@ input[type=url].gts-current-repo-url {
 
 /** Footer */
 .footer {
-    border-top: 1px solid #e5e5e5;
-    margin-top: 45px;
+  border-top: 1px solid #e5e5e5;
+  margin-top: 45px;
+}
+
+body.sticky-footer .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer .container {
@@ -681,3 +729,121 @@ input[type=text].gts-ref-input {
 .gts-standalone .dropdown {
     margin-top: -27px;
 }
+
+/* container with spacing */
+.gts-container {
+  margin-top: 20px;
+}
+
+/* pull-box */
+
+.pull-box-container {
+  margin-bottom: 20px;
+  border: 1px solid #d2d2d2;
+}
+
+.pull-box-container h3 {
+  color: #626262;
+  font-size: 14px;
+}
+
+.pull-box-header {
+  padding: 3px 10px;
+  background-color: #e6e6e6;
+}
+
+.pull-box-content table {
+  margin: 0;
+}
+
+.pull-box-links {
+  background-color: #e6e6e6;
+  padding: 8px;
+}
+
+.pull-box-container .filters {
+  padding: 5px;
+}
+
+.pull-box-container .filters ul li {
+  float: left;
+  margin-left: 5px;
+}
+
+/* ~ pull-box */
+
+/* user profile box */
+
+.user-profile {
+  margin-bottom: 20px;
+}
+
+.user-profile .span2:first-child {
+  width: 128px;
+}
+
+.user-profile .details li {
+  margin: 5px 0;
+}
+
+/* ~ user profile box */
+
+/* icons */
+
+.repository > a {
+  background: transparent url('/ui3/images/icons/16px/cabinet.png') left center no-repeat;
+  padding-left: 20px;
+}
+
+.project > a {
+  background: transparent url('/ui3/images/icons/16px/file.png') left center no-repeat;
+  padding-left: 20px;
+}
+
+/* ~ icons */
+
+/* user edit */
+
+.user-edit-container .tab-pane {
+  padding: 20px;
+}
+
+.user-edit-container form.ssh_key textarea {
+  width: 98%;
+  height: 150px;
+  margin-top: 15px;
+}
+
+.user-edit-container form.ssh_key .hint {
+  line-height: 20px;
+}
+
+.user-edit-container form {
+  margin-left: 20px;
+}
+
+.user-edit-container input[type="checkbox"] {
+  margin-top: 7px;
+}
+
+.user-edit-container .controls {
+  margin-left: 172px;
+}
+
+.user-edit-container .user-avatar {
+  position: relative;
+}
+
+.user-edit-container .user-avatar .delete-button {
+  display: block;
+}
+
+.user-edit-container .change-password input[type="submit"] {
+  margin-right: 58px;
+}
+
+.user-edit-container .control-label {
+  width: 162px;
+}
+
+/* ~ user edit */
