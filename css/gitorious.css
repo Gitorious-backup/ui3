@@ -756,6 +756,10 @@ input[type=text].gts-ref-input {
   margin: 0;
 }
 
+.pull-box-content .hint {
+  margin: 10px;
+}
+
 .pull-box-links {
   background-color: #e6e6e6;
   padding: 8px;
@@ -768,10 +772,6 @@ input[type=text].gts-ref-input {
 .pull-box-container .filters ul li {
   float: left;
   margin-left: 5px;
-}
-
-.repositories-box .hint {
-  margin: 10px;
 }
 
 /* ~ pull-box */
