@@ -830,6 +830,14 @@ input[type=text].gts-ref-input {
   margin-left: 172px;
 }
 
+.user-edit-container .ssh_key {
+  margin-left: 0;
+}
+
+.user-edit-container .ssh_key .controls {
+  margin-left: 0;
+}
+
 .user-edit-container .user-avatar {
   position: relative;
 }
