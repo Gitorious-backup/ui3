@@ -814,6 +814,7 @@ input[type=text].gts-ref-input {
 
 .user-edit-container .tab-pane {
   padding: 20px;
+  min-height: 500px;
 }
 
 .user-edit-container form.ssh_key textarea {
@@ -824,10 +825,6 @@ input[type=text].gts-ref-input {
 
 .user-edit-container form.ssh_key .hint {
   line-height: 20px;
-}
-
-.user-edit-container form {
-  margin-left: 20px;
 }
 
 .user-edit-container input[type="checkbox"] {
