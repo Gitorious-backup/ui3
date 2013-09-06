@@ -32,13 +32,17 @@ body h1 {
 
 /** Header */
 body .gts-masthead {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 @media (max-width: 767px) {
   body .gts-masthead {
     margin: 0 -20px;
   }
+}
+
+.gts-masthead .nav {
+  margin-top: 5px;
 }
 
 .gts-masthead .navbar-inner {
