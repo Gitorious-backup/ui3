@@ -41,6 +41,12 @@ body .gts-masthead {
   }
 }
 
+.login_button .btn i {
+  margin-right: 8px;
+  position: relative;
+  top: 1px;
+}
+
 .gts-masthead .nav {
   margin-top: 5px;
 }
