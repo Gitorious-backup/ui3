@@ -31,13 +31,18 @@
   background-color: #0f993f;
 }
 
+html, body {
+  height: 100%;
+}
+
 a {
   color: #0f993f;
 }
 
-html, body {
-  height: 100%;
+a:hover {
+  color: #085423;
 }
+
 
 .page-wrapper {
   height: auto !important;
