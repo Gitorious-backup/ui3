@@ -904,3 +904,17 @@ input[type=text].gts-ref-input {
 }
 
 /* ~ user edit */
+
+/* form basics */
+
+.field_with_errors {
+  display: inline;
+  width: auto;
+  float: none;
+}
+
+.field_with_errors label {
+  color: red;
+}
+
+/* ~ form basics */
