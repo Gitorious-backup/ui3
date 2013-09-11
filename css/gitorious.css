@@ -9,6 +9,32 @@
     max-width: 940px;
 }
 
+/* Bootstrap default colors removal */
+.btn-primary {
+  background-color: #11B14B;
+  background-image: linear-gradient(bottom, rgb(15,153,63) 8%, rgb(17,177,75) 54%);
+  background-image: -o-linear-gradient(bottom, rgb(15,153,63) 8%, rgb(17,177,75) 54%);
+  background-image: -moz-linear-gradient(bottom, rgb(15,153,63) 8%, rgb(17,177,75) 54%);
+  background-image: -webkit-linear-gradient(bottom, rgb(15,153,63) 8%, rgb(17,177,75) 54%);
+  background-image: -ms-linear-gradient(bottom, rgb(15,153,63) 8%, rgb(17,177,75) 54%);
+
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.08, rgb(15,153,63)),
+    color-stop(0.54, rgb(17,177,75))
+  );
+}
+
+.btn-primary:hover {
+  background-color: #0f993f;
+}
+
+a {
+  color: #0f993f;
+}
+
 html, body {
   height: 100%;
 }
