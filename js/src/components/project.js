@@ -5,6 +5,7 @@ this.gts.project = {
             editText: "Edit project",
             destroyText: "Delete project",
             items: [
+                [data.editSlugPath, "Edit project slug"],
                 [data.ownershipPath, "Transfer ownership"],
                 [data.newRepositoryPath, "Add repository"],
                 [data.membershipsPath, "Manage access"],
