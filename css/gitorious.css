@@ -921,3 +921,18 @@ input[type=text].gts-ref-input {
   margin: 5px 0;
 }
 /* ~ search results */
+
+/* openid sign-up */
+form .controls input[type=checkbox] {
+  margin-top: 8px;
+}
+/* ~ openid sign-up */
+
+.form-large-labels .controls {
+  margin-left: 180px;
+}
+
+.form-large-labels .control-label {
+  width: 170px;
+}
+
