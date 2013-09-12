@@ -9,6 +9,51 @@
     max-width: 940px;
 }
 
+/* Bootstrap default colors removal */
+.btn-primary {
+  background-color: #11B14B;
+  background-image: linear-gradient(bottom, rgb(15,153,63) 8%, rgb(17,177,75) 54%);
+  background-image: -o-linear-gradient(bottom, rgb(15,153,63) 8%, rgb(17,177,75) 54%);
+  background-image: -moz-linear-gradient(bottom, rgb(15,153,63) 8%, rgb(17,177,75) 54%);
+  background-image: -webkit-linear-gradient(bottom, rgb(15,153,63) 8%, rgb(17,177,75) 54%);
+  background-image: -ms-linear-gradient(bottom, rgb(15,153,63) 8%, rgb(17,177,75) 54%);
+
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.08, rgb(15,153,63)),
+    color-stop(0.54, rgb(17,177,75))
+  );
+}
+
+.btn-primary:hover {
+  background-color: #0f993f;
+}
+
+html, body {
+  height: 100%;
+}
+
+a {
+  color: #0f993f;
+}
+
+a:hover {
+  color: #085423;
+}
+
+
+.page-wrapper {
+  height: auto !important;
+  margin: 0 auto -140px;
+  min-height: 100%;
+}
+
+.page-content {
+  padding: 0 0 200px;
+}
+
 body h1 {
     margin-bottom: 0.25em;
 }
@@ -39,6 +84,12 @@ body .gts-masthead {
   body .gts-masthead {
     margin: 0 -20px;
   }
+}
+
+.login_button .btn i {
+  margin-right: 8px;
+  position: relative;
+  top: 1px;
 }
 
 .gts-masthead .nav {
@@ -406,17 +457,11 @@ input[type=url].gts-current-repo-url {
 /** Footer */
 .footer {
   border-top: 1px solid #e5e5e5;
-  margin-top: 45px;
-}
-
-body.sticky-footer .footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  height: 139px;
 }
 
 .footer .container {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 .gts-private .footer {
@@ -824,10 +869,6 @@ input[type=text].gts-ref-input {
 
 .user-edit-container form.ssh_key .hint {
   line-height: 20px;
-}
-
-.user-edit-container form {
-  margin-left: 20px;
 }
 
 .user-edit-container input[type="checkbox"] {
