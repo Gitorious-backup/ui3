@@ -887,3 +887,37 @@ input[type=text].gts-ref-input {
 }
 
 /* ~ services-admin */
+
+/* search results */
+
+.search-results dt {
+  font-size: 18px;
+  margin: 0 0 5px;
+}
+
+.search-results dd {
+  margin: 0 0 20px;
+}
+
+.search-results dd div {
+  margin-left: 10px;
+}
+
+.no-results-box {
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.search-tips h2 {
+  margin-bottom: 15px;
+}
+
+.search-tips dt {
+  margin: 10px 0;
+}
+
+.search-tips li {
+  margin: 5px 0;
+}
+/* ~ search results */
