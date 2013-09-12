@@ -425,12 +425,18 @@ input[type=url].gts-current-repo-url {
 
 /** Footer */
 .footer {
+  background-color: #f5f5f5;
   border-top: 1px solid #e5e5e5;
-  height: 139px;
+  min-height: 139px;
 }
 
 .footer .container {
   padding: 20px 0;
+}
+
+.footer .container ul {
+  list-style: none;
+  margin: 0 0 20px 0;
 }
 
 .gts-private .footer {
