@@ -904,3 +904,11 @@ input[type=text].gts-ref-input {
 }
 
 /* ~ user edit */
+
+/* services-admin */
+
+.services-admin .nav-pills {
+  margin: 0 20px 0 5px;
+}
+
+/* ~ services-admin */
