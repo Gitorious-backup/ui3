@@ -23,7 +23,7 @@ var gts = this.gts || {};
                   data: { toggle: "dropdown" }
                 }, e.span({ className: "caret" }, " ")),
             e.ul({ className: "dropdown-menu" }, [
-                button("Edit", user.editPath, "pencil"),
+                button("Settings", user.editPath, "pencil"),
                 button("Messages", user.messagesPath, "envelope"),
                 e.li({ className: "divider" }),
                 button("Dashboard", user.dashboardPath),
