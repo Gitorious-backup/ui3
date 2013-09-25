@@ -185,6 +185,7 @@ li + .dropdown-label {
 
 .gts-browser .gts-branch-selector {
     margin-top: 8px;
+    margin-bottom: 0;
 }
 
 .gts-file {
@@ -247,6 +248,7 @@ li + .dropdown-label {
 .gts-blob-view {
     margin-right: 12px;
     margin-top: 8px;
+    margin-bottom: 0;
     min-height: 21px;
     position: relative;
     z-index: 1;
@@ -492,8 +494,6 @@ input[type=url].gts-current-repo-url {
 /* Code listing tables */
 .gts-code-listing {
     border: 1px solid #e1e1e8;
-    position: relative;
-    top: -5px;
     width: 100%;
 }
 
