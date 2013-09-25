@@ -557,6 +557,10 @@ input[type=url].gts-current-repo-url {
 }
 
 /* Diff */
+.gts-code-listing .gts-diff-mod .gts-code {
+    background: #ffd;
+}
+
 .gts-code-listing .gts-diff-rm .gts-code {
     background: #fdd;
 }
