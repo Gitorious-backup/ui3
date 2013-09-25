@@ -625,8 +625,7 @@ input[type=url].gts-current-repo-url {
     width: 50%;
 }
 
-.gts-commit-summary,
-.gts-diff-summary {
+.gts-commit-summary {
     margin-bottom: 12px;
 }
 
