@@ -557,10 +557,13 @@ input[type=url].gts-current-repo-url {
 }
 
 /* Diff */
-.gts-code-listing .gts-diff-mod .gts-code {
-    background: #ffd;
+.gts-code-listing .gts-diff-add .linenum,
+.gts-code-listing .gts-diff-rm .linenum,
+.gts-code-listing .gts-diff-mod .linenum {
+    color: #000;
 }
 
+.gts-code-listing td.gts-diff-rm,
 .gts-code-listing .gts-diff-rm .gts-code {
     background: #fdd;
 }
@@ -579,6 +582,7 @@ input[type=url].gts-current-repo-url {
     color: #9d261d;
 }
 
+.gts-code-listing td.gts-diff-add,
 .gts-code-listing .gts-diff-add .gts-code {
     background: #dfd;
 }
