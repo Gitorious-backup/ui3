@@ -569,11 +569,11 @@ input[type=url].gts-current-repo-url {
 }
 
 .gts-diff-rm .idiff {
-    background: #ff9c9c;
+    background: #f2acad;
 }
 
-.gts-code-listing del {
-    background: #f2acad;
+.gts-code-listing del,
+.gts-code-listing ins {
     text-decoration: none;
 }
 
@@ -588,12 +588,7 @@ input[type=url].gts-current-repo-url {
 }
 
 .gts-diff-add .idiff {
-    background: #9cff9c;
-}
-
-.gts-code-listing ins {
     background: #bafbad;
-    text-decoration: none;
 }
 
 .gts-pos,
