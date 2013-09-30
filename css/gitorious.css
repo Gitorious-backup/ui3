@@ -94,6 +94,10 @@ body .gts-masthead {
     padding: 20px 0 0;
 }
 
+.gts-site-header h2 {
+  margin-bottom: 20px;
+}
+
 .gts-clone-source {
     margin-left: 30px;
 }
