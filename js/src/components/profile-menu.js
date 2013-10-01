@@ -16,7 +16,7 @@ var gts = this.gts || {};
     gts.profileMenu = function (root, user) {
         if (!user) { return; }
         d.setContent([
-            e.a({ className: "btn btn-inverse", href: user.dashboardPath },
+            e.a({ className: "btn btn-inverse", href: user.profilePath },
                 [e.i({ className: "icon-user icon-white" }), user.login]),
             e.a({ className: "btn btn-inverse dropdown-toggle",
                   href: "#",
