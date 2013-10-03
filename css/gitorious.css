@@ -951,3 +951,19 @@ form .controls input[type=checkbox] {
   width: 170px;
 }
 
+/* merge requests */
+.merge-request-meta {
+  margin: 0;
+}
+
+.merge-request-meta dt {
+  float: left;
+  width: 35%;
+}
+
+.merge-request-meta dd {
+  clear: right;
+  margin: 5px 0;
+}
+
+/* ~ merge requests */
