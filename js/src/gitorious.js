@@ -16,12 +16,11 @@ gts.request = function (options) {
     return reqwest(options);
 };
 
-(function () {
-    var input = document.getElementById("project_title");
-    if (input) { gts.app.env("project-title-input", input); }
-    input = document.getElementById("project_slug");
-    if (input) { gts.app.env("project-slug-input", input); }
-}());
+// If either of these elements are not found, dGEBI returns null, which is
+// ignored by gts.app.env()
+gts.app.env("project-title-input", document.getElementById("project_title"));
+gts.app.env("project-slug-input", document.getElementById("project_slug"));
+gts.app.env("comment-form", document.getElementById("comment_form_tpl"));
 
 // Data
 gts.app.data("ref-url-template", function (url, ref) {
@@ -60,6 +59,9 @@ gts.app.data("project-admin", cull.prop("admin"), {
     depends: ["current-project"]
 });
 gts.app.data("blob-region", gts.blob.regionFromUrl, { depends: ["url"] });
+gts.app.data("raw-commit-comments", gts.cache(gts.jsonRequest), { depends: ["commit-comments-url"] });
+gts.app.data("commit-comments", cull.prop("commit"), { depends: ["raw-commit-comments"] });
+gts.app.data("commit-diff-comments", cull.prop("diffs"), { depends: ["raw-commit-comments"] });
 
 // Features
 // NB! While it is possible to lean on the function name when registering
@@ -181,6 +183,26 @@ gts.app.feature("slugify-project-title", gts.slugify, {
 
 gts.app.feature("select-details", gts.selectDetails, {
     elements: ["gts-option-details"]
+});
+
+gts.app.feature("list-commit-comments", gts.comments.renderComments, {
+    elements: ["gts-commit-comments"],
+    depends: ["commit-comments"]
+});
+
+gts.app.feature("list-diff-comments", gts.comments.renderDiffComments, {
+    elements: ["gts-file"],
+    depends: ["commit-diff-comments"]
+});
+
+gts.app.feature("enable-commenting", gts.comments.enableCommenting, {
+    elements: ["gts-commentable"],
+    depends: ["comment-form", "current-user"]
+});
+
+gts.app.feature("personalize-comment-form", gts.comments.personalizeForm, {
+    elements: ["gts-comment-form"],
+    depends: ["current-user"]
 });
 
 // Spin off app asynchronously so subsequent scripts have a chance

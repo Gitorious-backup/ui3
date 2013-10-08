@@ -9,29 +9,32 @@ buster.testCase("Repository admin", {
             committershipsPath: "/committerships",
             webHooksPath: "/webhooks"
         };
+        this.div = document.createElement("div");
+        this.ph = document.createElement("div");
+        this.div.appendChild(this.ph);
     },
 
     "includes link to admin pull-down": function () {
-        var menu = gts.repository.admin.build(this.data);
+        gts.repository.admin(this.ph, this.data);
 
-        assert.className(menu, "dropdown");
-        assert.match(menu.innerHTML, "dropdown-toggle");
-        assert.match(menu.innerHTML, "<i class=\"icon-cog\"></i> Admin");
+        assert.className(this.div.firstChild, "dropdown");
+        assert.match(this.div.firstChild.innerHTML, "dropdown-toggle");
+        assert.match(this.div.firstChild.innerHTML, "<i class=\"icon-cog\"></i> Admin");
     },
 
     "includes dropdown menu": function () {
-        var menu = gts.repository.admin.build(this.data);
+        gts.repository.admin(this.ph, this.data);
 
-        assert.match(menu.innerHTML, "<ul class=\"dropdown-menu");
+        assert.match(this.div.firstChild.innerHTML, "<ul class=\"dropdown-menu");
     },
 
     "includes links": function () {
-        var menu = gts.repository.admin.build(this.data);
+        gts.repository.admin(this.ph, this.data);
 
-        assert.match(menu.innerHTML, "/edit");
-        assert.match(menu.innerHTML, "/destroy");
-        assert.match(menu.innerHTML, "/ownership");
-        assert.match(menu.innerHTML, "/committerships");
-        assert.match(menu.innerHTML, "/webhooks");
+        assert.match(this.div.firstChild.innerHTML, "/edit");
+        assert.match(this.div.firstChild.innerHTML, "/destroy");
+        assert.match(this.div.firstChild.innerHTML, "/ownership");
+        assert.match(this.div.firstChild.innerHTML, "/committerships");
+        assert.match(this.div.firstChild.innerHTML, "/webhooks");
     }
 });

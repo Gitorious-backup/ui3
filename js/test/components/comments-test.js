@@ -7,7 +7,7 @@ buster.testCase("Comments", {
                 createdAt: "2013-01-01T23:10:15+02:00",
                 updatedAt: "2013-01-01T23:10:15+02:00",
                 author: {
-                    avatarPath: "/some/avatar.png",
+                    avatarUrl: "/some/avatar.png",
                     profilePath: "/~cjohansen",
                     name: "Christian Johansen",
                     login: "cjohansen"
@@ -31,7 +31,7 @@ buster.testCase("Comments", {
                 updatedAt: "2013-01-01T23:10:15+02:00",
                 editPath: "/comments/123456789/edit",
                 author: {
-                    avatarPath: "/some/avatar.png",
+                    avatarUrl: "/some/avatar.png",
                     profilePath: "/~cjohansen",
                     name: "Christian Johansen",
                     login: "cjohansen"
@@ -49,7 +49,7 @@ buster.testCase("Comments", {
                 updatedAt: "2013-01-01T23:25:15+02:00",
                 editPath: "/comments/123456789/edit",
                 author: {
-                    avatarPath: "/some/avatar.png",
+                    avatarUrl: "/some/avatar.png",
                     profilePath: "/~cjohansen",
                     name: "Christian Johansen",
                     login: "cjohansen"
@@ -68,7 +68,7 @@ buster.testCase("Comments", {
         },
 
         "displays form": function () {
-            gts.comments.personalizeForm({}, this.form);
+            gts.comments.personalizeForm(this.form, {});
 
             assert.equals(this.form.style.display, "block");
         },
@@ -76,12 +76,12 @@ buster.testCase("Comments", {
         "renders user in placeholder": function () {
             this.useFakeTimers(new Date(2013, 0, 1, 12, 0, 0).getTime());
 
-            gts.comments.personalizeForm({
+            gts.comments.personalizeForm(this.form, {
                 login: "cjohansen",
                 name: "Christian Johansen",
-                avatarPath: "/some/avatar.png",
+                avatarUrl: "/some/avatar.png",
                 profilePath: "/~cjohansen"
-            }, this.form);
+            });
 
             assert.tagName(this.form.firstChild, "p");
             var markup = this.form.firstChild.innerHTML;
@@ -96,41 +96,41 @@ buster.testCase("Comments", {
     "renderComments": {
         "displays container": function () {
             var container = dome.el("div", { style: { display: "none" } });
-            gts.comments.renderComments([{ author: {} }], container);
+            gts.comments.renderComments(container, [{ author: {} }]);
 
             assert.equals(container.style.display, "block");
         },
 
         "does not display container when no comments": function () {
             var container = dome.el("div", { style: { display: "none" } });
-            gts.comments.renderComments([], container);
+            gts.comments.renderComments(container, []);
 
             assert.equals(container.style.display, "none");
         },
 
         "renders all comments": function () {
             var container = dome.el("div", { style: { display: "none" } });
-            gts.comments.renderComments([{
+            gts.comments.renderComments(container, [{
                 body: "One",
                 createdAt: "2013-01-01T23:10:15+02:00",
                 updatedAt: "2013-01-01T23:10:15+02:00",
                 author: {
-                    avatarPath: "/some/avatar.png",
+                    avatarUrl: "/some/avatar.png",
                     profilePath: "/~cjohansen",
                     name: "Christian Johansen",
                     login: "cjohansen"
-                }                
+                }
             }, {
                 body: "Two",
                 createdAt: "2013-01-01T23:10:15+02:00",
                 updatedAt: "2013-01-01T23:10:15+02:00",
                 author: {
-                    avatarPath: "/some/avatar.png",
+                    avatarUrl: "/some/avatar.png",
                     profilePath: "/~cjohansen",
                     name: "Christian Johansen",
                     login: "cjohansen"
-                }                
-            }], container);
+                }
+            }]);
 
             assert.match(container.innerHTML, "One");
             assert.match(container.innerHTML, "Two");
