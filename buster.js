@@ -11,11 +11,13 @@ exports["Baseline"] = {
 
 exports["Build test"] = {
     extends: "Baseline",
-    libs: ["dist/gitorious3.min.js"]
+    environment: "browser",
+    libs: ["dist/gitorious3.min.js"],
 };
 
 exports["Browser tests"] = {
     extends: "Baseline",
+    environment: "browser",
     libs: [
         "js/lib/culljs/lib/cull.js",
         "js/lib/dome/lib/dome.js",

@@ -14,7 +14,7 @@
         "node": "~0.6"
     },
     "devDependencies": {
-        "buster": "~0.6",
+        "buster": "~0.7",
         "buster-html-doc": "*",
         "uglify-js": "~1.3"
     }
