@@ -537,6 +537,15 @@ input[type=url].gts-current-repo-url {
     width: 10px;
 }
 
+.gts-code-listing .gts-diff-comment td {
+    border-top: 1px solid #e1e1e8;
+    border-bottom: 1px solid #e1e1e8;
+}
+
+.gts-code-listing .gts-diff-comment .gts-comments {
+    margin: 10px 0;
+}
+
 .gts-code-listing .gts-commit-oid {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
@@ -630,6 +639,28 @@ input[type=url].gts-current-repo-url {
 
 .gts-commit-summary {
     margin-bottom: 12px;
+}
+
+.gts-comment-form {
+    margin-top: 2em;
+}
+
+/* Adding comments inline in diffs */
+.gts-file .gts-comment-form .gts-markdown-preview,
+.gts-file .gts-comment-form .controls {
+    margin-left: 0;
+}
+
+.gts-file .gts-comment-form .form-actions {
+    padding-left: 0;
+}
+
+.gts-file .gts-comment-form label {
+    display: none;
+}
+
+.gts-file .gts-comment-form legend {
+    margin-bottom: 20px;
 }
 
 .gts-comment {
