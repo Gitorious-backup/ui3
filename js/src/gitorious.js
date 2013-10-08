@@ -103,7 +103,7 @@ gts.app.feature("profile-menu", gts.profileMenu, {
 
 gts.app.feature("login-button", gts.loginButton, {
     elements: ["login_button"],
-    depends: ["url"]
+    depends: ["url", "current-user"]
 });
 
 gts.app.feature("clone-url-selection", gts.cloneUrlSelection, {
