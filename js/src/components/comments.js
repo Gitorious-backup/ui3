@@ -188,7 +188,6 @@ this.gts.comments = (function (el) {
         var rows = diff.getElementsByTagName("tr");
 
         cull.doall(function (comment) {
-            console.log(comment.body)
             var row = cull.first(cull.partial(isLine, comment.firstLine), rows);
             addDiffComment(getDiffCommentPlaceholder(row, comment), comment)
         }, comments);
@@ -251,7 +250,6 @@ this.gts.comments = (function (el) {
     }
 
     function updateCommentExtra(container, button) {
-        console.log(extractData(button, ["lines", "context", "path"]));
         dome.setContent(extractData(button, ["lines", "context", "path"]), container);
     }
 
