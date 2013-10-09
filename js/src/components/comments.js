@@ -16,24 +16,9 @@ this.gts.comments = (function (el) {
         ]);
     }
 
-    function renderEditForm(comment) {
-        console.log("Edit");
-    }
-
     function renderEditLink(comment) {
         if (!comment.editPath) { return ""; }
-        var link = el.a({
-            href: comment.editPath,
-            events: {
-                click: function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    renderEditForm(link.parentNode.parentNode);
-                }
-            }
-        }, "Edit comment");
-
-        return link;
+        return el.a({ href: comment.editPath, }, "Edit comment");
     }
 
     /**
