@@ -7,6 +7,10 @@
   box-shadow: none;
 }
 
+.navbar-search .search-query {
+  box-shadow: none;
+}
+
 /* The default responsive Bootstrap layout is too wide */
 .container,
 .navbar-fixed-top .container,
@@ -58,6 +62,11 @@ body .gts-masthead {
   body .gts-masthead {
     margin: 0 -20px;
   }
+}
+
+.login_button {
+  position: relative;
+  top: 1px;
 }
 
 .login_button .btn i {
