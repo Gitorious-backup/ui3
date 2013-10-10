@@ -333,11 +333,12 @@ input[type=url].gts-current-repo-url {
 
 /** Date headings */
 .gts-date-heading {
-    background-color: #f7f7f9;
-    border-bottom: 1px solid #e1e1e8;
-    clear: both;
-    font-weight: bold;
-    margin-bottom: 20px;
+  background-color: #f7f7f9;
+  border-bottom: 1px solid #e1e1e8;
+  clear: both;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 21px;
 }
 
 .gts-date-heading-inner {
@@ -822,6 +823,7 @@ input[type=text].gts-ref-input {
 .pull-box-container {
   margin-bottom: 20px;
   border: 1px solid #e1e1e8;
+  border-radius: 4px 4px 0 0;
 }
 
 .pull-box-container h3 {
@@ -831,11 +833,27 @@ input[type=text].gts-ref-input {
 
 .pull-box-header {
   padding: 3px 10px;
-  background-color: #e1e1e8;
+  border-bottom: 1px solid #e1e1e8;
+}
+
+.pull-box-header, .pull-box-container .filters {
+  border-bottom: 1px solid #e1e1e8;
+}
+
+.pull-box-header, .pull-box-links {
+  background-color: #f7f7f9;
 }
 
 .pull-box-content table {
   margin: 0;
+}
+
+.pull-box-content table tbody tr:first-child td {
+  border-top: none;
+}
+
+.pull-box-content table tr:hover td {
+  background-color: #fff;
 }
 
 .pull-box-content .hint {
@@ -843,8 +861,8 @@ input[type=text].gts-ref-input {
 }
 
 .pull-box-links {
-  background-color: #e6e6e6;
   padding: 8px;
+  border-top: 1px solid #e1e1e8;
 }
 
 .pull-box-container .filters {
@@ -854,6 +872,10 @@ input[type=text].gts-ref-input {
 .pull-box-container .filters ul li {
   float: left;
   margin-left: 5px;
+}
+
+.pull-box-container .filters a {
+  font-size: 12px;
 }
 
 /* ~ pull-box */
