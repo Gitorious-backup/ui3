@@ -75,10 +75,6 @@ body .gts-masthead {
   top: 1px;
 }
 
-.gts-masthead .nav {
-  margin-top: 5px;
-}
-
 .gts-masthead .navbar-inner {
     border-radius: 0;
     background-image: -moz-linear-gradient(center top, #201e1e, #222222);
@@ -92,8 +88,8 @@ body .gts-masthead {
 }
 
 .gts-logo {
-    float: left;
-    margin: -4px 20px 6px 0;
+  float: left;
+  margin: -8px 20px 6px 0;
 }
 
 .gts-masthead .navbar-inner .btn-group {
