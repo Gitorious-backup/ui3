@@ -922,6 +922,11 @@ input[type=text].gts-ref-input {
   padding-left: 20px;
 }
 
+.merge_request > a {
+  background: transparent url('/ui3/images/icons/16px/box-add.png') left center no-repeat;
+  padding-left: 20px;
+}
+
 /* ~ icons */
 
 /* user edit */
