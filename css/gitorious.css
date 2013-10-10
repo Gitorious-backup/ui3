@@ -2,6 +2,11 @@
 
 /** Bootstrap tweaks */
 
+.btn {
+  background-image: none;
+  box-shadow: none;
+}
+
 /* The default responsive Bootstrap layout is too wide */
 .container,
 .navbar-fixed-top .container,
