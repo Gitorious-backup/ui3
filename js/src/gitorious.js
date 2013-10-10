@@ -200,6 +200,11 @@ gts.app.feature("enable-commenting", gts.comments.enableCommenting, {
     depends: ["comment-form", "current-user"]
 });
 
+gts.app.feature("enable-diff-commenting", gts.comments.enableDiffCommenting, {
+    elements: ["gts-file"],
+    depends: ["comment-form", "current-user"]
+});
+
 gts.app.feature("personalize-comment-form", gts.comments.personalizeForm, {
     elements: ["gts-comment-form"],
     depends: ["current-user"]

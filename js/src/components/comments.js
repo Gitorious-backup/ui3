@@ -240,22 +240,95 @@ this.gts.comments = (function (el) {
 
     var currentlyCommenting;
 
+    function displayCommentFormFor(button, form) {
+        if (currentlyCommenting) {
+            dome.cn.rm("hidden", currentlyCommenting);
+        }
+        updateCommentExtra(form.querySelector(".comment-extra"), button.parentNode);
+        currentlyCommenting = button;
+        dome.cn.add("hidden", currentlyCommenting);
+        button.parentNode.appendChild(form);
+    }
+
     function enableCommenting(commentable, form, user) {
-        var commentExtra = form.querySelector(".comment-extra");
-        dome.append(el.button({
+        var button = el.button({
             className: "btn btn-primary",
             events: {
                 click: function (e) {
-                    if (currentlyCommenting) {
-                        dome.cn.rm("hidden", currentlyCommenting);
-                    }
-                    updateCommentExtra(commentExtra, this.parentNode);
-                    currentlyCommenting = this;
-                    dome.cn.add("hidden", currentlyCommenting);
-                    this.parentNode.appendChild(form);
+                    displayCommentFormFor(this, form);
                 }
             }
-        }, "Add comment"), commentable);
+        }, "Add comment");
+        dome.append(button, commentable);
+        return button;
+    }
+
+    function getDiffLine(row) {
+        return cull.map(function (ln) {
+            return ln.innerHTML || "0";
+        }, row.querySelectorAll(".linenum")).join("-");
+    }
+
+    function getDiffPath(row) {
+        var container = row.parentNode.parentNode.parentNode;
+        return container.querySelector(".gts-diff-summary a").innerText.trim();
+    }
+
+    function diffPrefixFromClassName(element) {
+        if (dome.cn.has("gts-diff-rm", element)) { return "-"; }
+        if (dome.cn.has("gts-diff-add", element)) { return "+"; }
+    }
+
+    function getDiffContext(row) {
+        var prefix = diffPrefixFromClassName(row);
+        return cull.map(function (code) {
+            return (diffPrefixFromClassName(code) || prefix) + code.innerText;
+        }, row.getElementsByTagName("code")).join("\n");
+    }
+
+    function commentOnDiff(row, form, user) {
+        var line = getDiffLine(row);
+        var placeholder = getDiffCommentPlaceholder(row, {
+            firstLine: line,
+            lastLine: line,
+            context: getDiffContext(row),
+            path: getDiffPath(row)
+        });
+        var button = enableCommenting(placeholder.nextSibling, form, user)
+        displayCommentFormFor(button, form);
+    }
+
+    function showCommentButton(form, user) {
+        var button = this.querySelector(".gts-add-diff-comment");
+        if (button) {
+            return dome.cn.rm("hidden", button);
+        }
+
+        var row = this;
+        var tds = row.getElementsByTagName("td");
+        dome.cn.add("gts-add-diff-comment-container", tds[tds.length - 1]);
+        tds[tds.length - 1].appendChild(el.a({
+            className: "gts-add-diff-comment",
+            events: {
+                click: function (e) {
+                    e.preventDefault();
+                    commentOnDiff(row, form, user);
+                }
+            }
+        }, el.i({ className: "icon icon-comment" })));
+    }
+
+    var hide = cull.partial(dome.cn.add, "hidden");
+
+    function hideCommentButton() {
+        cull.doall(hide, this.querySelectorAll(".gts-add-diff-comment"));
+    }
+
+    function enableDiffCommenting(diff, form, user) {
+        cull.doall(function (row) {
+            dome.on(row, "mouseenter", cull.partial(showCommentButton, form, user));
+            dome.on(row, "mouseleave", hideCommentButton);
+        }, diff.querySelectorAll(".gts-diff-mod, .gts-diff-rm, .gts-diff-add"));
     }
 
     return {
@@ -263,6 +336,7 @@ this.gts.comments = (function (el) {
         renderComments: renderComments,
         renderComment: renderComment,
         enableCommenting: enableCommenting,
+        enableDiffCommenting: enableDiffCommenting,
         personalizeForm: personalizeForm
     };
 }(dome.el));
