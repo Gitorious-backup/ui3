@@ -553,14 +553,16 @@ input[type=url].gts-current-repo-url {
 }
 
 .gts-add-diff-comment-container {
+    min-height: 14px;
     position: relative;
 }
 
 .gts-add-diff-comment {
     cursor: pointer;
+    left: -40px;
     margin-top: -7px;
+    padding: 0 20px 0 10px;
     position: absolute;
-    right: 6px;
     top: 50%;
 }
 

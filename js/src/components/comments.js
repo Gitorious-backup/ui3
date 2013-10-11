@@ -167,8 +167,8 @@ this.gts.comments = (function (el) {
      * are arrays of comments relating to the specific diff.
      */
     function renderDiffComments(diff, diffComments) {
-        var link = diff.querySelector(".breadcrumb .gts-diff-summary a");
-        var comments = link && diffComments[link.innerText.trim()]
+        var path = diff.querySelector(".breadcrumb .gts-diff-summary .gts-path");
+        var comments = path && diffComments[path.innerHTML];
         if (!comments || comments.length === 0) { return; }
         var rows = diff.getElementsByTagName("tr");
 
@@ -179,7 +179,6 @@ this.gts.comments = (function (el) {
     }
 
     function renderComments(container, comments) {
-        if (comments.length === 0) { return; }
         container.style.display = "block";
         var inner = document.createElement("div");
         container.appendChild(inner);
@@ -225,7 +224,7 @@ this.gts.comments = (function (el) {
     function extractData(element, props) {
         return cull.reduce(function (data, prop) {
             var val = dome.data.get("gts-" + prop, element);
-            if (!val) { return; }
+            if (!val) { return data; }
             return data.concat(el.input({
                 name: "comment[" + prop + "]",
                 value: val,
@@ -265,13 +264,14 @@ this.gts.comments = (function (el) {
 
     function getDiffLine(row) {
         return cull.map(function (ln) {
-            return ln.innerHTML || "0";
+            var m = ln.innerHTML.match(/\d+/);
+            return m && m[0] || "0";
         }, row.querySelectorAll(".linenum")).join("-");
     }
 
     function getDiffPath(row) {
         var container = row.parentNode.parentNode.parentNode;
-        return container.querySelector(".gts-diff-summary a").innerText.trim();
+        return container.querySelector(".gts-diff-summary .gts-path").innerHTML;
     }
 
     function diffPrefixFromClassName(element) {
@@ -282,7 +282,7 @@ this.gts.comments = (function (el) {
     function getDiffContext(row) {
         var prefix = diffPrefixFromClassName(row);
         return cull.map(function (code) {
-            return (diffPrefixFromClassName(code) || prefix) + code.innerText;
+            return (diffPrefixFromClassName(code) || prefix) + (code.innerText || code.innerHTML);
         }, row.getElementsByTagName("code")).join("\n");
     }
 
@@ -306,8 +306,14 @@ this.gts.comments = (function (el) {
 
         var row = this;
         var tds = row.getElementsByTagName("td");
-        dome.cn.add("gts-add-diff-comment-container", tds[tds.length - 1]);
-        tds[tds.length - 1].appendChild(el.a({
+
+        // We need this extra container, because setting 'position: relative' on the
+        // td element isn't enough to convince Firefox to do the right thing
+        var container = el.div({ className: "gts-add-diff-comment-container" });
+        container.innerHTML = tds[0].innerHTML;
+        tds[0].innerHTML = "";
+
+        container.appendChild(el.a({
             className: "gts-add-diff-comment",
             events: {
                 click: function (e) {
@@ -316,6 +322,7 @@ this.gts.comments = (function (el) {
                 }
             }
         }, el.i({ className: "icon icon-comment" })));
+        tds[0].appendChild(container);
     }
 
     var hide = cull.partial(dome.cn.add, "hidden");
