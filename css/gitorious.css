@@ -442,9 +442,14 @@ input[type=url].gts-current-repo-url {
 
 /** Footer */
 .footer {
-  background-color: #f5f5f5;
+  background-color: #222;
+  color: #c1c1c1;
   border-top: 1px solid #e5e5e5;
   min-height: 139px;
+}
+
+.footer a, .footer a:visited {
+  color: #5396D5;
 }
 
 .footer .container {
