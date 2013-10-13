@@ -704,6 +704,7 @@ input[type=url].gts-current-repo-url {
 
 .gts-comment + .gts-comment {
     border-top: 1px solid #e5e5e5;
+    margin-top: 2em;
 }
 
 .gts-bordered-row {
