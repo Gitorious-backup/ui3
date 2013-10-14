@@ -1055,3 +1055,13 @@ form .controls input[type=checkbox] {
 }
 
 /* ~ merge requests */
+
+.gts-toggler {
+    color: #08c;
+    cursor: pointer;
+}
+
+.gts-toggler:hover {
+    color: #005580;
+    text-decoration: underline;
+}
