@@ -673,6 +673,10 @@ input[type=url].gts-current-repo-url {
     margin-top: 2em;
 }
 
+.gts-commit-message {
+    clear: both;
+}
+
 /* Adding comments inline in diffs */
 .gts-file .gts-comment-form .gts-markdown-preview,
 .gts-file .gts-comment-form .controls {
