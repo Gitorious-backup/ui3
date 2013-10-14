@@ -858,6 +858,9 @@ input[type=text].gts-ref-input {
   border-bottom: 1px solid #e1e1e8;
 }
 
+.pull-box-header, .pull-box-container .filters .current {
+  font-weight: 700;
+}
 .pull-box-header, .pull-box-links {
   background-color: #f7f7f9;
 }
@@ -1024,12 +1027,6 @@ input[type=text].gts-ref-input {
   margin: 5px 0;
 }
 /* ~ search results */
-
-/* openid sign-up */
-form .controls input[type=checkbox] {
-  margin-top: 8px;
-}
-/* ~ openid sign-up */
 
 .form-large-labels .controls {
   margin-left: 180px;
