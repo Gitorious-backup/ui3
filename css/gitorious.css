@@ -858,6 +858,9 @@ input[type=text].gts-ref-input {
   border-bottom: 1px solid #e1e1e8;
 }
 
+.pull-box-header, .pull-box-container .filters .current {
+  font-weight: 700;
+}
 .pull-box-header, .pull-box-links {
   background-color: #f7f7f9;
 }
