@@ -855,6 +855,7 @@ input[type=text].gts-ref-input {
 .pull-box-header, .pull-box-container .filters .current {
   font-weight: 700;
 }
+
 .pull-box-header, .pull-box-links {
   background-color: #f7f7f9;
 }
@@ -873,6 +874,35 @@ input[type=text].gts-ref-input {
 
 .pull-box-content .hint {
   margin: 10px;
+}
+
+.pull-box-content .btn-group {
+  margin: -34px -1px 0;
+  float: right;
+}
+
+.pull-box-content .btn-group .btn {
+  line-height: 25px;
+  text-transform: capitalize;
+  border-bottom: 0;
+  border-top: 0;
+}
+
+.pull-box-content .btn-group > .btn:first-child {
+  border-radius: 0;
+}
+
+.pull-box-content .btn-group > .btn:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 0;
+}
+
+.pull-box-content .gts-markup {
+  padding: 10px 15px;
+}
+
+.pull-box-content .gts-markup p:last-child {
+  margin-bottom: 0;
 }
 
 .pull-box-links {
@@ -1048,11 +1078,19 @@ input[type=text].gts-ref-input {
 /* ~ merge requests */
 
 .gts-toggler {
-    color: #08c;
-    cursor: pointer;
+  color: #08c;
+  cursor: pointer;
 }
 
 .gts-toggler:hover {
-    color: #005580;
-    text-decoration: underline;
+  color: #005580;
+  text-decoration: underline;
+}
+
+.gts-mr-status {
+  padding: 10px;
+}
+
+.gts-mr-pull-box .pull-box-header h3 {
+  font-size: 16px;
 }
