@@ -68,10 +68,6 @@ gts.app.data("commit-diff-comments", cull.prop("diffs"), { depends: ["raw-commit
 // features, e.g. gts.app.feature(gts.googleAnalytics, { ... }); we don't do
 // that, because uglify will strip out the function names, and the app will
 // crash.
-gts.app.feature("google-analytics", gts.googleAnalytics, {
-    depends: ["analytics-account", "analytics-domain-name"]
-});
-
 gts.app.feature("dropdown", gts.dropdown, {
     elements: ["dropdown"]
 });
