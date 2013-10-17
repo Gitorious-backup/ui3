@@ -18,7 +18,9 @@ this.gts.comments = (function (el) {
 
     function renderEditLink(comment) {
         if (!comment.editPath) { return ""; }
-        return el.a({ href: comment.editPath, }, "Edit comment");
+        return el.a({ className: 'btn', href: comment.editPath, }, [
+          el.i({ className: 'icon icon-edit' }), ' ', 'Edit'
+        ]);
     }
 
     /**
