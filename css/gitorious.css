@@ -1126,6 +1126,18 @@ input[type=text].gts-ref-input {
   padding: 10px;
 }
 
+.gts-mr-status-desc {
+  margin-top: 3px;
+}
+
+.gts-mr-status-label {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin: 2px 15px 0 0;
+  float: left;
+}
+
 .gts-mr-pull-box .pull-box-header h3 {
   font-size: 16px;
 }
