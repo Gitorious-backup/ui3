@@ -571,7 +571,7 @@ input[type=url].gts-current-repo-url {
 }
 
 .gts-code-listing .gts-diff-comment .gts-comments {
-    margin: 10px 0;
+  margin-bottom: 10px;
 }
 
 .gts-code-listing .gts-commit-oid {
@@ -684,7 +684,7 @@ input[type=url].gts-current-repo-url {
 }
 
 .gts-file .gts-comment-form .form-actions {
-    padding-left: 0;
+  padding-left: 15px;
 }
 
 .gts-file .gts-comment-form label {
@@ -696,28 +696,59 @@ input[type=url].gts-current-repo-url {
 }
 
 .gts-comment {
-    padding-top: 8px;
-    margin-bottom: 12px;
+  padding: 15px;
+  background-color: #f5f5f5;
+}
+
+.gts-comment .gts-avatar {
+  margin: 0 5px 0;
 }
 
 .gts-comment + .gts-comment {
-    border-top: 1px solid #e5e5e5;
-    margin-top: 2em;
+  margin-top: 15px;
+}
+
+.gts-comment-header {
+  margin-bottom: 10px;
+}
+
+.gts-comment-body {
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.gts-comment-body p:last-child {
+  margin-bottom: 0;
+}
+
+.gts-comment-context blockquote {
+  margin-bottom: 10px;
+}
+
+.gts-comment-context pre {
+  background-color: #fff;
+  border: none;
+}
+
+.gts-comment-header .gts-comment-meta {
+  float: right;
 }
 
 .gts-bordered-row {
-    background: #f5f5f5;
-    border-bottom: 1px solid #e5e5e5;
-    border-top: 1px solid #e5e5e5;
-    padding: 8px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  padding: 8px;
 }
 
 .form-horizontal div.gts-markdown-preview {
-    margin: -12px 160px 24px;
+  margin: -12px 160px 24px;
 }
 
 .gts-help .table {
-    width: auto;
+  width: auto;
 }
 
 .gts-item-author,

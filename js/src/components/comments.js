@@ -43,8 +43,7 @@ this.gts.comments = (function (el) {
     function renderComment(comment) {
         var author = comment.author;
         return el.div({ className: "gts-comment" }, [
-            el.p({ innerHTML: comment.body }),
-            el.p([
+            el.div({ className: "gts-comment-header" }, [
                 el.img({
                     src: author.avatarUrl,
                     width: 24,
@@ -52,11 +51,13 @@ this.gts.comments = (function (el) {
                     className: "gts-avatar"
                 }),
                 el.a({ href: author.profilePath }, author.name),
-                " ",
-                renderCommentDate(comment),
-                " ",
-                renderEditLink(comment)
-            ])
+                el.div({ className: "gts-comment-meta" }, [
+                  renderCommentDate(comment),
+                  " ",
+                  renderEditLink(comment)
+                ])
+            ]),
+            el.div({ className: "gts-comment-body", innerHTML: comment.body })
         ]);
     }
 
