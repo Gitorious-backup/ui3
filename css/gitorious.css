@@ -1098,3 +1098,20 @@ input[type=text].gts-ref-input {
 .gts-mr-pull-box .pull-box-header h3 {
   font-size: 16px;
 }
+
+#mr-help {
+  width: 630px;
+}
+
+#mr-help .modal-body {
+  max-height: 600px;
+  width: 600px;
+}
+
+.gts-mr-help h4 {
+  margin-bottom: 10px;
+}
+
+.gts-mr-help-content {
+  background: #fff;
+}
