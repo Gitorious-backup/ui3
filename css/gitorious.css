@@ -1165,3 +1165,19 @@ input[type=text].gts-ref-input {
 .gts-mr-help-content {
   background: #fff;
 }
+
+.gts-mr-commit-table td:last-child {
+  text-align: right;
+}
+
+.gts-mr-commit-table .sha-col {
+  width: 10%;
+}
+
+.gts-mr-commit-table .commit-msg-col {
+  width: auto;
+}
+
+.gts-mr-commit-table .commit-date-col {
+  width: 18%;
+}
