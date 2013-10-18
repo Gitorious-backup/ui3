@@ -395,6 +395,13 @@ input[type=url].gts-current-repo-url {
   background-image: url('/ui3/images/icons/16px/box-add.png');
 }
 
+.gts-event-meta-body {
+  display: block;
+  margin-left: 40px;
+  margin-top: 5px;
+  color: #666;
+}
+
 .gts-avatar {
     margin: 0 6px;
     -webkit-border-radius: 3px;
