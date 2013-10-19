@@ -894,6 +894,7 @@ input[type=text].gts-ref-input {
   font-size: 11px;
   line-height: 14px;
   padding: 2px 6px;
+  text-transform: capitalize;
 }
 
 /* pull-box */
@@ -1027,10 +1028,6 @@ input[type=text].gts-ref-input {
 /* ~ icons */
 
 /* user edit */
-
-.user-edit-container .tab-pane {
-  padding: 20px;
-}
 
 .user-edit-container form.ssh_key textarea {
   width: 98%;
