@@ -867,9 +867,33 @@ input[type=text].gts-ref-input {
     margin-top: -27px;
 }
 
-/* container with spacing */
 .gts-container {
   margin-top: 20px;
+}
+
+.gts-legend {
+  border-color: #e5e5e5;
+  border-image: none;
+  border-style: none none solid;
+  border-width: 0 0 1px;
+  color: #333333;
+  display: block;
+  font-size: 19.5px;
+  line-height: 36px;
+  margin-bottom: 27px;
+  padding: 0;
+  width: 100%;
+  font-weight: normal;
+}
+
+.gts-tbody-actions td:last-child {
+  text-align: right;
+}
+
+.gts-tbody-actions td:last-child .btn {
+  font-size: 11px;
+  line-height: 14px;
+  padding: 2px 6px;
 }
 
 /* pull-box */
