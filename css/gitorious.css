@@ -897,6 +897,10 @@ input[type=text].gts-ref-input {
   text-transform: capitalize;
 }
 
+table td .gts-committer-list {
+  margin-left: 0;
+}
+
 /* pull-box */
 
 .pull-box-container {
