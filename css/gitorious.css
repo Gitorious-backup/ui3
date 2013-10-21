@@ -1232,3 +1232,26 @@ table td .gts-committer-list {
 .gts-mr-commit-table .commit-date-col {
   width: 18%;
 }
+
+/* team index */
+
+.gts-group-listing {
+  list-style: none;
+}
+
+.gts-group-avatar {
+  float: left;
+  margin-right: 15px;
+}
+
+.gts-group-item {
+  clear: both;
+  margin-bottom: 20px;
+}
+
+.gts-group-item + .gts-group-item {
+  border-top: 1px solid #e1e1e1;
+  padding-top: 15px;
+}
+
+/* ~ team index */
