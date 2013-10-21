@@ -1233,25 +1233,25 @@ table td .gts-committer-list {
   width: 18%;
 }
 
-/* team index */
+/* listings */
 
-.gts-group-listing {
+.gts-listing {
   list-style: none;
 }
 
-.gts-group-avatar {
-  float: left;
-  margin-right: 15px;
-}
-
-.gts-group-item {
+.gts-listing-item {
   clear: both;
   margin-bottom: 20px;
 }
 
-.gts-group-item + .gts-group-item {
+.gts-listing-item + .gts-listing-item {
   border-top: 1px solid #e1e1e1;
   padding-top: 15px;
 }
 
-/* ~ team index */
+.gts-listing .gts-group-avatar {
+  float: left;
+  margin-right: 15px;
+}
+
+/* ~ listings */
