@@ -355,13 +355,17 @@ input[type=url].gts-current-repo-url {
 }
 
 .gts-event {
-  margin-bottom: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #f7f7f9;
+  margin-top: 15px;
+  padding-top: 15px;
 }
 
-.gts-event:last-child {
-  border-bottom: none;
+.gts-date-heading + .gts-event {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.gts-event + .gts-event {
+  border-top: 1px solid #f7f7f9;
 }
 
 .gts-event .event-body {
