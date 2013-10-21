@@ -1242,6 +1242,15 @@ table td .gts-committer-list {
   width: 18%;
 }
 
+.gts-btn-show-diffs {
+  font-weight: bold;
+  text-transform: none;
+}
+
+.gts-btn-show-diffs i {
+  margin-top: 1px;
+}
+
 /* listings */
 
 .gts-listing {
