@@ -931,6 +931,14 @@ table td .gts-committer-list {
   background-color: #f7f7f9;
 }
 
+.pull-box-links {
+  text-align: right
+}
+
+.pull-box-content {
+  position: relative;
+}
+
 .pull-box-content table {
   margin: 0;
 }
@@ -944,7 +952,19 @@ table td .gts-committer-list {
 }
 
 .pull-box-content .hint {
-  margin: 10px;
+  padding: 10px 10px 0;
+}
+
+.pull-box-header-action {
+  position: absolute;
+  top: -27px;
+  right: 5px;
+}
+
+.pull-box-header-action .btn {
+  font-size: 11px;
+  line-height: 14px;
+  padding: 2px 6px;
 }
 
 .pull-box-content .btn-group {
