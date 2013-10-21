@@ -60,6 +60,18 @@ buster.testCase("URL", {
             var url = "http://localhost/blob/refs/heads/something:";
             var ref = gts.url.currentRef(url);
             assert.equals(ref, "refs/heads/something");
+        },
+
+        "extracts current ref from graph URL": function () {
+            var url = "http://localhost/gitorious/mainline/graph/223f538ee3016523f56febdf9c69613532da78a9";
+            var ref = gts.url.currentRef(url);
+            assert.equals(ref, "223f538ee3016523f56febdf9c69613532da78a9");
+        },
+
+        "extracts current ref from paginated URL": function () {
+            var url = "http://localhost/gitorious/mainline/graph/223f538ee3016523f56febdf9c69613532da78a9?page=1";
+            var ref = gts.url.currentRef(url);
+            assert.equals(ref, "223f538ee3016523f56febdf9c69613532da78a9");
         }
     }
 });
