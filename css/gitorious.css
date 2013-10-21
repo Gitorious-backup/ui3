@@ -343,6 +343,11 @@ input[type=url].gts-current-repo-url {
   font-weight: bold;
   margin-bottom: 20px;
   line-height: 21px;
+  margin-top: 15px;
+}
+
+.gts-date-heading:first-child {
+  margin-top: 0;
 }
 
 .gts-date-heading-inner {
