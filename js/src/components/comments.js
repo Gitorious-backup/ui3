@@ -262,7 +262,13 @@ this.gts.comments = (function (el) {
             }
         }, "Add comment");
         dome.append(button, commentable);
+        form.querySelector('button').addEventListener('click', disableSubmitButton);
+
         return button;
+    }
+
+    function disableSubmitButton(event) {
+      event.target.disabled = true;
     }
 
     function getDiffLine(row) {
