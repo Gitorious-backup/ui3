@@ -205,12 +205,3 @@ gts.app.feature("personalize-comment-form", gts.comments.personalizeForm, {
     elements: ["gts-comment-form"],
     depends: ["current-user"]
 });
-
-// Spin off app asynchronously so subsequent scripts have a chance
-// to register loggers etc before we roll
-setTimeout(function () {
-    // Scan the document for data-gts-* attributes that set
-    // "environment variables"
-    gts.app.scanEnvAttrs(document.documentElement, "data-gts-env-");
-    gts.app.load(document.documentElement);
-}, 10);
