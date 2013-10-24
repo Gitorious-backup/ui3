@@ -303,7 +303,7 @@ ul.gts-blob-view li {
 }
 
 .gts-private .gts-site-header .container {
-    background-image: url(../iconic/lock_stroke.svg);
+    background-image: url(/ui3/iconic/lock_stroke.svg);
     background-repeat: no-repeat;
     background-position: 100% 0;
 }
