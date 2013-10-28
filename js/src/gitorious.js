@@ -21,6 +21,7 @@ gts.request = function (options) {
 gts.app.env("project-title-input", document.getElementById("project_title"));
 gts.app.env("project-slug-input", document.getElementById("project_slug"));
 gts.app.env("comment-form", document.getElementById("comment_form_tpl"));
+gts.app.env("pjax-container", document.getElementById("gts-pjax-container"));
 
 // Data
 gts.app.data("ref-url-template", function (url, ref) {
@@ -204,4 +205,26 @@ gts.app.feature("enable-diff-commenting", gts.comments.enableDiffCommenting, {
 gts.app.feature("personalize-comment-form", gts.comments.personalizeForm, {
     elements: ["gts-comment-form"],
     depends: ["current-user"]
+});
+
+gts.app.feature("pjax", gts.pjax, {
+    elements: ["gts-pjax"],
+    depends: ["pjax-container"]
+});
+
+gts.enableJS = function (element) {
+    // Scan the document for data-gts-* attributes that set "environment
+    // variables"
+    // On subsequent calls, new env variables will trigger
+    var wasLoaded = gts.app.loaded;
+    gts.app.loaded = false;
+    gts.app.scanEnvAttrs(element, "data-gts-env-");
+    gts.app.loaded = wasLoaded;
+
+    // Start/load the JS part of the app
+    gts.app.load(element);
+};
+
+$(gts.app.env["pjax-container"]).on("pjax:end", function () {
+    gts.enableJS(gts.app.env["pjax-container"]);
 });
