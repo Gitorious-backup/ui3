@@ -214,8 +214,10 @@ gts.app.feature("pjax", gts.pjax, {
 
 gts.enableJS = function (element) {
     // Scan the document for data-gts-* attributes that set "environment
-    // variables"
-    // On subsequent calls, new env variables will trigger
+    // variables". On subsequent calls, new env variables will trigger all
+    // features to reload. Because we are about to call load() anyway, we
+    // temporarily pause the app to avoid having the app trying to load features
+    // too many times
     var wasLoaded = gts.app.loaded;
     gts.app.loaded = false;
     gts.app.scanEnvAttrs(element, "data-gts-env-");
