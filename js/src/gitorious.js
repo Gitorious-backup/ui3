@@ -207,6 +207,15 @@ gts.app.feature("personalize-comment-form", gts.comments.personalizeForm, {
     depends: ["current-user"]
 });
 
+gts.app.feature("commit-range-selector", gts.commitRangeSelector, {
+    elements: ["merge-request-form"],
+    depends: ["commit-list-url", "target-branches-url"]
+});
+
+gts.app.feature("watched-filter", gts.watchedFilter, {
+    elements: ["watched"]
+});
+
 gts.app.feature("pjax", gts.pjax, {
     elements: ["gts-pjax"],
     depends: ["pjax-container"]
