@@ -252,17 +252,21 @@ this.gts.comments = (function (el) {
         button.parentNode.appendChild(form);
     }
 
-    function enableCommenting(commentable, form, user) {
+    function enableCommenting(commentable, commentForm, user) {
         var button = el.button({
             className: "btn btn-primary",
             events: {
                 click: function (e) {
-                    displayCommentFormFor(this, form);
+                    displayCommentFormFor(this, commentForm);
                 }
             }
         }, "Add comment");
         dome.append(button, commentable);
-        form.querySelector('button').addEventListener('click', disableSubmitButton);
+
+        commentForm.querySelector('button').addEventListener('click', function(event) {
+          disableSubmitButton(event);
+          commentForm.submit();
+        });
 
         return button;
     }
