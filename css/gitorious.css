@@ -1045,17 +1045,17 @@ table td .gts-committer-list {
 /* icons */
 
 .repository > a {
-  background: transparent url('/ui3/images/icons/16px/cabinet.png') left center no-repeat;
+  background: transparent url('../images/icons/16px/cabinet.png') left center no-repeat;
   padding-left: 20px;
 }
 
 .project > a {
-  background: transparent url('/ui3/images/icons/16px/file.png') left center no-repeat;
+  background: transparent url('../images/icons/16px/file.png') left center no-repeat;
   padding-left: 20px;
 }
 
 .merge_request > a {
-  background: transparent url('/ui3/images/icons/16px/box-add.png') left center no-repeat;
+  background: transparent url('../images/icons/16px/box-add.png') left center no-repeat;
   padding-left: 20px;
 }
 
