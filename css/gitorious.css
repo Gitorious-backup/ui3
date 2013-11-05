@@ -141,6 +141,10 @@ tt {
     margin-top: -1px;
 }
 
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+    cursor: pointer;
+}
+
 .dropdown-label {
     border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
