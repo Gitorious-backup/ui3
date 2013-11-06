@@ -164,6 +164,11 @@ gts.app.feature("repository-merge-request", gts.repository.mergeRequest, {
     depends: ["current-repository"]
 });
 
+gts.app.feature("repository-open-merge-request-count", gts.repository.openMergeRequestCount, {
+    elements: ["gts-mr-count-ph"],
+    depends: ["current-repository"]
+});
+
 gts.app.feature("repository-name", gts.repository.name, {
     elements: ["gts-repository-name-ph"],
     depends: ["current-repository"]

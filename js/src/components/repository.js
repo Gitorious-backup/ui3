@@ -127,6 +127,9 @@ this.gts.repository = (function (el) {
         watching: repositoryWatching,
         cloning: repositoryCloning,
         mergeRequest: mergeRequest,
+        openMergeRequestCount: function (placeholder, repository) {
+          placeholder.innerHTML = '(' + repository.openMergeRequestCount + ')';
+        },
         name: function (placeholder, repository) {
             placeholder.innerHTML = repository.name;
         },
