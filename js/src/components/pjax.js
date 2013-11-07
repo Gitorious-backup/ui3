@@ -14,15 +14,12 @@ this.gts.pjax = (function () {
     }
 
     $controller.pjax("a", container, {
-        fragment: '#gts-pjax-container',
+        fragment: "#gts-pjax-container",
         timeout: 2500
     });
 
     $controller.on("click", "a", function (e) {
-      // Tab bars have links inside li-elements in lists. If either li element
-      // has the "active" class name, then assume a tab bar, and move the
-      // active class over to the newly clicked link
-      var lis = $(this.parentNode.parentNode.childNodes);
+      var lis = $(this).parents(".nav").children();
 
       if (!lis.hasClass("active")) {
         activeLink = null;
