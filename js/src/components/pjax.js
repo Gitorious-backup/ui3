@@ -13,10 +13,7 @@ this.gts.pjax = (function () {
       initialized = true;
     }
 
-    $controller.pjax("a", container, {
-      fragment: "#gts-pjax-container",
-      timeout: 1000
-    });
+    $controller.pjax("a", container, { timeout: 5000 });
 
     $controller.on("click", "a", function (e) {
       e.preventDefault();
