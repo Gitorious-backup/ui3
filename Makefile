@@ -42,7 +42,7 @@ dist/gitorious3.min.css: css/gitorious.css css/syntax-highlight.css
 	du -h dist/gitorious3.min.css
 
 clean:
-	rm -fr 
+	rm -fr dist/*
 	rm -fr js/lib/culljs/dist
 	rm -fr js/lib/dome/dist
 
