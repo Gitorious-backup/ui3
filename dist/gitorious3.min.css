@@ -262,7 +262,7 @@ tt {
 }
 
 .gts-private .gts-site-header {
-    background: url(../images/f5f5f5-980x1.png?jcb=1383813017) repeat-y 50% 0 #222;
+    background: url(../images/f5f5f5-980x1.png?jcb=1378307414) repeat-y 50% 0 #222;
     border-bottom: none;
 }
 
@@ -448,7 +448,7 @@ ul.gts-blob-view li {
 
 /** Private repositories */
 .gts-private {
-    background: url(../images/white-980x1.png?jcb=1383813017) repeat-y 50% 0 #222;
+    background: url(../images/white-980x1.png?jcb=1378307414) repeat-y 50% 0 #222;
 }
 
 .gts-private .gts-site-header .container {
@@ -784,9 +784,12 @@ input[type=url].gts-current-repo-url {
     text-decoration: none;
 }
 
-.gts-neg,
-.gts-diff-summary .gts-diff-rm {
-    color: #9d261d;
+.gts-diff-summary li {
+  word-wrap: break-word;
+}
+
+.gts-neg, .gts-diff-summary .gts-diff-rm {
+  color: #9d261d;
 }
 
 .gts-code-listing td.gts-diff-add,
@@ -1202,17 +1205,17 @@ table td .gts-committer-list {
 /* icons */
 
 .repository > a {
-  background: transparent url('../images/icons/16px/cabinet.png?jcb=1383813017') left center no-repeat;
+  background: transparent url('../images/icons/16px/cabinet.png?jcb=1378307624') left center no-repeat;
   padding-left: 20px;
 }
 
 .project > a {
-  background: transparent url('../images/icons/16px/file.png?jcb=1383813017') left center no-repeat;
+  background: transparent url('../images/icons/16px/file.png?jcb=1378307624') left center no-repeat;
   padding-left: 20px;
 }
 
 .merge_request > a {
-  background: transparent url('../images/icons/16px/box-add.png?jcb=1383813017') left center no-repeat;
+  background: transparent url('../images/icons/16px/box-add.png?jcb=1378307624') left center no-repeat;
   padding-left: 20px;
 }
 
