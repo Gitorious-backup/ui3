@@ -1138,6 +1138,34 @@ table td .gts-committer-list {
   margin-left: 10px;
 }
 
+.will-paginate-pager {
+  border-left: 1px solid #ddd;
+}
+
+.will-paginate-pager .pagination em.current,
+.will-paginate-pager .pagination span.gap {
+  float: left;
+  display: block;
+  border: 1px solid #ddd;
+  padding: 0 14px;
+  line-height: 34px;
+  color: #999;
+  font-style: normal;
+}
+
+.will-paginate-pager .pagination em.current {
+  border-left-width: 0;
+  background-color: #f5f5f5;
+}
+
+.will-paginate-pager .pagination span.gap {
+  border-left: 0;
+}
+
+.will-paginate-pager .pagination .previous_page {
+  display: none;
+}
+
 .no-results-box {
   text-align: center;
   font-weight: 700;
