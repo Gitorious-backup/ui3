@@ -529,6 +529,10 @@ input[type=url].gts-current-repo-url {
 /* Code listing tables */
 .gts-code-listing-wrapper {
     overflow: auto;
+    margin-left: -15px;
+    padding-left: 15px;
+    margin-right: -15px;
+    padding-right: 15px;
 }
 
 .gts-code-listing {
