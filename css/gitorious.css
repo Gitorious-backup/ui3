@@ -957,6 +957,10 @@ table td .gts-committer-list {
   position: relative;
 }
 
+.pull-box-content > ul {
+  margin: 15px 15px 15px 25px;
+}
+
 .pull-box-content table {
   margin: 0;
 }
@@ -1257,19 +1261,23 @@ table td .gts-committer-list {
   background: #fff;
 }
 
-.gts-mr-commit-table td:last-child {
+.gts-mr-commit-table td:last-child, .gts-commits-table td:last-child {
   text-align: right;
 }
 
-.gts-mr-commit-table .sha-col {
+.commit-author-col {
+  width: 20%;
+}
+
+.sha-col {
   width: 10%;
 }
 
-.gts-mr-commit-table .commit-msg-col {
+.commit-msg-col {
   width: auto;
 }
 
-.gts-mr-commit-table .commit-date-col {
+.commit-date-col {
   width: 18%;
 }
 
