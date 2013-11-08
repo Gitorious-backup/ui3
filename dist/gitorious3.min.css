@@ -262,11 +262,7 @@ tt {
 }
 
 .gts-private .gts-site-header {
-<<<<<<< HEAD
-    background: url(../images/f5f5f5-980x1.png?jcb=1378307414) repeat-y 50% 0 #222;
-=======
     background: url(../images/f5f5f5-980x1.png?jcb=1383813017) repeat-y 50% 0 #222;
->>>>>>> Build UI
     border-bottom: none;
 }
 
@@ -452,11 +448,7 @@ ul.gts-blob-view li {
 
 /** Private repositories */
 .gts-private {
-<<<<<<< HEAD
-    background: url(../images/white-980x1.png?jcb=1378307414) repeat-y 50% 0 #222;
-=======
     background: url(../images/white-980x1.png?jcb=1383813017) repeat-y 50% 0 #222;
->>>>>>> Build UI
 }
 
 .gts-private .gts-site-header .container {
@@ -678,13 +670,10 @@ input[type=url].gts-current-repo-url {
 /* Code listing tables */
 .gts-code-listing-wrapper {
     overflow: auto;
-<<<<<<< HEAD
-=======
     margin-left: -15px;
     padding-left: 15px;
     margin-right: -15px;
     padding-right: 15px;
->>>>>>> Build UI
 }
 
 .gts-code-listing {
@@ -1113,13 +1102,10 @@ table td .gts-committer-list {
   position: relative;
 }
 
-<<<<<<< HEAD
 .pull-box-content > ul {
   margin: 15px 15px 15px 25px;
 }
 
-=======
->>>>>>> Build UI
 .pull-box-content table {
   margin: 0;
 }
@@ -1216,29 +1202,17 @@ table td .gts-committer-list {
 /* icons */
 
 .repository > a {
-<<<<<<< HEAD
-  background: transparent url('../images/icons/16px/cabinet.png?jcb=1378307624') left center no-repeat;
-=======
   background: transparent url('../images/icons/16px/cabinet.png?jcb=1383813017') left center no-repeat;
->>>>>>> Build UI
   padding-left: 20px;
 }
 
 .project > a {
-<<<<<<< HEAD
-  background: transparent url('../images/icons/16px/file.png?jcb=1378307624') left center no-repeat;
-=======
   background: transparent url('../images/icons/16px/file.png?jcb=1383813017') left center no-repeat;
->>>>>>> Build UI
   padding-left: 20px;
 }
 
 .merge_request > a {
-<<<<<<< HEAD
-  background: transparent url('../images/icons/16px/box-add.png?jcb=1378307624') left center no-repeat;
-=======
   background: transparent url('../images/icons/16px/box-add.png?jcb=1383813017') left center no-repeat;
->>>>>>> Build UI
   padding-left: 20px;
 }
 
@@ -1313,7 +1287,6 @@ table td .gts-committer-list {
   margin-left: 10px;
 }
 
-<<<<<<< HEAD
 .will-paginate-pager {
   border-left: 1px solid #ddd;
 }
@@ -1342,8 +1315,6 @@ table td .gts-committer-list {
   display: none;
 }
 
-=======
->>>>>>> Build UI
 .no-results-box {
   text-align: center;
   font-weight: 700;
@@ -1435,7 +1406,6 @@ table td .gts-committer-list {
   background: #fff;
 }
 
-<<<<<<< HEAD
 .gts-mr-commit-table td:last-child, .gts-commits-table td:last-child {
   text-align: right;
 }
@@ -1453,21 +1423,6 @@ table td .gts-committer-list {
 }
 
 .commit-date-col {
-=======
-.gts-mr-commit-table td:last-child {
-  text-align: right;
-}
-
-.gts-mr-commit-table .sha-col {
-  width: 10%;
-}
-
-.gts-mr-commit-table .commit-msg-col {
-  width: auto;
-}
-
-.gts-mr-commit-table .commit-date-col {
->>>>>>> Build UI
   width: 18%;
 }
 
