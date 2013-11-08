@@ -240,17 +240,25 @@ this.gts.comments = (function (el) {
         dome.setContent(extractData(button, ["lines", "context", "path"]), container);
     }
 
+    var currentlyCommenting;
+
     function displayCommentFormFor(button, form) {
+        if (currentlyCommenting) {
+            dome.cn.rm("hidden", currentlyCommenting);
+        }
         updateCommentExtra(form.querySelector(".comment-extra"), button.parentNode);
+        currentlyCommenting = button;
+        dome.cn.add("hidden", currentlyCommenting);
         button.parentNode.appendChild(form);
     }
 
-    var currentlyCommenting = {};
+
+    var openForCommenting = {}
 
     function enableCommenting(commentable, commentForm, user) {
         var commentableLines = dome.data.get('gts-lines', commentable);
-        if (currentlyCommenting[commentableLines]) {
-          return currentlyCommenting[commentableLines];
+        if (openForCommenting[commentableLines]) {
+            return openForCommenting[commentableLines];
         }
         var button = el.button({
             className: "btn btn-primary",
@@ -267,7 +275,7 @@ this.gts.comments = (function (el) {
           commentForm.submit();
         });
 
-        currentlyCommenting[commentableLines] = button;
+        openForCommenting[commentableLines] = button;
         return button;
     }
 
