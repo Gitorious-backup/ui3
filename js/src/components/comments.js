@@ -283,8 +283,8 @@ this.gts.comments = (function (el) {
     }
 
     function getDiffPath(row) {
-        var container = row.parentNode.parentNode.parentNode;
-        return container.querySelector(".gts-diff-summary .gts-path").innerHTML;
+        var container = row.parentNode.parentNode.parentNode.parentNode;
+        return container.querySelector(".gts-path").innerHTML;
     }
 
     function diffPrefixFromClassName(element) {
