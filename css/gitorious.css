@@ -783,22 +783,6 @@ input[type=url].gts-current-repo-url {
   margin: -12px 160px 24px;
 }
 
-.form-horizontal .controls {
-  margin-left: 0;
-}
-
-.form-horizontal .control-label + .controls {
-  margin-left: 160px;
-}
-
-.form-horizontal .input-expanded {
-  width: 99%;
-}
-
-.form-horizontal .form-actions {
-  text-align: right;
-}
-
 .gts-help .table {
   width: auto;
 }
@@ -810,12 +794,7 @@ input[type=url].gts-current-repo-url {
 }
 
 .form-horizontal legend + p {
-  margin: -20px 0 27px;
-}
-
-.form-horizontal textarea {
-  width: 99%;
-  height: 150px;
+    margin: -20px 0 27px;
 }
 
 .gts-ref-input,
