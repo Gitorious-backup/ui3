@@ -85,7 +85,7 @@ this.gts.treeHistory = (function (c, d) {
     };
 
     var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-                   "Jul", "Aug", "Sep", "Oct", "Nov", "Dev"];
+                   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
     function getFileMeta(fileName, tree) {
         return c.select(function (e) {
