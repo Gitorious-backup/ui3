@@ -47,7 +47,7 @@ this.gts.repository = (function (el) {
                 render(link, repository);
             },
             error: function () {
-                link.innerHTML = "Failed, try watching again";
+                link.innerHTML = "Failed, try unwatching again";
             }
         });
     }
@@ -66,7 +66,7 @@ this.gts.repository = (function (el) {
                 render(link, repository);
             },
             error: function () {
-                link.innerHTML = "Failed, try unwatching again";
+                link.innerHTML = "Failed, try watching again";
             }
         });
     }
