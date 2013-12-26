@@ -1288,6 +1288,10 @@ table td .gts-committer-list {
   width: auto;
 }
 
+.unread {
+  font-weight: bold;
+}
+
 .commit-date-col {
   width: 18%;
 }
