@@ -1086,30 +1086,12 @@ table td .gts-committer-list {
 
 /* user edit */
 
-.user-edit-container form.ssh_key textarea {
-  width: 98%;
-  height: 150px;
-  margin-top: 15px;
-}
-
-.user-edit-container form.ssh_key .hint {
-  line-height: 20px;
-}
-
 .user-edit-container input[type="checkbox"] {
   margin-top: 7px;
 }
 
 .user-edit-container .controls {
   margin-left: 172px;
-}
-
-.user-edit-container .ssh_key {
-  margin-left: 0;
-}
-
-.user-edit-container .ssh_key .controls {
-  margin-left: 0;
 }
 
 .user-edit-container .user-avatar {
@@ -1129,6 +1111,28 @@ table td .gts-committer-list {
 }
 
 /* ~ user edit */
+
+/* ssh key management */
+
+form.ssh_key textarea {
+  width: 98%;
+  height: 150px;
+  margin-top: 15px;
+}
+
+form.ssh_key .hint {
+  line-height: 20px;
+}
+
+form.ssh_key {
+  margin-left: 0;
+}
+
+form.ssh_key .controls {
+  margin-left: 0;
+}
+
+/* ~ ssh key management */
 
 /* services-admin */
 
