@@ -1332,6 +1332,10 @@ form.ssh_key .controls {
 
 /* ~ listings */
 
+.sortings {
+  text-align: right;
+}
+
 /* projects */
 
 .gts-project-links {
