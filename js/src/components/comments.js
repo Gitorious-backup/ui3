@@ -256,9 +256,11 @@ this.gts.comments = (function (el) {
     var openForCommenting = {}
 
     function enableCommenting(commentable, commentForm, user) {
-        var commentableLines = dome.data.get('gts-lines', commentable);
-        if (openForCommenting[commentableLines]) {
-            return openForCommenting[commentableLines];
+        var key = dome.data.get('gts-path', commentable) + "-" +
+                  dome.data.get('gts-lines', commentable);
+
+        if (openForCommenting[key]) {
+            return openForCommenting[key];
         }
         var button = el.button({
             className: "btn btn-primary",
@@ -275,7 +277,7 @@ this.gts.comments = (function (el) {
           commentForm.submit();
         });
 
-        openForCommenting[commentableLines] = button;
+        openForCommenting[key] = button;
         return button;
     }
 
