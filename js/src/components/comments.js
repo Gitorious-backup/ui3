@@ -273,8 +273,13 @@ this.gts.comments = (function (el) {
         dome.append(button, commentable);
 
         commentForm.querySelector('button').addEventListener('click', function(event) {
-          disableSubmitButton(event);
-          commentForm.submit();
+          var commentText = commentForm.querySelector('textarea').value;
+          if (commentText.match(/^\s*$/)) {
+            event.preventDefault();
+          } else {
+            disableSubmitButton(event);
+            commentForm.submit();
+          }
         });
 
         openForCommenting[key] = button;
