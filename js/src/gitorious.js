@@ -63,6 +63,7 @@ gts.app.data("blob-region", gts.blob.regionFromUrl, { depends: ["url"] });
 gts.app.data("raw-commit-comments", gts.cache(gts.jsonRequest), { depends: ["commit-comments-url"] });
 gts.app.data("commit-comments", cull.prop("commit"), { depends: ["raw-commit-comments"] });
 gts.app.data("commit-diff-comments", cull.prop("diffs"), { depends: ["raw-commit-comments"] });
+gts.app.data("mr-comments", gts.cache(gts.jsonRequest), { depends: ["mr-comments-url"] });
 
 // Features
 // NB! While it is possible to lean on the function name when registering
@@ -119,10 +120,6 @@ gts.app.feature("track-blob-focus", gts.blob.trackFocus, {
 
 gts.app.feature("live-markdown-preview", gts.liveMarkdownPreview, {
     elements: ["gts-live-markdown-preview"]
-});
-
-gts.app.feature("timeago", gts.timeago.periodic(60000), {
-    elements: ["timeago"]
 });
 
 gts.app.feature("collapse", gts.collapse);
@@ -189,27 +186,17 @@ gts.app.feature("select-details", gts.selectDetails, {
 
 gts.app.feature("list-commit-comments", gts.comments.renderComments, {
     elements: ["gts-commit-comments"],
-    depends: ["commit-comments"]
+    depends: ["commit-comments", "current-user", "create-commit-comment-url"]
 });
 
 gts.app.feature("list-diff-comments", gts.comments.renderDiffComments, {
     elements: ["gts-file"],
-    depends: ["commit-diff-comments"]
+    depends: ["commit-diff-comments", "user-view-state", "create-commit-comment-url"]
 });
 
-gts.app.feature("enable-commenting", gts.comments.enableCommenting, {
-    elements: ["gts-commentable"],
-    depends: ["comment-form", "current-user"]
-});
-
-gts.app.feature("enable-diff-commenting", gts.comments.enableDiffCommenting, {
-    elements: ["gts-file"],
-    depends: ["comment-form", "current-user"]
-});
-
-gts.app.feature("personalize-comment-form", gts.comments.personalizeForm, {
-    elements: ["gts-comment-form"],
-    depends: ["current-user"]
+gts.app.feature("list-mr-comments", gts.comments.renderMrComments, {
+    elements: ["gts-mr-comments"],
+    depends: ["mr-comments", "user-view-state", "mr-comments-url", "mr-statuses", "current-mr-status"]
 });
 
 gts.app.feature("commit-range-selector", gts.commitRangeSelector, {

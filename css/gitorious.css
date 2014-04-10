@@ -705,8 +705,39 @@ input[type=url].gts-current-repo-url {
     margin-bottom: 12px;
 }
 
-.gts-comment-form {
-    margin-top: 2em;
+.gts-new-comment {
+    margin: 15px 0;
+}
+
+.gts-comment-form .row {
+    margin-left: 0;
+}
+
+.gts-comment-form .error {
+    display: inline-block;
+    width: 100%;
+    color: red;
+}
+
+.gts-comment-form .form-actions button {
+    margin-right: 15px;
+}
+
+.gts-markdown-editor .span6:first-child {
+    padding-right: 20px;
+}
+
+.gts-markdown-editor textarea {
+    height: 80px;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.gts-markdown-editor .hint {
+    text-align: right;
+    display: inline-block;
+    width: 100%;
+    color: #888;
 }
 
 .gts-commit-message {
