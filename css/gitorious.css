@@ -705,6 +705,10 @@ input[type=url].gts-current-repo-url {
     margin-bottom: 12px;
 }
 
+.comment-login-prompt {
+    margin: 15px 0;
+}
+
 .gts-new-comment {
     margin: 15px 0;
 }
