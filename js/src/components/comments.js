@@ -84,7 +84,7 @@ this.gts.comments = (function (el) {
             row.parentNode.insertBefore(commentsTr, row.nextSibling);
             var component = mountInlineCommentsSection(row, td, comments, createCommentUrl);
             if (user) {
-                enableDiffCommenting(row, user, component.openForm);
+                enableDiffCommenting(row, user, component.toggleForm);
             }
         }, rows);
     }
