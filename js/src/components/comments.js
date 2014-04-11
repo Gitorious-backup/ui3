@@ -82,19 +82,19 @@ this.gts.comments = (function (el) {
             var td = el.td();
             commentsTr.appendChild(td);
             row.parentNode.insertBefore(commentsTr, row.nextSibling);
-            var component = mountCommentsSection(row, td, comments, createCommentUrl);
+            var component = mountInlineCommentsSection(row, td, comments, createCommentUrl);
             if (user) {
                 enableDiffCommenting(row, user, component.openForm);
             }
         }, rows);
     }
 
-    function mountCommentsSection(row, td, allComments, createCommentUrl) {
+    function mountInlineCommentsSection(row, td, allComments, createCommentUrl) {
         var comments = cull.select(cull.partial(isLine, row), allComments);
         var line = getDiffLine(row);
         var lines = line ? line + ":" + line + "+0" : "";
 
-        var component = CommentsSection({
+        var component = InlineCommentsSection({
             comments:         comments,
             lines:            lines,
             context:          getDiffContext(row),
