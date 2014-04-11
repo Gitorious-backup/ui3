@@ -733,7 +733,7 @@ input[type=url].gts-current-repo-url {
 
 .gts-markdown-editor textarea {
     height: 80px;
-    width: 100%;
+    width: 99%;
     margin-bottom: 0;
 }
 
