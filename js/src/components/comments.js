@@ -81,24 +81,17 @@ this.gts.comments = (function (el) {
     }
 
     function initializeDiffRow(row, allComments, user, createCommentUrl) {
-        var comments = cull.select(cull.partial(isLine, row), allComments);
-        var commentsTr = el.tr({ className: "gts-diff-comment" });
-        commentsTr.appendChild(el.td());
-        commentsTr.appendChild(el.td());
-        var td = el.td();
-        commentsTr.appendChild(td);
-        row.parentNode.insertBefore(commentsTr, row.nextSibling);
-
         var component;
+        var comments = cull.select(cull.partial(isLine, row), allComments);
 
         if (comments.length > 0) {
-            component = mountInlineCommentsSection(row, td, comments, createCommentUrl);
+            component = mountInlineCommentsSection(row, comments, createCommentUrl);
         }
 
         if (user) {
             dome.on(row, "mouseenter", cull.partial(showCommentButton, user, function() {
                 if (!component) {
-                    component = mountInlineCommentsSection(row, td, comments, createCommentUrl);
+                    component = mountInlineCommentsSection(row, comments, createCommentUrl);
                 }
                 component.toggleForm();
             }));
@@ -107,7 +100,14 @@ this.gts.comments = (function (el) {
         }
     }
 
-    function mountInlineCommentsSection(row, td, comments, createCommentUrl) {
+    function mountInlineCommentsSection(row, comments, createCommentUrl) {
+        var commentsTr = el.tr({ className: "gts-diff-comment" });
+        commentsTr.appendChild(el.td());
+        commentsTr.appendChild(el.td());
+        var td = el.td();
+        commentsTr.appendChild(td);
+        row.parentNode.insertBefore(commentsTr, row.nextSibling);
+
         var line = getDiffLine(row);
         var lines = line ? line + ":" + line + "+0" : "";
 
