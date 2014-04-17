@@ -67,7 +67,7 @@ this.gts.comments = (function (el) {
     function renderDiffComments(diff, diffComments, userViewState, createCommentUrl) {
         var user = userViewState.user;
         var path = diff.querySelector(".breadcrumb .gts-diff-summary .gts-path");
-        var comments = path && diffComments[path.innerHTML] || [];
+        var allComments = path && diffComments[path.innerHTML] || [];
 
         if (!user) {
             createCommentUrl = null;
@@ -76,21 +76,38 @@ this.gts.comments = (function (el) {
         var rows = diff.querySelectorAll('tr.gts-diff-add, tr.gts-diff-rm, tr.gts-diff-mod');
 
         cull.doall(function(row) {
-            var commentsTr = el.tr({ className: "gts-diff-comment" });
-            commentsTr.appendChild(el.td());
-            commentsTr.appendChild(el.td());
-            var td = el.td();
-            commentsTr.appendChild(td);
-            row.parentNode.insertBefore(commentsTr, row.nextSibling);
-            var component = mountInlineCommentsSection(row, td, comments, createCommentUrl);
-            if (user) {
-                enableDiffCommenting(row, user, component.toggleForm);
-            }
+            initializeDiffRow(row, allComments, user, createCommentUrl);
         }, rows);
     }
 
-    function mountInlineCommentsSection(row, td, allComments, createCommentUrl) {
+    function initializeDiffRow(row, allComments, user, createCommentUrl) {
         var comments = cull.select(cull.partial(isLine, row), allComments);
+        var commentsTr = el.tr({ className: "gts-diff-comment" });
+        commentsTr.appendChild(el.td());
+        commentsTr.appendChild(el.td());
+        var td = el.td();
+        commentsTr.appendChild(td);
+        row.parentNode.insertBefore(commentsTr, row.nextSibling);
+
+        var component;
+
+        if (comments.length > 0) {
+            component = mountInlineCommentsSection(row, td, comments, createCommentUrl);
+        }
+
+        if (user) {
+            dome.on(row, "mouseenter", cull.partial(showCommentButton, user, function() {
+                if (!component) {
+                    component = mountInlineCommentsSection(row, td, comments, createCommentUrl);
+                }
+                component.toggleForm();
+            }));
+
+            dome.on(row, "mouseleave", hideCommentButton);
+        }
+    }
+
+    function mountInlineCommentsSection(row, td, comments, createCommentUrl) {
         var line = getDiffLine(row);
         var lines = line ? line + ":" + line + "+0" : "";
 
@@ -169,11 +186,6 @@ this.gts.comments = (function (el) {
 
     function hideCommentButton() {
         cull.doall(hide, this.querySelectorAll(".gts-add-diff-comment"));
-    }
-
-    function enableDiffCommenting(row, user, onClick) {
-        dome.on(row, "mouseenter", cull.partial(showCommentButton, user, onClick));
-        dome.on(row, "mouseleave", hideCommentButton);
     }
 
     function renderMrComments(container, comments, userViewState, commentsUrl, mergeRequestStatuses, currentMergeRequestStatus) {
