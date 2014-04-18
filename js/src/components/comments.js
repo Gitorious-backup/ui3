@@ -188,13 +188,14 @@ this.gts.comments = (function (el) {
         cull.doall(hide, this.querySelectorAll(".gts-add-diff-comment"));
     }
 
-    function renderMrComments(container, comments, userViewState, commentsUrl, mergeRequestStatuses, currentMergeRequestStatus) {
+    function renderMrComments(container, comments, userViewState, commentsUrl, mergeRequestStatuses, currentMergeRequestStatus, mergeRequestFavorited) {
         var createCommentUrl = userViewState.user ? commentsUrl : null;
         var component = MergeRequestCommentsSection({
             comments:                  comments,
             createCommentUrl:          createCommentUrl,
             currentMergeRequestStatus: currentMergeRequestStatus,
             mergeRequestStatuses:      JSON.parse(mergeRequestStatuses),
+            showAddToFavorites:        !mergeRequestFavorited,
         });
 
         React.renderComponent(component, container.querySelector('.comments-container'));

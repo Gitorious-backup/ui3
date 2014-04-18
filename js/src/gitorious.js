@@ -196,7 +196,7 @@ gts.app.feature("list-diff-comments", gts.comments.renderDiffComments, {
 
 gts.app.feature("list-mr-comments", gts.comments.renderMrComments, {
     elements: ["gts-mr-comments"],
-    depends: ["mr-comments", "user-view-state", "mr-comments-url", "mr-statuses", "current-mr-status"]
+    depends: ["mr-comments", "user-view-state", "mr-comments-url", "mr-statuses", "current-mr-status", "mr-favorited"]
 });
 
 gts.app.feature("commit-range-selector", gts.commitRangeSelector, {
