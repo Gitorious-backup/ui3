@@ -1030,6 +1030,7 @@ table td .gts-committer-list {
 }
 
 .pull-box-header-action .btn {
+  margin-right: 2px;
   font-size: 11px;
   line-height: 14px;
   padding: 2px 6px;
