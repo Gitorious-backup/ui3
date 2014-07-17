@@ -1388,3 +1388,14 @@ form.ssh_key .controls {
 }
 
 /* ~ projects */
+
+/* system message */
+
+.page-content .navbar .system-message {
+  text-align: center;
+  margin: -20px 0 20px 0;
+  padding: 5px 0;
+  background-color: #444;
+}
+
+/* ~ system message */
