@@ -1,4 +1,4 @@
-GTS3_DEPS=js/lib/spin.js/spin.js js/lib/when/when.js js/lib/bane/lib/bane.js js/lib/reqwest/reqwest.js js/lib/uinit/lib/uinit.js js/lib/showdown/src/showdown.js js/lib/timeago/timeago.js js/lib/jquery/jquery-1.10.2.min.js js/lib/jquery/jquery.ujs.js js/lib/jquery/jquery.pjax.js lib/bootstrap/js/bootstrap.min.js js/lib/jquery-ui/ui/jquery.ui.core.js js/lib/jquery-ui/ui/jquery.ui.widget.js js/lib/jquery-ui/ui/jquery.ui.mouse.js js/lib/jquery-ui/ui/jquery.ui.selectable.js
+GTS3_DEPS=js/lib/es5-shim/es5-shim.js js/lib/es5-shim/es5-sham.js js/lib/spin.js/spin.js js/lib/when/when.js js/lib/bane/lib/bane.js js/lib/reqwest/reqwest.js js/lib/uinit/lib/uinit.js js/lib/showdown/src/showdown.js js/lib/timeago/timeago.js js/lib/jquery/jquery-1.10.2.min.js js/lib/jquery/jquery.ujs.js js/lib/jquery/jquery.pjax.js lib/bootstrap/js/bootstrap.min.js js/lib/jquery-ui/ui/jquery.ui.core.js js/lib/jquery-ui/ui/jquery.ui.widget.js js/lib/jquery-ui/ui/jquery.ui.mouse.js js/lib/jquery-ui/ui/jquery.ui.selectable.js
 
 GTS3_UTILS=js/src/app.js js/src/cache.js js/src/json-request.js
 

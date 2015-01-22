@@ -34,3 +34,6 @@
 [submodule "js/lib/capillary"]
 	path = js/lib/capillary
 	url = https://git.gitorious.org/capillary/capillary-js.git
+[submodule "js/lib/es5-shim"]
+	path = js/lib/es5-shim
+	url = https://github.com/es-shims/es5-shim.git
