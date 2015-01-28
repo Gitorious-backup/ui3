@@ -1399,3 +1399,10 @@ form.ssh_key .controls {
 }
 
 /* ~ system message */
+
+form span.cancel a {
+  display: inline-block;
+  vertical-align: middle;
+  height: 15px;
+  margin-left: 10px;
+}
