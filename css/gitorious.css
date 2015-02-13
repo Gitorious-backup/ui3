@@ -1217,7 +1217,8 @@ form.ssh_key .controls {
   border-left: 0;
 }
 
-.will-paginate-pager .pagination .previous_page {
+.will-paginate-pager .pagination .previous_page,
+.will-paginate-pager .pagination .next_page {
   display: none;
 }
 
